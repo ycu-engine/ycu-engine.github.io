@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
@@ -15,26 +18,13 @@ jobs:
         with:
           node-version: '12.x'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
       - name: install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn
-      - name: install
+      - name: lint
         run: yarn lint
-      - name: install
+      - name: type-check
         run: yarn type-check
-      - name: install
+      - name: build
         run: yarn build
 
       - name: deploy
@@ -42,3 +32,19 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+
+    - name: Slack Notification on Success
+      if: success()
+      uses: rtCamp/action-slack-notify@v2.0.2
+      env:
+        SLACK_CHANNEL: "#official-hp"
+        SLACK_TITLE: Deploy done
+        SLACK_COLOR: good
+
+    - name: Slack Notification on Failure
+      uses: rtCamp/action-slack-notify@v2.0.2
+      if: failure()
+      env:
+        SLACK_CHANNEL: "#official-hp"
+        SLACK_TITLE: Deploy failed
+        SLACK_COLOR: danger
