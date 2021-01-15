@@ -32,19 +32,18 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+      - name: Slack Notification on Success
+        if: success()
+        uses: rtCamp/action-slack-notify@v2.0.2
+        env:
+          SLACK_CHANNEL: '#official-hp'
+          SLACK_TITLE: Deploy done
+          SLACK_COLOR: good
 
-    - name: Slack Notification on Success
-      if: success()
-      uses: rtCamp/action-slack-notify@v2.0.2
-      env:
-        SLACK_CHANNEL: "#official-hp"
-        SLACK_TITLE: Deploy done
-        SLACK_COLOR: good
-
-    - name: Slack Notification on Failure
-      uses: rtCamp/action-slack-notify@v2.0.2
-      if: failure()
-      env:
-        SLACK_CHANNEL: "#official-hp"
-        SLACK_TITLE: Deploy failed
-        SLACK_COLOR: danger
+      - name: Slack Notification on Failure
+        uses: rtCamp/action-slack-notify@v2.0.2
+        if: failure()
+        env:
+          SLACK_CHANNEL: '#official-hp'
+          SLACK_TITLE: Deploy failed
+          SLACK_COLOR: danger
