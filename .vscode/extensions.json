@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "coenraads.bracket-pair-colorizer-2",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "graphql.vscode-graphql"
+    ]
+}
