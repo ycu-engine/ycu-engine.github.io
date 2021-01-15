@@ -15,24 +15,21 @@ jobs:
         with:
           node-version: '12.x'
       - name: Cache dependencies
-        uses: actions/cache@v1
+        - uses: actions/cache@v2
+        id: yarn-cache
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: lint
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: type-check
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: build
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+           restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: install
+        run: yarn
+      - name: install
+        run: yarn lint
+      - name: install
+        run: yarn type-check
+      - name: install
+        run: yarn build
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
