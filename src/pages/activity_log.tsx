@@ -1,5 +1,6 @@
 import { ActivityLogPageQuery } from '@gql'
 import Link from 'gatsby-link'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
 
 export const pageQuery = graphql`
@@ -11,6 +12,7 @@ export const pageQuery = graphql`
       nodes {
         id
         childMdx {
+          body
           frontmatter {
             date
             title
@@ -33,7 +35,12 @@ const ActivityLogPage = ({ data }: ActivityLogPageProps): JSX.Element => {
       <h1>活動記録</h1>
       <ol>
         {data.allFile.nodes.map((file) => (
-          <li key={file.id}>{file.childMdx?.frontmatter?.title}</li>
+          <li key={file.id}>
+            <h2>{file.childMdx?.frontmatter?.title}</h2>
+            {file.childMdx?.body ? (
+              <MDXRenderer>{file.childMdx.body}</MDXRenderer>
+            ) : null}
+          </li>
         ))}
       </ol>
       <Link to="/">Go to Home</Link>

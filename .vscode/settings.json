@@ -3,5 +3,15 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
+    "eslint.options": {
+        "extensions": [
+            ".js",
+            ".jsx",
+            ".md",
+            ".mdx",
+            ".ts",
+            ".tsx"
+        ]
+    },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
