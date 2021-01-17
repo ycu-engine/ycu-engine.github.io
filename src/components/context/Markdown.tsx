@@ -1,6 +1,6 @@
 import {
   MarkdownPortfolio,
-  MarkdownTeamA,
+  MarkdownTeam,
   MarkdownUser,
 } from '@/components/molecules/MarkdownObject'
 import { MDXProvider } from '@mdx-js/react'
@@ -8,7 +8,7 @@ import * as React from 'react'
 
 const shortcodes = {
   user: MarkdownUser,
-  team: MarkdownTeamA,
+  team: MarkdownTeam,
   portfolio: MarkdownPortfolio,
 }
 
