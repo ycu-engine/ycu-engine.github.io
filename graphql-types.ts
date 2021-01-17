@@ -35,6 +35,396 @@ export type BooleanQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
 };
 
+export type Contribution = Node & {
+  portfolio: Portfolio;
+  member: Member;
+  memberName?: Maybe<Scalars['String']>;
+  portfolioName?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type ContributionConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContributionEdge>;
+  nodes: Array<Contribution>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContributionGroupConnection>;
+};
+
+
+export type ContributionConnectionDistinctArgs = {
+  field: ContributionFieldsEnum;
+};
+
+
+export type ContributionConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContributionFieldsEnum;
+};
+
+export type ContributionEdge = {
+  next?: Maybe<Contribution>;
+  node: Contribution;
+  previous?: Maybe<Contribution>;
+};
+
+export type ContributionFieldsEnum = 
+  | 'portfolio___contributors'
+  | 'portfolio___contributors___portfolio___contributors'
+  | 'portfolio___contributors___portfolio___name'
+  | 'portfolio___contributors___portfolio___nameJa'
+  | 'portfolio___contributors___portfolio___id'
+  | 'portfolio___contributors___portfolio___children'
+  | 'portfolio___contributors___member___skills'
+  | 'portfolio___contributors___member___teams'
+  | 'portfolio___contributors___member___contributions'
+  | 'portfolio___contributors___member___position'
+  | 'portfolio___contributors___member___isGraduated'
+  | 'portfolio___contributors___member___name'
+  | 'portfolio___contributors___member___nameJa'
+  | 'portfolio___contributors___member___joinedAt'
+  | 'portfolio___contributors___member___id'
+  | 'portfolio___contributors___member___children'
+  | 'portfolio___contributors___memberName'
+  | 'portfolio___contributors___portfolioName'
+  | 'portfolio___contributors___id'
+  | 'portfolio___contributors___parent___id'
+  | 'portfolio___contributors___parent___children'
+  | 'portfolio___contributors___children'
+  | 'portfolio___contributors___children___id'
+  | 'portfolio___contributors___children___children'
+  | 'portfolio___contributors___internal___content'
+  | 'portfolio___contributors___internal___contentDigest'
+  | 'portfolio___contributors___internal___description'
+  | 'portfolio___contributors___internal___fieldOwners'
+  | 'portfolio___contributors___internal___ignoreType'
+  | 'portfolio___contributors___internal___mediaType'
+  | 'portfolio___contributors___internal___owner'
+  | 'portfolio___contributors___internal___type'
+  | 'portfolio___name'
+  | 'portfolio___nameJa'
+  | 'portfolio___id'
+  | 'portfolio___parent___id'
+  | 'portfolio___parent___parent___id'
+  | 'portfolio___parent___parent___children'
+  | 'portfolio___parent___children'
+  | 'portfolio___parent___children___id'
+  | 'portfolio___parent___children___children'
+  | 'portfolio___parent___internal___content'
+  | 'portfolio___parent___internal___contentDigest'
+  | 'portfolio___parent___internal___description'
+  | 'portfolio___parent___internal___fieldOwners'
+  | 'portfolio___parent___internal___ignoreType'
+  | 'portfolio___parent___internal___mediaType'
+  | 'portfolio___parent___internal___owner'
+  | 'portfolio___parent___internal___type'
+  | 'portfolio___children'
+  | 'portfolio___children___id'
+  | 'portfolio___children___parent___id'
+  | 'portfolio___children___parent___children'
+  | 'portfolio___children___children'
+  | 'portfolio___children___children___id'
+  | 'portfolio___children___children___children'
+  | 'portfolio___children___internal___content'
+  | 'portfolio___children___internal___contentDigest'
+  | 'portfolio___children___internal___description'
+  | 'portfolio___children___internal___fieldOwners'
+  | 'portfolio___children___internal___ignoreType'
+  | 'portfolio___children___internal___mediaType'
+  | 'portfolio___children___internal___owner'
+  | 'portfolio___children___internal___type'
+  | 'portfolio___internal___content'
+  | 'portfolio___internal___contentDigest'
+  | 'portfolio___internal___description'
+  | 'portfolio___internal___fieldOwners'
+  | 'portfolio___internal___ignoreType'
+  | 'portfolio___internal___mediaType'
+  | 'portfolio___internal___owner'
+  | 'portfolio___internal___type'
+  | 'member___skills'
+  | 'member___skills___skill___members'
+  | 'member___skills___skill___name'
+  | 'member___skills___skill___description'
+  | 'member___skills___skill___id'
+  | 'member___skills___skill___children'
+  | 'member___skills___member___skills'
+  | 'member___skills___member___teams'
+  | 'member___skills___member___contributions'
+  | 'member___skills___member___position'
+  | 'member___skills___member___isGraduated'
+  | 'member___skills___member___name'
+  | 'member___skills___member___nameJa'
+  | 'member___skills___member___joinedAt'
+  | 'member___skills___member___id'
+  | 'member___skills___member___children'
+  | 'member___skills___level'
+  | 'member___skills___skillName'
+  | 'member___skills___memberName'
+  | 'member___skills___id'
+  | 'member___skills___parent___id'
+  | 'member___skills___parent___children'
+  | 'member___skills___children'
+  | 'member___skills___children___id'
+  | 'member___skills___children___children'
+  | 'member___skills___internal___content'
+  | 'member___skills___internal___contentDigest'
+  | 'member___skills___internal___description'
+  | 'member___skills___internal___fieldOwners'
+  | 'member___skills___internal___ignoreType'
+  | 'member___skills___internal___mediaType'
+  | 'member___skills___internal___owner'
+  | 'member___skills___internal___type'
+  | 'member___teams'
+  | 'member___teams___member___skills'
+  | 'member___teams___member___teams'
+  | 'member___teams___member___contributions'
+  | 'member___teams___member___position'
+  | 'member___teams___member___isGraduated'
+  | 'member___teams___member___name'
+  | 'member___teams___member___nameJa'
+  | 'member___teams___member___joinedAt'
+  | 'member___teams___member___id'
+  | 'member___teams___member___children'
+  | 'member___teams___team___members'
+  | 'member___teams___team___name'
+  | 'member___teams___team___nameJa'
+  | 'member___teams___team___id'
+  | 'member___teams___team___children'
+  | 'member___teams___memberName'
+  | 'member___teams___leader'
+  | 'member___teams___teamName'
+  | 'member___teams___id'
+  | 'member___teams___parent___id'
+  | 'member___teams___parent___children'
+  | 'member___teams___children'
+  | 'member___teams___children___id'
+  | 'member___teams___children___children'
+  | 'member___teams___internal___content'
+  | 'member___teams___internal___contentDigest'
+  | 'member___teams___internal___description'
+  | 'member___teams___internal___fieldOwners'
+  | 'member___teams___internal___ignoreType'
+  | 'member___teams___internal___mediaType'
+  | 'member___teams___internal___owner'
+  | 'member___teams___internal___type'
+  | 'member___contributions'
+  | 'member___contributions___portfolio___contributors'
+  | 'member___contributions___portfolio___name'
+  | 'member___contributions___portfolio___nameJa'
+  | 'member___contributions___portfolio___id'
+  | 'member___contributions___portfolio___children'
+  | 'member___contributions___member___skills'
+  | 'member___contributions___member___teams'
+  | 'member___contributions___member___contributions'
+  | 'member___contributions___member___position'
+  | 'member___contributions___member___isGraduated'
+  | 'member___contributions___member___name'
+  | 'member___contributions___member___nameJa'
+  | 'member___contributions___member___joinedAt'
+  | 'member___contributions___member___id'
+  | 'member___contributions___member___children'
+  | 'member___contributions___memberName'
+  | 'member___contributions___portfolioName'
+  | 'member___contributions___id'
+  | 'member___contributions___parent___id'
+  | 'member___contributions___parent___children'
+  | 'member___contributions___children'
+  | 'member___contributions___children___id'
+  | 'member___contributions___children___children'
+  | 'member___contributions___internal___content'
+  | 'member___contributions___internal___contentDigest'
+  | 'member___contributions___internal___description'
+  | 'member___contributions___internal___fieldOwners'
+  | 'member___contributions___internal___ignoreType'
+  | 'member___contributions___internal___mediaType'
+  | 'member___contributions___internal___owner'
+  | 'member___contributions___internal___type'
+  | 'member___belongs___facultyName'
+  | 'member___belongs___faculty___members'
+  | 'member___belongs___faculty___name'
+  | 'member___belongs___faculty___nameJa'
+  | 'member___belongs___faculty___id'
+  | 'member___belongs___faculty___children'
+  | 'member___belongs___memberName'
+  | 'member___belongs___member___skills'
+  | 'member___belongs___member___teams'
+  | 'member___belongs___member___contributions'
+  | 'member___belongs___member___position'
+  | 'member___belongs___member___isGraduated'
+  | 'member___belongs___member___name'
+  | 'member___belongs___member___nameJa'
+  | 'member___belongs___member___joinedAt'
+  | 'member___belongs___member___id'
+  | 'member___belongs___member___children'
+  | 'member___belongs___grade'
+  | 'member___position'
+  | 'member___isGraduated'
+  | 'member___name'
+  | 'member___nameJa'
+  | 'member___joinedAt'
+  | 'member___social___github'
+  | 'member___social___twitter'
+  | 'member___id'
+  | 'member___parent___id'
+  | 'member___parent___parent___id'
+  | 'member___parent___parent___children'
+  | 'member___parent___children'
+  | 'member___parent___children___id'
+  | 'member___parent___children___children'
+  | 'member___parent___internal___content'
+  | 'member___parent___internal___contentDigest'
+  | 'member___parent___internal___description'
+  | 'member___parent___internal___fieldOwners'
+  | 'member___parent___internal___ignoreType'
+  | 'member___parent___internal___mediaType'
+  | 'member___parent___internal___owner'
+  | 'member___parent___internal___type'
+  | 'member___children'
+  | 'member___children___id'
+  | 'member___children___parent___id'
+  | 'member___children___parent___children'
+  | 'member___children___children'
+  | 'member___children___children___id'
+  | 'member___children___children___children'
+  | 'member___children___internal___content'
+  | 'member___children___internal___contentDigest'
+  | 'member___children___internal___description'
+  | 'member___children___internal___fieldOwners'
+  | 'member___children___internal___ignoreType'
+  | 'member___children___internal___mediaType'
+  | 'member___children___internal___owner'
+  | 'member___children___internal___type'
+  | 'member___internal___content'
+  | 'member___internal___contentDigest'
+  | 'member___internal___description'
+  | 'member___internal___fieldOwners'
+  | 'member___internal___ignoreType'
+  | 'member___internal___mediaType'
+  | 'member___internal___owner'
+  | 'member___internal___type'
+  | 'memberName'
+  | 'portfolioName'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type ContributionFilterInput = {
+  portfolio?: Maybe<PortfolioFilterInput>;
+  member?: Maybe<MemberFilterInput>;
+  memberName?: Maybe<StringQueryOperatorInput>;
+  portfolioName?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type ContributionFilterListInput = {
+  elemMatch?: Maybe<ContributionFilterInput>;
+};
+
+export type ContributionGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContributionEdge>;
+  nodes: Array<Contribution>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContributionSortInput = {
+  fields?: Maybe<Array<Maybe<ContributionFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 
 export type DateQueryOperatorInput = {
   eq?: Maybe<Scalars['Date']>;
@@ -81,6 +471,8 @@ export type Directory = Node & {
   birthtime?: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
   birthtimeMs?: Maybe<Scalars['Float']>;
+  blksize?: Maybe<Scalars['Int']>;
+  blocks?: Maybe<Scalars['Int']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -202,6 +594,8 @@ export type DirectoryFieldsEnum =
   | 'ctime'
   | 'birthtime'
   | 'birthtimeMs'
+  | 'blksize'
+  | 'blocks'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -321,6 +715,8 @@ export type DirectoryFilterInput = {
   ctime?: Maybe<DateQueryOperatorInput>;
   birthtime?: Maybe<DateQueryOperatorInput>;
   birthtimeMs?: Maybe<FloatQueryOperatorInput>;
+  blksize?: Maybe<IntQueryOperatorInput>;
+  blocks?: Maybe<IntQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -338,6 +734,319 @@ export type DirectoryGroupConnection = {
 
 export type DirectorySortInput = {
   fields?: Maybe<Array<Maybe<DirectoryFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type Faculty = Node & {
+  members?: Maybe<Array<Member>>;
+  name?: Maybe<Scalars['String']>;
+  nameJa?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type FacultyConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<FacultyEdge>;
+  nodes: Array<Faculty>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<FacultyGroupConnection>;
+};
+
+
+export type FacultyConnectionDistinctArgs = {
+  field: FacultyFieldsEnum;
+};
+
+
+export type FacultyConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: FacultyFieldsEnum;
+};
+
+export type FacultyEdge = {
+  next?: Maybe<Faculty>;
+  node: Faculty;
+  previous?: Maybe<Faculty>;
+};
+
+export type FacultyFieldsEnum = 
+  | 'members'
+  | 'members___skills'
+  | 'members___skills___skill___members'
+  | 'members___skills___skill___name'
+  | 'members___skills___skill___description'
+  | 'members___skills___skill___id'
+  | 'members___skills___skill___children'
+  | 'members___skills___member___skills'
+  | 'members___skills___member___teams'
+  | 'members___skills___member___contributions'
+  | 'members___skills___member___position'
+  | 'members___skills___member___isGraduated'
+  | 'members___skills___member___name'
+  | 'members___skills___member___nameJa'
+  | 'members___skills___member___joinedAt'
+  | 'members___skills___member___id'
+  | 'members___skills___member___children'
+  | 'members___skills___level'
+  | 'members___skills___skillName'
+  | 'members___skills___memberName'
+  | 'members___skills___id'
+  | 'members___skills___parent___id'
+  | 'members___skills___parent___children'
+  | 'members___skills___children'
+  | 'members___skills___children___id'
+  | 'members___skills___children___children'
+  | 'members___skills___internal___content'
+  | 'members___skills___internal___contentDigest'
+  | 'members___skills___internal___description'
+  | 'members___skills___internal___fieldOwners'
+  | 'members___skills___internal___ignoreType'
+  | 'members___skills___internal___mediaType'
+  | 'members___skills___internal___owner'
+  | 'members___skills___internal___type'
+  | 'members___teams'
+  | 'members___teams___member___skills'
+  | 'members___teams___member___teams'
+  | 'members___teams___member___contributions'
+  | 'members___teams___member___position'
+  | 'members___teams___member___isGraduated'
+  | 'members___teams___member___name'
+  | 'members___teams___member___nameJa'
+  | 'members___teams___member___joinedAt'
+  | 'members___teams___member___id'
+  | 'members___teams___member___children'
+  | 'members___teams___team___members'
+  | 'members___teams___team___name'
+  | 'members___teams___team___nameJa'
+  | 'members___teams___team___id'
+  | 'members___teams___team___children'
+  | 'members___teams___memberName'
+  | 'members___teams___leader'
+  | 'members___teams___teamName'
+  | 'members___teams___id'
+  | 'members___teams___parent___id'
+  | 'members___teams___parent___children'
+  | 'members___teams___children'
+  | 'members___teams___children___id'
+  | 'members___teams___children___children'
+  | 'members___teams___internal___content'
+  | 'members___teams___internal___contentDigest'
+  | 'members___teams___internal___description'
+  | 'members___teams___internal___fieldOwners'
+  | 'members___teams___internal___ignoreType'
+  | 'members___teams___internal___mediaType'
+  | 'members___teams___internal___owner'
+  | 'members___teams___internal___type'
+  | 'members___contributions'
+  | 'members___contributions___portfolio___contributors'
+  | 'members___contributions___portfolio___name'
+  | 'members___contributions___portfolio___nameJa'
+  | 'members___contributions___portfolio___id'
+  | 'members___contributions___portfolio___children'
+  | 'members___contributions___member___skills'
+  | 'members___contributions___member___teams'
+  | 'members___contributions___member___contributions'
+  | 'members___contributions___member___position'
+  | 'members___contributions___member___isGraduated'
+  | 'members___contributions___member___name'
+  | 'members___contributions___member___nameJa'
+  | 'members___contributions___member___joinedAt'
+  | 'members___contributions___member___id'
+  | 'members___contributions___member___children'
+  | 'members___contributions___memberName'
+  | 'members___contributions___portfolioName'
+  | 'members___contributions___id'
+  | 'members___contributions___parent___id'
+  | 'members___contributions___parent___children'
+  | 'members___contributions___children'
+  | 'members___contributions___children___id'
+  | 'members___contributions___children___children'
+  | 'members___contributions___internal___content'
+  | 'members___contributions___internal___contentDigest'
+  | 'members___contributions___internal___description'
+  | 'members___contributions___internal___fieldOwners'
+  | 'members___contributions___internal___ignoreType'
+  | 'members___contributions___internal___mediaType'
+  | 'members___contributions___internal___owner'
+  | 'members___contributions___internal___type'
+  | 'members___belongs___facultyName'
+  | 'members___belongs___faculty___members'
+  | 'members___belongs___faculty___name'
+  | 'members___belongs___faculty___nameJa'
+  | 'members___belongs___faculty___id'
+  | 'members___belongs___faculty___children'
+  | 'members___belongs___memberName'
+  | 'members___belongs___member___skills'
+  | 'members___belongs___member___teams'
+  | 'members___belongs___member___contributions'
+  | 'members___belongs___member___position'
+  | 'members___belongs___member___isGraduated'
+  | 'members___belongs___member___name'
+  | 'members___belongs___member___nameJa'
+  | 'members___belongs___member___joinedAt'
+  | 'members___belongs___member___id'
+  | 'members___belongs___member___children'
+  | 'members___belongs___grade'
+  | 'members___position'
+  | 'members___isGraduated'
+  | 'members___name'
+  | 'members___nameJa'
+  | 'members___joinedAt'
+  | 'members___social___github'
+  | 'members___social___twitter'
+  | 'members___id'
+  | 'members___parent___id'
+  | 'members___parent___parent___id'
+  | 'members___parent___parent___children'
+  | 'members___parent___children'
+  | 'members___parent___children___id'
+  | 'members___parent___children___children'
+  | 'members___parent___internal___content'
+  | 'members___parent___internal___contentDigest'
+  | 'members___parent___internal___description'
+  | 'members___parent___internal___fieldOwners'
+  | 'members___parent___internal___ignoreType'
+  | 'members___parent___internal___mediaType'
+  | 'members___parent___internal___owner'
+  | 'members___parent___internal___type'
+  | 'members___children'
+  | 'members___children___id'
+  | 'members___children___parent___id'
+  | 'members___children___parent___children'
+  | 'members___children___children'
+  | 'members___children___children___id'
+  | 'members___children___children___children'
+  | 'members___children___internal___content'
+  | 'members___children___internal___contentDigest'
+  | 'members___children___internal___description'
+  | 'members___children___internal___fieldOwners'
+  | 'members___children___internal___ignoreType'
+  | 'members___children___internal___mediaType'
+  | 'members___children___internal___owner'
+  | 'members___children___internal___type'
+  | 'members___internal___content'
+  | 'members___internal___contentDigest'
+  | 'members___internal___description'
+  | 'members___internal___fieldOwners'
+  | 'members___internal___ignoreType'
+  | 'members___internal___mediaType'
+  | 'members___internal___owner'
+  | 'members___internal___type'
+  | 'name'
+  | 'nameJa'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type FacultyFilterInput = {
+  members?: Maybe<MemberFilterListInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  nameJa?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type FacultyGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<FacultyEdge>;
+  nodes: Array<Faculty>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type FacultySortInput = {
+  fields?: Maybe<Array<Maybe<FacultyFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
@@ -375,6 +1084,14 @@ export type File = Node & {
   birthtime?: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
   birthtimeMs?: Maybe<Scalars['Float']>;
+  blksize?: Maybe<Scalars['Int']>;
+  blocks?: Maybe<Scalars['Int']>;
+  /** Copy file to static directory and return public url to it */
+  publicURL?: Maybe<Scalars['String']>;
+  /** Returns all children nodes filtered by type Mdx */
+  childrenMdx?: Maybe<Array<Maybe<Mdx>>>;
+  /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
+  childMdx?: Maybe<Mdx>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -496,6 +1213,160 @@ export type FileFieldsEnum =
   | 'ctime'
   | 'birthtime'
   | 'birthtimeMs'
+  | 'blksize'
+  | 'blocks'
+  | 'publicURL'
+  | 'childrenMdx'
+  | 'childrenMdx___rawBody'
+  | 'childrenMdx___fileAbsolutePath'
+  | 'childrenMdx___frontmatter___title'
+  | 'childrenMdx___frontmatter___team___members'
+  | 'childrenMdx___frontmatter___team___name'
+  | 'childrenMdx___frontmatter___team___nameJa'
+  | 'childrenMdx___frontmatter___team___id'
+  | 'childrenMdx___frontmatter___team___children'
+  | 'childrenMdx___frontmatter___participants'
+  | 'childrenMdx___frontmatter___participants___skills'
+  | 'childrenMdx___frontmatter___participants___teams'
+  | 'childrenMdx___frontmatter___participants___contributions'
+  | 'childrenMdx___frontmatter___participants___position'
+  | 'childrenMdx___frontmatter___participants___isGraduated'
+  | 'childrenMdx___frontmatter___participants___name'
+  | 'childrenMdx___frontmatter___participants___nameJa'
+  | 'childrenMdx___frontmatter___participants___joinedAt'
+  | 'childrenMdx___frontmatter___participants___id'
+  | 'childrenMdx___frontmatter___participants___children'
+  | 'childrenMdx___frontmatter___date'
+  | 'childrenMdx___frontmatter___startTime'
+  | 'childrenMdx___frontmatter___endTime'
+  | 'childrenMdx___frontmatter___teamName'
+  | 'childrenMdx___frontmatter___topics'
+  | 'childrenMdx___slug'
+  | 'childrenMdx___body'
+  | 'childrenMdx___excerpt'
+  | 'childrenMdx___headings'
+  | 'childrenMdx___headings___value'
+  | 'childrenMdx___headings___depth'
+  | 'childrenMdx___html'
+  | 'childrenMdx___mdxAST'
+  | 'childrenMdx___tableOfContents'
+  | 'childrenMdx___timeToRead'
+  | 'childrenMdx___wordCount___paragraphs'
+  | 'childrenMdx___wordCount___sentences'
+  | 'childrenMdx___wordCount___words'
+  | 'childrenMdx___id'
+  | 'childrenMdx___parent___id'
+  | 'childrenMdx___parent___parent___id'
+  | 'childrenMdx___parent___parent___children'
+  | 'childrenMdx___parent___children'
+  | 'childrenMdx___parent___children___id'
+  | 'childrenMdx___parent___children___children'
+  | 'childrenMdx___parent___internal___content'
+  | 'childrenMdx___parent___internal___contentDigest'
+  | 'childrenMdx___parent___internal___description'
+  | 'childrenMdx___parent___internal___fieldOwners'
+  | 'childrenMdx___parent___internal___ignoreType'
+  | 'childrenMdx___parent___internal___mediaType'
+  | 'childrenMdx___parent___internal___owner'
+  | 'childrenMdx___parent___internal___type'
+  | 'childrenMdx___children'
+  | 'childrenMdx___children___id'
+  | 'childrenMdx___children___parent___id'
+  | 'childrenMdx___children___parent___children'
+  | 'childrenMdx___children___children'
+  | 'childrenMdx___children___children___id'
+  | 'childrenMdx___children___children___children'
+  | 'childrenMdx___children___internal___content'
+  | 'childrenMdx___children___internal___contentDigest'
+  | 'childrenMdx___children___internal___description'
+  | 'childrenMdx___children___internal___fieldOwners'
+  | 'childrenMdx___children___internal___ignoreType'
+  | 'childrenMdx___children___internal___mediaType'
+  | 'childrenMdx___children___internal___owner'
+  | 'childrenMdx___children___internal___type'
+  | 'childrenMdx___internal___content'
+  | 'childrenMdx___internal___contentDigest'
+  | 'childrenMdx___internal___description'
+  | 'childrenMdx___internal___fieldOwners'
+  | 'childrenMdx___internal___ignoreType'
+  | 'childrenMdx___internal___mediaType'
+  | 'childrenMdx___internal___owner'
+  | 'childrenMdx___internal___type'
+  | 'childMdx___rawBody'
+  | 'childMdx___fileAbsolutePath'
+  | 'childMdx___frontmatter___title'
+  | 'childMdx___frontmatter___team___members'
+  | 'childMdx___frontmatter___team___name'
+  | 'childMdx___frontmatter___team___nameJa'
+  | 'childMdx___frontmatter___team___id'
+  | 'childMdx___frontmatter___team___children'
+  | 'childMdx___frontmatter___participants'
+  | 'childMdx___frontmatter___participants___skills'
+  | 'childMdx___frontmatter___participants___teams'
+  | 'childMdx___frontmatter___participants___contributions'
+  | 'childMdx___frontmatter___participants___position'
+  | 'childMdx___frontmatter___participants___isGraduated'
+  | 'childMdx___frontmatter___participants___name'
+  | 'childMdx___frontmatter___participants___nameJa'
+  | 'childMdx___frontmatter___participants___joinedAt'
+  | 'childMdx___frontmatter___participants___id'
+  | 'childMdx___frontmatter___participants___children'
+  | 'childMdx___frontmatter___date'
+  | 'childMdx___frontmatter___startTime'
+  | 'childMdx___frontmatter___endTime'
+  | 'childMdx___frontmatter___teamName'
+  | 'childMdx___frontmatter___topics'
+  | 'childMdx___slug'
+  | 'childMdx___body'
+  | 'childMdx___excerpt'
+  | 'childMdx___headings'
+  | 'childMdx___headings___value'
+  | 'childMdx___headings___depth'
+  | 'childMdx___html'
+  | 'childMdx___mdxAST'
+  | 'childMdx___tableOfContents'
+  | 'childMdx___timeToRead'
+  | 'childMdx___wordCount___paragraphs'
+  | 'childMdx___wordCount___sentences'
+  | 'childMdx___wordCount___words'
+  | 'childMdx___id'
+  | 'childMdx___parent___id'
+  | 'childMdx___parent___parent___id'
+  | 'childMdx___parent___parent___children'
+  | 'childMdx___parent___children'
+  | 'childMdx___parent___children___id'
+  | 'childMdx___parent___children___children'
+  | 'childMdx___parent___internal___content'
+  | 'childMdx___parent___internal___contentDigest'
+  | 'childMdx___parent___internal___description'
+  | 'childMdx___parent___internal___fieldOwners'
+  | 'childMdx___parent___internal___ignoreType'
+  | 'childMdx___parent___internal___mediaType'
+  | 'childMdx___parent___internal___owner'
+  | 'childMdx___parent___internal___type'
+  | 'childMdx___children'
+  | 'childMdx___children___id'
+  | 'childMdx___children___parent___id'
+  | 'childMdx___children___parent___children'
+  | 'childMdx___children___children'
+  | 'childMdx___children___children___id'
+  | 'childMdx___children___children___children'
+  | 'childMdx___children___internal___content'
+  | 'childMdx___children___internal___contentDigest'
+  | 'childMdx___children___internal___description'
+  | 'childMdx___children___internal___fieldOwners'
+  | 'childMdx___children___internal___ignoreType'
+  | 'childMdx___children___internal___mediaType'
+  | 'childMdx___children___internal___owner'
+  | 'childMdx___children___internal___type'
+  | 'childMdx___internal___content'
+  | 'childMdx___internal___contentDigest'
+  | 'childMdx___internal___description'
+  | 'childMdx___internal___fieldOwners'
+  | 'childMdx___internal___ignoreType'
+  | 'childMdx___internal___mediaType'
+  | 'childMdx___internal___owner'
+  | 'childMdx___internal___type'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -615,6 +1486,11 @@ export type FileFilterInput = {
   ctime?: Maybe<DateQueryOperatorInput>;
   birthtime?: Maybe<DateQueryOperatorInput>;
   birthtimeMs?: Maybe<FloatQueryOperatorInput>;
+  blksize?: Maybe<IntQueryOperatorInput>;
+  blocks?: Maybe<IntQueryOperatorInput>;
+  publicURL?: Maybe<StringQueryOperatorInput>;
+  childrenMdx?: Maybe<MdxFilterListInput>;
+  childMdx?: Maybe<MdxFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -645,6 +1521,14 @@ export type FloatQueryOperatorInput = {
   in?: Maybe<Array<Maybe<Scalars['Float']>>>;
   nin?: Maybe<Array<Maybe<Scalars['Float']>>>;
 };
+
+export type HeadingsMdx = 
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6';
 
 export type Internal = {
   content?: Maybe<Scalars['String']>;
@@ -680,6 +1564,1329 @@ export type IntQueryOperatorInput = {
 };
 
 
+export type JsonQueryOperatorInput = {
+  eq?: Maybe<Scalars['JSON']>;
+  ne?: Maybe<Scalars['JSON']>;
+  in?: Maybe<Array<Maybe<Scalars['JSON']>>>;
+  nin?: Maybe<Array<Maybe<Scalars['JSON']>>>;
+  regex?: Maybe<Scalars['JSON']>;
+  glob?: Maybe<Scalars['JSON']>;
+};
+
+export type Mdx = Node & {
+  rawBody: Scalars['String'];
+  fileAbsolutePath: Scalars['String'];
+  frontmatter?: Maybe<MdxFrontmatter>;
+  slug?: Maybe<Scalars['String']>;
+  body: Scalars['String'];
+  excerpt: Scalars['String'];
+  headings?: Maybe<Array<Maybe<MdxHeadingMdx>>>;
+  html?: Maybe<Scalars['String']>;
+  mdxAST?: Maybe<Scalars['JSON']>;
+  tableOfContents?: Maybe<Scalars['JSON']>;
+  timeToRead?: Maybe<Scalars['Int']>;
+  wordCount?: Maybe<MdxWordCount>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+
+export type MdxExcerptArgs = {
+  pruneLength?: Maybe<Scalars['Int']>;
+  truncate?: Maybe<Scalars['Boolean']>;
+};
+
+
+export type MdxHeadingsArgs = {
+  depth?: Maybe<HeadingsMdx>;
+};
+
+
+export type MdxTableOfContentsArgs = {
+  maxDepth?: Maybe<Scalars['Int']>;
+};
+
+export type MdxConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MdxEdge>;
+  nodes: Array<Mdx>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<MdxGroupConnection>;
+};
+
+
+export type MdxConnectionDistinctArgs = {
+  field: MdxFieldsEnum;
+};
+
+
+export type MdxConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: MdxFieldsEnum;
+};
+
+export type MdxEdge = {
+  next?: Maybe<Mdx>;
+  node: Mdx;
+  previous?: Maybe<Mdx>;
+};
+
+export type MdxFieldsEnum = 
+  | 'rawBody'
+  | 'fileAbsolutePath'
+  | 'frontmatter___title'
+  | 'frontmatter___team___members'
+  | 'frontmatter___team___members___memberName'
+  | 'frontmatter___team___members___leader'
+  | 'frontmatter___team___members___teamName'
+  | 'frontmatter___team___members___id'
+  | 'frontmatter___team___members___children'
+  | 'frontmatter___team___name'
+  | 'frontmatter___team___nameJa'
+  | 'frontmatter___team___id'
+  | 'frontmatter___team___parent___id'
+  | 'frontmatter___team___parent___children'
+  | 'frontmatter___team___children'
+  | 'frontmatter___team___children___id'
+  | 'frontmatter___team___children___children'
+  | 'frontmatter___team___internal___content'
+  | 'frontmatter___team___internal___contentDigest'
+  | 'frontmatter___team___internal___description'
+  | 'frontmatter___team___internal___fieldOwners'
+  | 'frontmatter___team___internal___ignoreType'
+  | 'frontmatter___team___internal___mediaType'
+  | 'frontmatter___team___internal___owner'
+  | 'frontmatter___team___internal___type'
+  | 'frontmatter___participants'
+  | 'frontmatter___participants___skills'
+  | 'frontmatter___participants___skills___level'
+  | 'frontmatter___participants___skills___skillName'
+  | 'frontmatter___participants___skills___memberName'
+  | 'frontmatter___participants___skills___id'
+  | 'frontmatter___participants___skills___children'
+  | 'frontmatter___participants___teams'
+  | 'frontmatter___participants___teams___memberName'
+  | 'frontmatter___participants___teams___leader'
+  | 'frontmatter___participants___teams___teamName'
+  | 'frontmatter___participants___teams___id'
+  | 'frontmatter___participants___teams___children'
+  | 'frontmatter___participants___contributions'
+  | 'frontmatter___participants___contributions___memberName'
+  | 'frontmatter___participants___contributions___portfolioName'
+  | 'frontmatter___participants___contributions___id'
+  | 'frontmatter___participants___contributions___children'
+  | 'frontmatter___participants___belongs___facultyName'
+  | 'frontmatter___participants___belongs___memberName'
+  | 'frontmatter___participants___belongs___grade'
+  | 'frontmatter___participants___position'
+  | 'frontmatter___participants___isGraduated'
+  | 'frontmatter___participants___name'
+  | 'frontmatter___participants___nameJa'
+  | 'frontmatter___participants___joinedAt'
+  | 'frontmatter___participants___social___github'
+  | 'frontmatter___participants___social___twitter'
+  | 'frontmatter___participants___id'
+  | 'frontmatter___participants___parent___id'
+  | 'frontmatter___participants___parent___children'
+  | 'frontmatter___participants___children'
+  | 'frontmatter___participants___children___id'
+  | 'frontmatter___participants___children___children'
+  | 'frontmatter___participants___internal___content'
+  | 'frontmatter___participants___internal___contentDigest'
+  | 'frontmatter___participants___internal___description'
+  | 'frontmatter___participants___internal___fieldOwners'
+  | 'frontmatter___participants___internal___ignoreType'
+  | 'frontmatter___participants___internal___mediaType'
+  | 'frontmatter___participants___internal___owner'
+  | 'frontmatter___participants___internal___type'
+  | 'frontmatter___date'
+  | 'frontmatter___startTime'
+  | 'frontmatter___endTime'
+  | 'frontmatter___teamName'
+  | 'frontmatter___topics'
+  | 'slug'
+  | 'body'
+  | 'excerpt'
+  | 'headings'
+  | 'headings___value'
+  | 'headings___depth'
+  | 'html'
+  | 'mdxAST'
+  | 'tableOfContents'
+  | 'timeToRead'
+  | 'wordCount___paragraphs'
+  | 'wordCount___sentences'
+  | 'wordCount___words'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type MdxFilterInput = {
+  rawBody?: Maybe<StringQueryOperatorInput>;
+  fileAbsolutePath?: Maybe<StringQueryOperatorInput>;
+  frontmatter?: Maybe<MdxFrontmatterFilterInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
+  body?: Maybe<StringQueryOperatorInput>;
+  excerpt?: Maybe<StringQueryOperatorInput>;
+  headings?: Maybe<MdxHeadingMdxFilterListInput>;
+  html?: Maybe<StringQueryOperatorInput>;
+  mdxAST?: Maybe<JsonQueryOperatorInput>;
+  tableOfContents?: Maybe<JsonQueryOperatorInput>;
+  timeToRead?: Maybe<IntQueryOperatorInput>;
+  wordCount?: Maybe<MdxWordCountFilterInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type MdxFilterListInput = {
+  elemMatch?: Maybe<MdxFilterInput>;
+};
+
+export type MdxFrontmatter = {
+  title: Scalars['String'];
+  team?: Maybe<Team>;
+  participants?: Maybe<Array<Maybe<Member>>>;
+  date?: Maybe<Scalars['Date']>;
+  startTime?: Maybe<Scalars['Int']>;
+  endTime?: Maybe<Scalars['Int']>;
+  teamName?: Maybe<Scalars['String']>;
+  topics?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+export type MdxFrontmatterDateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type MdxFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  team?: Maybe<TeamFilterInput>;
+  participants?: Maybe<MemberFilterListInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  startTime?: Maybe<IntQueryOperatorInput>;
+  endTime?: Maybe<IntQueryOperatorInput>;
+  teamName?: Maybe<StringQueryOperatorInput>;
+  topics?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MdxGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MdxEdge>;
+  nodes: Array<Mdx>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type MdxHeadingMdx = {
+  value?: Maybe<Scalars['String']>;
+  depth?: Maybe<Scalars['Int']>;
+};
+
+export type MdxHeadingMdxFilterInput = {
+  value?: Maybe<StringQueryOperatorInput>;
+  depth?: Maybe<IntQueryOperatorInput>;
+};
+
+export type MdxHeadingMdxFilterListInput = {
+  elemMatch?: Maybe<MdxHeadingMdxFilterInput>;
+};
+
+export type MdxSortInput = {
+  fields?: Maybe<Array<Maybe<MdxFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type MdxWordCount = {
+  paragraphs?: Maybe<Scalars['Int']>;
+  sentences?: Maybe<Scalars['Int']>;
+  words?: Maybe<Scalars['Int']>;
+};
+
+export type MdxWordCountFilterInput = {
+  paragraphs?: Maybe<IntQueryOperatorInput>;
+  sentences?: Maybe<IntQueryOperatorInput>;
+  words?: Maybe<IntQueryOperatorInput>;
+};
+
+export type Member = Node & {
+  skills?: Maybe<Array<MemberSkill>>;
+  teams?: Maybe<Array<TeamMember>>;
+  contributions?: Maybe<Array<Contribution>>;
+  belongs: MemberBelongs;
+  position?: Maybe<Posision>;
+  isGraduated?: Maybe<Scalars['Boolean']>;
+  name?: Maybe<Scalars['String']>;
+  nameJa?: Maybe<Scalars['String']>;
+  joinedAt?: Maybe<Scalars['Date']>;
+  social?: Maybe<MemberSocial>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+
+export type MemberJoinedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type MemberBelongs = {
+  facultyName: Scalars['String'];
+  faculty: Faculty;
+  memberName: Scalars['String'];
+  member: Member;
+  grade: Scalars['Int'];
+};
+
+export type MemberBelongsFilterInput = {
+  facultyName?: Maybe<StringQueryOperatorInput>;
+  faculty?: Maybe<FacultyFilterInput>;
+  memberName?: Maybe<StringQueryOperatorInput>;
+  member?: Maybe<MemberFilterInput>;
+  grade?: Maybe<IntQueryOperatorInput>;
+};
+
+export type MemberConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MemberEdge>;
+  nodes: Array<Member>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<MemberGroupConnection>;
+};
+
+
+export type MemberConnectionDistinctArgs = {
+  field: MemberFieldsEnum;
+};
+
+
+export type MemberConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: MemberFieldsEnum;
+};
+
+export type MemberEdge = {
+  next?: Maybe<Member>;
+  node: Member;
+  previous?: Maybe<Member>;
+};
+
+export type MemberFieldsEnum = 
+  | 'skills'
+  | 'skills___skill___members'
+  | 'skills___skill___members___level'
+  | 'skills___skill___members___skillName'
+  | 'skills___skill___members___memberName'
+  | 'skills___skill___members___id'
+  | 'skills___skill___members___children'
+  | 'skills___skill___name'
+  | 'skills___skill___description'
+  | 'skills___skill___id'
+  | 'skills___skill___parent___id'
+  | 'skills___skill___parent___children'
+  | 'skills___skill___children'
+  | 'skills___skill___children___id'
+  | 'skills___skill___children___children'
+  | 'skills___skill___internal___content'
+  | 'skills___skill___internal___contentDigest'
+  | 'skills___skill___internal___description'
+  | 'skills___skill___internal___fieldOwners'
+  | 'skills___skill___internal___ignoreType'
+  | 'skills___skill___internal___mediaType'
+  | 'skills___skill___internal___owner'
+  | 'skills___skill___internal___type'
+  | 'skills___member___skills'
+  | 'skills___member___skills___level'
+  | 'skills___member___skills___skillName'
+  | 'skills___member___skills___memberName'
+  | 'skills___member___skills___id'
+  | 'skills___member___skills___children'
+  | 'skills___member___teams'
+  | 'skills___member___teams___memberName'
+  | 'skills___member___teams___leader'
+  | 'skills___member___teams___teamName'
+  | 'skills___member___teams___id'
+  | 'skills___member___teams___children'
+  | 'skills___member___contributions'
+  | 'skills___member___contributions___memberName'
+  | 'skills___member___contributions___portfolioName'
+  | 'skills___member___contributions___id'
+  | 'skills___member___contributions___children'
+  | 'skills___member___belongs___facultyName'
+  | 'skills___member___belongs___memberName'
+  | 'skills___member___belongs___grade'
+  | 'skills___member___position'
+  | 'skills___member___isGraduated'
+  | 'skills___member___name'
+  | 'skills___member___nameJa'
+  | 'skills___member___joinedAt'
+  | 'skills___member___social___github'
+  | 'skills___member___social___twitter'
+  | 'skills___member___id'
+  | 'skills___member___parent___id'
+  | 'skills___member___parent___children'
+  | 'skills___member___children'
+  | 'skills___member___children___id'
+  | 'skills___member___children___children'
+  | 'skills___member___internal___content'
+  | 'skills___member___internal___contentDigest'
+  | 'skills___member___internal___description'
+  | 'skills___member___internal___fieldOwners'
+  | 'skills___member___internal___ignoreType'
+  | 'skills___member___internal___mediaType'
+  | 'skills___member___internal___owner'
+  | 'skills___member___internal___type'
+  | 'skills___level'
+  | 'skills___skillName'
+  | 'skills___memberName'
+  | 'skills___id'
+  | 'skills___parent___id'
+  | 'skills___parent___parent___id'
+  | 'skills___parent___parent___children'
+  | 'skills___parent___children'
+  | 'skills___parent___children___id'
+  | 'skills___parent___children___children'
+  | 'skills___parent___internal___content'
+  | 'skills___parent___internal___contentDigest'
+  | 'skills___parent___internal___description'
+  | 'skills___parent___internal___fieldOwners'
+  | 'skills___parent___internal___ignoreType'
+  | 'skills___parent___internal___mediaType'
+  | 'skills___parent___internal___owner'
+  | 'skills___parent___internal___type'
+  | 'skills___children'
+  | 'skills___children___id'
+  | 'skills___children___parent___id'
+  | 'skills___children___parent___children'
+  | 'skills___children___children'
+  | 'skills___children___children___id'
+  | 'skills___children___children___children'
+  | 'skills___children___internal___content'
+  | 'skills___children___internal___contentDigest'
+  | 'skills___children___internal___description'
+  | 'skills___children___internal___fieldOwners'
+  | 'skills___children___internal___ignoreType'
+  | 'skills___children___internal___mediaType'
+  | 'skills___children___internal___owner'
+  | 'skills___children___internal___type'
+  | 'skills___internal___content'
+  | 'skills___internal___contentDigest'
+  | 'skills___internal___description'
+  | 'skills___internal___fieldOwners'
+  | 'skills___internal___ignoreType'
+  | 'skills___internal___mediaType'
+  | 'skills___internal___owner'
+  | 'skills___internal___type'
+  | 'teams'
+  | 'teams___member___skills'
+  | 'teams___member___skills___level'
+  | 'teams___member___skills___skillName'
+  | 'teams___member___skills___memberName'
+  | 'teams___member___skills___id'
+  | 'teams___member___skills___children'
+  | 'teams___member___teams'
+  | 'teams___member___teams___memberName'
+  | 'teams___member___teams___leader'
+  | 'teams___member___teams___teamName'
+  | 'teams___member___teams___id'
+  | 'teams___member___teams___children'
+  | 'teams___member___contributions'
+  | 'teams___member___contributions___memberName'
+  | 'teams___member___contributions___portfolioName'
+  | 'teams___member___contributions___id'
+  | 'teams___member___contributions___children'
+  | 'teams___member___belongs___facultyName'
+  | 'teams___member___belongs___memberName'
+  | 'teams___member___belongs___grade'
+  | 'teams___member___position'
+  | 'teams___member___isGraduated'
+  | 'teams___member___name'
+  | 'teams___member___nameJa'
+  | 'teams___member___joinedAt'
+  | 'teams___member___social___github'
+  | 'teams___member___social___twitter'
+  | 'teams___member___id'
+  | 'teams___member___parent___id'
+  | 'teams___member___parent___children'
+  | 'teams___member___children'
+  | 'teams___member___children___id'
+  | 'teams___member___children___children'
+  | 'teams___member___internal___content'
+  | 'teams___member___internal___contentDigest'
+  | 'teams___member___internal___description'
+  | 'teams___member___internal___fieldOwners'
+  | 'teams___member___internal___ignoreType'
+  | 'teams___member___internal___mediaType'
+  | 'teams___member___internal___owner'
+  | 'teams___member___internal___type'
+  | 'teams___team___members'
+  | 'teams___team___members___memberName'
+  | 'teams___team___members___leader'
+  | 'teams___team___members___teamName'
+  | 'teams___team___members___id'
+  | 'teams___team___members___children'
+  | 'teams___team___name'
+  | 'teams___team___nameJa'
+  | 'teams___team___id'
+  | 'teams___team___parent___id'
+  | 'teams___team___parent___children'
+  | 'teams___team___children'
+  | 'teams___team___children___id'
+  | 'teams___team___children___children'
+  | 'teams___team___internal___content'
+  | 'teams___team___internal___contentDigest'
+  | 'teams___team___internal___description'
+  | 'teams___team___internal___fieldOwners'
+  | 'teams___team___internal___ignoreType'
+  | 'teams___team___internal___mediaType'
+  | 'teams___team___internal___owner'
+  | 'teams___team___internal___type'
+  | 'teams___memberName'
+  | 'teams___leader'
+  | 'teams___teamName'
+  | 'teams___id'
+  | 'teams___parent___id'
+  | 'teams___parent___parent___id'
+  | 'teams___parent___parent___children'
+  | 'teams___parent___children'
+  | 'teams___parent___children___id'
+  | 'teams___parent___children___children'
+  | 'teams___parent___internal___content'
+  | 'teams___parent___internal___contentDigest'
+  | 'teams___parent___internal___description'
+  | 'teams___parent___internal___fieldOwners'
+  | 'teams___parent___internal___ignoreType'
+  | 'teams___parent___internal___mediaType'
+  | 'teams___parent___internal___owner'
+  | 'teams___parent___internal___type'
+  | 'teams___children'
+  | 'teams___children___id'
+  | 'teams___children___parent___id'
+  | 'teams___children___parent___children'
+  | 'teams___children___children'
+  | 'teams___children___children___id'
+  | 'teams___children___children___children'
+  | 'teams___children___internal___content'
+  | 'teams___children___internal___contentDigest'
+  | 'teams___children___internal___description'
+  | 'teams___children___internal___fieldOwners'
+  | 'teams___children___internal___ignoreType'
+  | 'teams___children___internal___mediaType'
+  | 'teams___children___internal___owner'
+  | 'teams___children___internal___type'
+  | 'teams___internal___content'
+  | 'teams___internal___contentDigest'
+  | 'teams___internal___description'
+  | 'teams___internal___fieldOwners'
+  | 'teams___internal___ignoreType'
+  | 'teams___internal___mediaType'
+  | 'teams___internal___owner'
+  | 'teams___internal___type'
+  | 'contributions'
+  | 'contributions___portfolio___contributors'
+  | 'contributions___portfolio___contributors___memberName'
+  | 'contributions___portfolio___contributors___portfolioName'
+  | 'contributions___portfolio___contributors___id'
+  | 'contributions___portfolio___contributors___children'
+  | 'contributions___portfolio___name'
+  | 'contributions___portfolio___nameJa'
+  | 'contributions___portfolio___id'
+  | 'contributions___portfolio___parent___id'
+  | 'contributions___portfolio___parent___children'
+  | 'contributions___portfolio___children'
+  | 'contributions___portfolio___children___id'
+  | 'contributions___portfolio___children___children'
+  | 'contributions___portfolio___internal___content'
+  | 'contributions___portfolio___internal___contentDigest'
+  | 'contributions___portfolio___internal___description'
+  | 'contributions___portfolio___internal___fieldOwners'
+  | 'contributions___portfolio___internal___ignoreType'
+  | 'contributions___portfolio___internal___mediaType'
+  | 'contributions___portfolio___internal___owner'
+  | 'contributions___portfolio___internal___type'
+  | 'contributions___member___skills'
+  | 'contributions___member___skills___level'
+  | 'contributions___member___skills___skillName'
+  | 'contributions___member___skills___memberName'
+  | 'contributions___member___skills___id'
+  | 'contributions___member___skills___children'
+  | 'contributions___member___teams'
+  | 'contributions___member___teams___memberName'
+  | 'contributions___member___teams___leader'
+  | 'contributions___member___teams___teamName'
+  | 'contributions___member___teams___id'
+  | 'contributions___member___teams___children'
+  | 'contributions___member___contributions'
+  | 'contributions___member___contributions___memberName'
+  | 'contributions___member___contributions___portfolioName'
+  | 'contributions___member___contributions___id'
+  | 'contributions___member___contributions___children'
+  | 'contributions___member___belongs___facultyName'
+  | 'contributions___member___belongs___memberName'
+  | 'contributions___member___belongs___grade'
+  | 'contributions___member___position'
+  | 'contributions___member___isGraduated'
+  | 'contributions___member___name'
+  | 'contributions___member___nameJa'
+  | 'contributions___member___joinedAt'
+  | 'contributions___member___social___github'
+  | 'contributions___member___social___twitter'
+  | 'contributions___member___id'
+  | 'contributions___member___parent___id'
+  | 'contributions___member___parent___children'
+  | 'contributions___member___children'
+  | 'contributions___member___children___id'
+  | 'contributions___member___children___children'
+  | 'contributions___member___internal___content'
+  | 'contributions___member___internal___contentDigest'
+  | 'contributions___member___internal___description'
+  | 'contributions___member___internal___fieldOwners'
+  | 'contributions___member___internal___ignoreType'
+  | 'contributions___member___internal___mediaType'
+  | 'contributions___member___internal___owner'
+  | 'contributions___member___internal___type'
+  | 'contributions___memberName'
+  | 'contributions___portfolioName'
+  | 'contributions___id'
+  | 'contributions___parent___id'
+  | 'contributions___parent___parent___id'
+  | 'contributions___parent___parent___children'
+  | 'contributions___parent___children'
+  | 'contributions___parent___children___id'
+  | 'contributions___parent___children___children'
+  | 'contributions___parent___internal___content'
+  | 'contributions___parent___internal___contentDigest'
+  | 'contributions___parent___internal___description'
+  | 'contributions___parent___internal___fieldOwners'
+  | 'contributions___parent___internal___ignoreType'
+  | 'contributions___parent___internal___mediaType'
+  | 'contributions___parent___internal___owner'
+  | 'contributions___parent___internal___type'
+  | 'contributions___children'
+  | 'contributions___children___id'
+  | 'contributions___children___parent___id'
+  | 'contributions___children___parent___children'
+  | 'contributions___children___children'
+  | 'contributions___children___children___id'
+  | 'contributions___children___children___children'
+  | 'contributions___children___internal___content'
+  | 'contributions___children___internal___contentDigest'
+  | 'contributions___children___internal___description'
+  | 'contributions___children___internal___fieldOwners'
+  | 'contributions___children___internal___ignoreType'
+  | 'contributions___children___internal___mediaType'
+  | 'contributions___children___internal___owner'
+  | 'contributions___children___internal___type'
+  | 'contributions___internal___content'
+  | 'contributions___internal___contentDigest'
+  | 'contributions___internal___description'
+  | 'contributions___internal___fieldOwners'
+  | 'contributions___internal___ignoreType'
+  | 'contributions___internal___mediaType'
+  | 'contributions___internal___owner'
+  | 'contributions___internal___type'
+  | 'belongs___facultyName'
+  | 'belongs___faculty___members'
+  | 'belongs___faculty___members___skills'
+  | 'belongs___faculty___members___teams'
+  | 'belongs___faculty___members___contributions'
+  | 'belongs___faculty___members___position'
+  | 'belongs___faculty___members___isGraduated'
+  | 'belongs___faculty___members___name'
+  | 'belongs___faculty___members___nameJa'
+  | 'belongs___faculty___members___joinedAt'
+  | 'belongs___faculty___members___id'
+  | 'belongs___faculty___members___children'
+  | 'belongs___faculty___name'
+  | 'belongs___faculty___nameJa'
+  | 'belongs___faculty___id'
+  | 'belongs___faculty___parent___id'
+  | 'belongs___faculty___parent___children'
+  | 'belongs___faculty___children'
+  | 'belongs___faculty___children___id'
+  | 'belongs___faculty___children___children'
+  | 'belongs___faculty___internal___content'
+  | 'belongs___faculty___internal___contentDigest'
+  | 'belongs___faculty___internal___description'
+  | 'belongs___faculty___internal___fieldOwners'
+  | 'belongs___faculty___internal___ignoreType'
+  | 'belongs___faculty___internal___mediaType'
+  | 'belongs___faculty___internal___owner'
+  | 'belongs___faculty___internal___type'
+  | 'belongs___memberName'
+  | 'belongs___member___skills'
+  | 'belongs___member___skills___level'
+  | 'belongs___member___skills___skillName'
+  | 'belongs___member___skills___memberName'
+  | 'belongs___member___skills___id'
+  | 'belongs___member___skills___children'
+  | 'belongs___member___teams'
+  | 'belongs___member___teams___memberName'
+  | 'belongs___member___teams___leader'
+  | 'belongs___member___teams___teamName'
+  | 'belongs___member___teams___id'
+  | 'belongs___member___teams___children'
+  | 'belongs___member___contributions'
+  | 'belongs___member___contributions___memberName'
+  | 'belongs___member___contributions___portfolioName'
+  | 'belongs___member___contributions___id'
+  | 'belongs___member___contributions___children'
+  | 'belongs___member___belongs___facultyName'
+  | 'belongs___member___belongs___memberName'
+  | 'belongs___member___belongs___grade'
+  | 'belongs___member___position'
+  | 'belongs___member___isGraduated'
+  | 'belongs___member___name'
+  | 'belongs___member___nameJa'
+  | 'belongs___member___joinedAt'
+  | 'belongs___member___social___github'
+  | 'belongs___member___social___twitter'
+  | 'belongs___member___id'
+  | 'belongs___member___parent___id'
+  | 'belongs___member___parent___children'
+  | 'belongs___member___children'
+  | 'belongs___member___children___id'
+  | 'belongs___member___children___children'
+  | 'belongs___member___internal___content'
+  | 'belongs___member___internal___contentDigest'
+  | 'belongs___member___internal___description'
+  | 'belongs___member___internal___fieldOwners'
+  | 'belongs___member___internal___ignoreType'
+  | 'belongs___member___internal___mediaType'
+  | 'belongs___member___internal___owner'
+  | 'belongs___member___internal___type'
+  | 'belongs___grade'
+  | 'position'
+  | 'isGraduated'
+  | 'name'
+  | 'nameJa'
+  | 'joinedAt'
+  | 'social___github'
+  | 'social___twitter'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type MemberFilterInput = {
+  skills?: Maybe<MemberSkillFilterListInput>;
+  teams?: Maybe<TeamMemberFilterListInput>;
+  contributions?: Maybe<ContributionFilterListInput>;
+  belongs?: Maybe<MemberBelongsFilterInput>;
+  position?: Maybe<PosisionQueryOperatorInput>;
+  isGraduated?: Maybe<BooleanQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  nameJa?: Maybe<StringQueryOperatorInput>;
+  joinedAt?: Maybe<DateQueryOperatorInput>;
+  social?: Maybe<MemberSocialFilterInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type MemberFilterListInput = {
+  elemMatch?: Maybe<MemberFilterInput>;
+};
+
+export type MemberGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MemberEdge>;
+  nodes: Array<Member>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type MemberSkill = Node & {
+  skill: Skill;
+  member: Member;
+  level?: Maybe<Scalars['Int']>;
+  skillName?: Maybe<Scalars['String']>;
+  memberName?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type MemberSkillConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MemberSkillEdge>;
+  nodes: Array<MemberSkill>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<MemberSkillGroupConnection>;
+};
+
+
+export type MemberSkillConnectionDistinctArgs = {
+  field: MemberSkillFieldsEnum;
+};
+
+
+export type MemberSkillConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: MemberSkillFieldsEnum;
+};
+
+export type MemberSkillEdge = {
+  next?: Maybe<MemberSkill>;
+  node: MemberSkill;
+  previous?: Maybe<MemberSkill>;
+};
+
+export type MemberSkillFieldsEnum = 
+  | 'skill___members'
+  | 'skill___members___skill___members'
+  | 'skill___members___skill___name'
+  | 'skill___members___skill___description'
+  | 'skill___members___skill___id'
+  | 'skill___members___skill___children'
+  | 'skill___members___member___skills'
+  | 'skill___members___member___teams'
+  | 'skill___members___member___contributions'
+  | 'skill___members___member___position'
+  | 'skill___members___member___isGraduated'
+  | 'skill___members___member___name'
+  | 'skill___members___member___nameJa'
+  | 'skill___members___member___joinedAt'
+  | 'skill___members___member___id'
+  | 'skill___members___member___children'
+  | 'skill___members___level'
+  | 'skill___members___skillName'
+  | 'skill___members___memberName'
+  | 'skill___members___id'
+  | 'skill___members___parent___id'
+  | 'skill___members___parent___children'
+  | 'skill___members___children'
+  | 'skill___members___children___id'
+  | 'skill___members___children___children'
+  | 'skill___members___internal___content'
+  | 'skill___members___internal___contentDigest'
+  | 'skill___members___internal___description'
+  | 'skill___members___internal___fieldOwners'
+  | 'skill___members___internal___ignoreType'
+  | 'skill___members___internal___mediaType'
+  | 'skill___members___internal___owner'
+  | 'skill___members___internal___type'
+  | 'skill___name'
+  | 'skill___description'
+  | 'skill___id'
+  | 'skill___parent___id'
+  | 'skill___parent___parent___id'
+  | 'skill___parent___parent___children'
+  | 'skill___parent___children'
+  | 'skill___parent___children___id'
+  | 'skill___parent___children___children'
+  | 'skill___parent___internal___content'
+  | 'skill___parent___internal___contentDigest'
+  | 'skill___parent___internal___description'
+  | 'skill___parent___internal___fieldOwners'
+  | 'skill___parent___internal___ignoreType'
+  | 'skill___parent___internal___mediaType'
+  | 'skill___parent___internal___owner'
+  | 'skill___parent___internal___type'
+  | 'skill___children'
+  | 'skill___children___id'
+  | 'skill___children___parent___id'
+  | 'skill___children___parent___children'
+  | 'skill___children___children'
+  | 'skill___children___children___id'
+  | 'skill___children___children___children'
+  | 'skill___children___internal___content'
+  | 'skill___children___internal___contentDigest'
+  | 'skill___children___internal___description'
+  | 'skill___children___internal___fieldOwners'
+  | 'skill___children___internal___ignoreType'
+  | 'skill___children___internal___mediaType'
+  | 'skill___children___internal___owner'
+  | 'skill___children___internal___type'
+  | 'skill___internal___content'
+  | 'skill___internal___contentDigest'
+  | 'skill___internal___description'
+  | 'skill___internal___fieldOwners'
+  | 'skill___internal___ignoreType'
+  | 'skill___internal___mediaType'
+  | 'skill___internal___owner'
+  | 'skill___internal___type'
+  | 'member___skills'
+  | 'member___skills___skill___members'
+  | 'member___skills___skill___name'
+  | 'member___skills___skill___description'
+  | 'member___skills___skill___id'
+  | 'member___skills___skill___children'
+  | 'member___skills___member___skills'
+  | 'member___skills___member___teams'
+  | 'member___skills___member___contributions'
+  | 'member___skills___member___position'
+  | 'member___skills___member___isGraduated'
+  | 'member___skills___member___name'
+  | 'member___skills___member___nameJa'
+  | 'member___skills___member___joinedAt'
+  | 'member___skills___member___id'
+  | 'member___skills___member___children'
+  | 'member___skills___level'
+  | 'member___skills___skillName'
+  | 'member___skills___memberName'
+  | 'member___skills___id'
+  | 'member___skills___parent___id'
+  | 'member___skills___parent___children'
+  | 'member___skills___children'
+  | 'member___skills___children___id'
+  | 'member___skills___children___children'
+  | 'member___skills___internal___content'
+  | 'member___skills___internal___contentDigest'
+  | 'member___skills___internal___description'
+  | 'member___skills___internal___fieldOwners'
+  | 'member___skills___internal___ignoreType'
+  | 'member___skills___internal___mediaType'
+  | 'member___skills___internal___owner'
+  | 'member___skills___internal___type'
+  | 'member___teams'
+  | 'member___teams___member___skills'
+  | 'member___teams___member___teams'
+  | 'member___teams___member___contributions'
+  | 'member___teams___member___position'
+  | 'member___teams___member___isGraduated'
+  | 'member___teams___member___name'
+  | 'member___teams___member___nameJa'
+  | 'member___teams___member___joinedAt'
+  | 'member___teams___member___id'
+  | 'member___teams___member___children'
+  | 'member___teams___team___members'
+  | 'member___teams___team___name'
+  | 'member___teams___team___nameJa'
+  | 'member___teams___team___id'
+  | 'member___teams___team___children'
+  | 'member___teams___memberName'
+  | 'member___teams___leader'
+  | 'member___teams___teamName'
+  | 'member___teams___id'
+  | 'member___teams___parent___id'
+  | 'member___teams___parent___children'
+  | 'member___teams___children'
+  | 'member___teams___children___id'
+  | 'member___teams___children___children'
+  | 'member___teams___internal___content'
+  | 'member___teams___internal___contentDigest'
+  | 'member___teams___internal___description'
+  | 'member___teams___internal___fieldOwners'
+  | 'member___teams___internal___ignoreType'
+  | 'member___teams___internal___mediaType'
+  | 'member___teams___internal___owner'
+  | 'member___teams___internal___type'
+  | 'member___contributions'
+  | 'member___contributions___portfolio___contributors'
+  | 'member___contributions___portfolio___name'
+  | 'member___contributions___portfolio___nameJa'
+  | 'member___contributions___portfolio___id'
+  | 'member___contributions___portfolio___children'
+  | 'member___contributions___member___skills'
+  | 'member___contributions___member___teams'
+  | 'member___contributions___member___contributions'
+  | 'member___contributions___member___position'
+  | 'member___contributions___member___isGraduated'
+  | 'member___contributions___member___name'
+  | 'member___contributions___member___nameJa'
+  | 'member___contributions___member___joinedAt'
+  | 'member___contributions___member___id'
+  | 'member___contributions___member___children'
+  | 'member___contributions___memberName'
+  | 'member___contributions___portfolioName'
+  | 'member___contributions___id'
+  | 'member___contributions___parent___id'
+  | 'member___contributions___parent___children'
+  | 'member___contributions___children'
+  | 'member___contributions___children___id'
+  | 'member___contributions___children___children'
+  | 'member___contributions___internal___content'
+  | 'member___contributions___internal___contentDigest'
+  | 'member___contributions___internal___description'
+  | 'member___contributions___internal___fieldOwners'
+  | 'member___contributions___internal___ignoreType'
+  | 'member___contributions___internal___mediaType'
+  | 'member___contributions___internal___owner'
+  | 'member___contributions___internal___type'
+  | 'member___belongs___facultyName'
+  | 'member___belongs___faculty___members'
+  | 'member___belongs___faculty___name'
+  | 'member___belongs___faculty___nameJa'
+  | 'member___belongs___faculty___id'
+  | 'member___belongs___faculty___children'
+  | 'member___belongs___memberName'
+  | 'member___belongs___member___skills'
+  | 'member___belongs___member___teams'
+  | 'member___belongs___member___contributions'
+  | 'member___belongs___member___position'
+  | 'member___belongs___member___isGraduated'
+  | 'member___belongs___member___name'
+  | 'member___belongs___member___nameJa'
+  | 'member___belongs___member___joinedAt'
+  | 'member___belongs___member___id'
+  | 'member___belongs___member___children'
+  | 'member___belongs___grade'
+  | 'member___position'
+  | 'member___isGraduated'
+  | 'member___name'
+  | 'member___nameJa'
+  | 'member___joinedAt'
+  | 'member___social___github'
+  | 'member___social___twitter'
+  | 'member___id'
+  | 'member___parent___id'
+  | 'member___parent___parent___id'
+  | 'member___parent___parent___children'
+  | 'member___parent___children'
+  | 'member___parent___children___id'
+  | 'member___parent___children___children'
+  | 'member___parent___internal___content'
+  | 'member___parent___internal___contentDigest'
+  | 'member___parent___internal___description'
+  | 'member___parent___internal___fieldOwners'
+  | 'member___parent___internal___ignoreType'
+  | 'member___parent___internal___mediaType'
+  | 'member___parent___internal___owner'
+  | 'member___parent___internal___type'
+  | 'member___children'
+  | 'member___children___id'
+  | 'member___children___parent___id'
+  | 'member___children___parent___children'
+  | 'member___children___children'
+  | 'member___children___children___id'
+  | 'member___children___children___children'
+  | 'member___children___internal___content'
+  | 'member___children___internal___contentDigest'
+  | 'member___children___internal___description'
+  | 'member___children___internal___fieldOwners'
+  | 'member___children___internal___ignoreType'
+  | 'member___children___internal___mediaType'
+  | 'member___children___internal___owner'
+  | 'member___children___internal___type'
+  | 'member___internal___content'
+  | 'member___internal___contentDigest'
+  | 'member___internal___description'
+  | 'member___internal___fieldOwners'
+  | 'member___internal___ignoreType'
+  | 'member___internal___mediaType'
+  | 'member___internal___owner'
+  | 'member___internal___type'
+  | 'level'
+  | 'skillName'
+  | 'memberName'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type MemberSkillFilterInput = {
+  skill?: Maybe<SkillFilterInput>;
+  member?: Maybe<MemberFilterInput>;
+  level?: Maybe<IntQueryOperatorInput>;
+  skillName?: Maybe<StringQueryOperatorInput>;
+  memberName?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type MemberSkillFilterListInput = {
+  elemMatch?: Maybe<MemberSkillFilterInput>;
+};
+
+export type MemberSkillGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MemberSkillEdge>;
+  nodes: Array<MemberSkill>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type MemberSkillSortInput = {
+  fields?: Maybe<Array<Maybe<MemberSkillFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type MemberSocial = {
+  github?: Maybe<Scalars['String']>;
+  twitter?: Maybe<Scalars['String']>;
+};
+
+export type MemberSocialFilterInput = {
+  github?: Maybe<StringQueryOperatorInput>;
+  twitter?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MemberSortInput = {
+  fields?: Maybe<Array<Maybe<MemberFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 /** Node Interface */
 export type Node = {
   id: Scalars['ID'];
@@ -709,6 +2916,271 @@ export type PageInfo = {
   totalCount: Scalars['Int'];
 };
 
+export type Portfolio = Node & {
+  contributors: Array<Contribution>;
+  name?: Maybe<Scalars['String']>;
+  nameJa?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type PortfolioConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<PortfolioEdge>;
+  nodes: Array<Portfolio>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<PortfolioGroupConnection>;
+};
+
+
+export type PortfolioConnectionDistinctArgs = {
+  field: PortfolioFieldsEnum;
+};
+
+
+export type PortfolioConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: PortfolioFieldsEnum;
+};
+
+export type PortfolioEdge = {
+  next?: Maybe<Portfolio>;
+  node: Portfolio;
+  previous?: Maybe<Portfolio>;
+};
+
+export type PortfolioFieldsEnum = 
+  | 'contributors'
+  | 'contributors___portfolio___contributors'
+  | 'contributors___portfolio___contributors___memberName'
+  | 'contributors___portfolio___contributors___portfolioName'
+  | 'contributors___portfolio___contributors___id'
+  | 'contributors___portfolio___contributors___children'
+  | 'contributors___portfolio___name'
+  | 'contributors___portfolio___nameJa'
+  | 'contributors___portfolio___id'
+  | 'contributors___portfolio___parent___id'
+  | 'contributors___portfolio___parent___children'
+  | 'contributors___portfolio___children'
+  | 'contributors___portfolio___children___id'
+  | 'contributors___portfolio___children___children'
+  | 'contributors___portfolio___internal___content'
+  | 'contributors___portfolio___internal___contentDigest'
+  | 'contributors___portfolio___internal___description'
+  | 'contributors___portfolio___internal___fieldOwners'
+  | 'contributors___portfolio___internal___ignoreType'
+  | 'contributors___portfolio___internal___mediaType'
+  | 'contributors___portfolio___internal___owner'
+  | 'contributors___portfolio___internal___type'
+  | 'contributors___member___skills'
+  | 'contributors___member___skills___level'
+  | 'contributors___member___skills___skillName'
+  | 'contributors___member___skills___memberName'
+  | 'contributors___member___skills___id'
+  | 'contributors___member___skills___children'
+  | 'contributors___member___teams'
+  | 'contributors___member___teams___memberName'
+  | 'contributors___member___teams___leader'
+  | 'contributors___member___teams___teamName'
+  | 'contributors___member___teams___id'
+  | 'contributors___member___teams___children'
+  | 'contributors___member___contributions'
+  | 'contributors___member___contributions___memberName'
+  | 'contributors___member___contributions___portfolioName'
+  | 'contributors___member___contributions___id'
+  | 'contributors___member___contributions___children'
+  | 'contributors___member___belongs___facultyName'
+  | 'contributors___member___belongs___memberName'
+  | 'contributors___member___belongs___grade'
+  | 'contributors___member___position'
+  | 'contributors___member___isGraduated'
+  | 'contributors___member___name'
+  | 'contributors___member___nameJa'
+  | 'contributors___member___joinedAt'
+  | 'contributors___member___social___github'
+  | 'contributors___member___social___twitter'
+  | 'contributors___member___id'
+  | 'contributors___member___parent___id'
+  | 'contributors___member___parent___children'
+  | 'contributors___member___children'
+  | 'contributors___member___children___id'
+  | 'contributors___member___children___children'
+  | 'contributors___member___internal___content'
+  | 'contributors___member___internal___contentDigest'
+  | 'contributors___member___internal___description'
+  | 'contributors___member___internal___fieldOwners'
+  | 'contributors___member___internal___ignoreType'
+  | 'contributors___member___internal___mediaType'
+  | 'contributors___member___internal___owner'
+  | 'contributors___member___internal___type'
+  | 'contributors___memberName'
+  | 'contributors___portfolioName'
+  | 'contributors___id'
+  | 'contributors___parent___id'
+  | 'contributors___parent___parent___id'
+  | 'contributors___parent___parent___children'
+  | 'contributors___parent___children'
+  | 'contributors___parent___children___id'
+  | 'contributors___parent___children___children'
+  | 'contributors___parent___internal___content'
+  | 'contributors___parent___internal___contentDigest'
+  | 'contributors___parent___internal___description'
+  | 'contributors___parent___internal___fieldOwners'
+  | 'contributors___parent___internal___ignoreType'
+  | 'contributors___parent___internal___mediaType'
+  | 'contributors___parent___internal___owner'
+  | 'contributors___parent___internal___type'
+  | 'contributors___children'
+  | 'contributors___children___id'
+  | 'contributors___children___parent___id'
+  | 'contributors___children___parent___children'
+  | 'contributors___children___children'
+  | 'contributors___children___children___id'
+  | 'contributors___children___children___children'
+  | 'contributors___children___internal___content'
+  | 'contributors___children___internal___contentDigest'
+  | 'contributors___children___internal___description'
+  | 'contributors___children___internal___fieldOwners'
+  | 'contributors___children___internal___ignoreType'
+  | 'contributors___children___internal___mediaType'
+  | 'contributors___children___internal___owner'
+  | 'contributors___children___internal___type'
+  | 'contributors___internal___content'
+  | 'contributors___internal___contentDigest'
+  | 'contributors___internal___description'
+  | 'contributors___internal___fieldOwners'
+  | 'contributors___internal___ignoreType'
+  | 'contributors___internal___mediaType'
+  | 'contributors___internal___owner'
+  | 'contributors___internal___type'
+  | 'name'
+  | 'nameJa'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type PortfolioFilterInput = {
+  contributors?: Maybe<ContributionFilterListInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  nameJa?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type PortfolioGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<PortfolioEdge>;
+  nodes: Array<Portfolio>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type PortfolioSortInput = {
+  fields?: Maybe<Array<Maybe<PortfolioFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type Posision = 
+  | 'Leader'
+  | 'SubLeader';
+
+export type PosisionQueryOperatorInput = {
+  eq?: Maybe<Posision>;
+  ne?: Maybe<Posision>;
+  in?: Maybe<Array<Maybe<Posision>>>;
+  nin?: Maybe<Array<Maybe<Posision>>>;
+};
+
 export type Query = {
   file?: Maybe<File>;
   allFile: FileConnection;
@@ -718,6 +3190,24 @@ export type Query = {
   allSite: SiteConnection;
   sitePage?: Maybe<SitePage>;
   allSitePage: SitePageConnection;
+  mdx?: Maybe<Mdx>;
+  allMdx: MdxConnection;
+  member?: Maybe<Member>;
+  allMember: MemberConnection;
+  contribution?: Maybe<Contribution>;
+  allContribution: ContributionConnection;
+  portfolio?: Maybe<Portfolio>;
+  allPortfolio: PortfolioConnection;
+  faculty?: Maybe<Faculty>;
+  allFaculty: FacultyConnection;
+  memberSkill?: Maybe<MemberSkill>;
+  allMemberSkill: MemberSkillConnection;
+  skill?: Maybe<Skill>;
+  allSkill: SkillConnection;
+  teamMember?: Maybe<TeamMember>;
+  allTeamMember: TeamMemberConnection;
+  team?: Maybe<Team>;
+  allTeam: TeamConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -757,6 +3247,11 @@ export type QueryFileArgs = {
   ctime?: Maybe<DateQueryOperatorInput>;
   birthtime?: Maybe<DateQueryOperatorInput>;
   birthtimeMs?: Maybe<FloatQueryOperatorInput>;
+  blksize?: Maybe<IntQueryOperatorInput>;
+  blocks?: Maybe<IntQueryOperatorInput>;
+  publicURL?: Maybe<StringQueryOperatorInput>;
+  childrenMdx?: Maybe<MdxFilterListInput>;
+  childMdx?: Maybe<MdxFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -804,6 +3299,8 @@ export type QueryDirectoryArgs = {
   ctime?: Maybe<DateQueryOperatorInput>;
   birthtime?: Maybe<DateQueryOperatorInput>;
   birthtimeMs?: Maybe<FloatQueryOperatorInput>;
+  blksize?: Maybe<IntQueryOperatorInput>;
+  blocks?: Maybe<IntQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -822,6 +3319,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -864,6 +3363,198 @@ export type QueryAllSitePageArgs = {
 };
 
 
+export type QueryMdxArgs = {
+  rawBody?: Maybe<StringQueryOperatorInput>;
+  fileAbsolutePath?: Maybe<StringQueryOperatorInput>;
+  frontmatter?: Maybe<MdxFrontmatterFilterInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
+  body?: Maybe<StringQueryOperatorInput>;
+  excerpt?: Maybe<StringQueryOperatorInput>;
+  headings?: Maybe<MdxHeadingMdxFilterListInput>;
+  html?: Maybe<StringQueryOperatorInput>;
+  mdxAST?: Maybe<JsonQueryOperatorInput>;
+  tableOfContents?: Maybe<JsonQueryOperatorInput>;
+  timeToRead?: Maybe<IntQueryOperatorInput>;
+  wordCount?: Maybe<MdxWordCountFilterInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllMdxArgs = {
+  filter?: Maybe<MdxFilterInput>;
+  sort?: Maybe<MdxSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryMemberArgs = {
+  skills?: Maybe<MemberSkillFilterListInput>;
+  teams?: Maybe<TeamMemberFilterListInput>;
+  contributions?: Maybe<ContributionFilterListInput>;
+  belongs?: Maybe<MemberBelongsFilterInput>;
+  position?: Maybe<PosisionQueryOperatorInput>;
+  isGraduated?: Maybe<BooleanQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  nameJa?: Maybe<StringQueryOperatorInput>;
+  joinedAt?: Maybe<DateQueryOperatorInput>;
+  social?: Maybe<MemberSocialFilterInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllMemberArgs = {
+  filter?: Maybe<MemberFilterInput>;
+  sort?: Maybe<MemberSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContributionArgs = {
+  portfolio?: Maybe<PortfolioFilterInput>;
+  member?: Maybe<MemberFilterInput>;
+  memberName?: Maybe<StringQueryOperatorInput>;
+  portfolioName?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllContributionArgs = {
+  filter?: Maybe<ContributionFilterInput>;
+  sort?: Maybe<ContributionSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryPortfolioArgs = {
+  contributors?: Maybe<ContributionFilterListInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  nameJa?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllPortfolioArgs = {
+  filter?: Maybe<PortfolioFilterInput>;
+  sort?: Maybe<PortfolioSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryFacultyArgs = {
+  members?: Maybe<MemberFilterListInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  nameJa?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllFacultyArgs = {
+  filter?: Maybe<FacultyFilterInput>;
+  sort?: Maybe<FacultySortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryMemberSkillArgs = {
+  skill?: Maybe<SkillFilterInput>;
+  member?: Maybe<MemberFilterInput>;
+  level?: Maybe<IntQueryOperatorInput>;
+  skillName?: Maybe<StringQueryOperatorInput>;
+  memberName?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllMemberSkillArgs = {
+  filter?: Maybe<MemberSkillFilterInput>;
+  sort?: Maybe<MemberSkillSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QuerySkillArgs = {
+  members?: Maybe<MemberSkillFilterListInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllSkillArgs = {
+  filter?: Maybe<SkillFilterInput>;
+  sort?: Maybe<SkillSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryTeamMemberArgs = {
+  member?: Maybe<MemberFilterInput>;
+  team?: Maybe<TeamFilterInput>;
+  memberName?: Maybe<StringQueryOperatorInput>;
+  leader?: Maybe<BooleanQueryOperatorInput>;
+  teamName?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllTeamMemberArgs = {
+  filter?: Maybe<TeamMemberFilterInput>;
+  sort?: Maybe<TeamMemberSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryTeamArgs = {
+  members?: Maybe<TeamMemberFilterListInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  nameJa?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllTeamArgs = {
+  filter?: Maybe<TeamFilterInput>;
+  sort?: Maybe<TeamSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QuerySiteBuildMetadataArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -891,6 +3582,7 @@ export type QuerySitePluginArgs = {
   version?: Maybe<StringQueryOperatorInput>;
   pluginOptions?: Maybe<SitePluginPluginOptionsFilterInput>;
   nodeAPIs?: Maybe<StringQueryOperatorInput>;
+  browserAPIs?: Maybe<StringQueryOperatorInput>;
   ssrAPIs?: Maybe<StringQueryOperatorInput>;
   pluginFilepath?: Maybe<StringQueryOperatorInput>;
   packageJson?: Maybe<SitePluginPackageJsonFilterInput>;
@@ -907,6 +3599,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -1108,6 +3802,8 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -1200,6 +3896,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1394,12 +4092,18 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
+  | 'pluginCreator___pluginOptions___alias____'
+  | 'pluginCreator___pluginOptions___extensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___pluginOptions___allExtensions'
+  | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___lessBabel'
+  | 'pluginCreator___pluginOptions___mediaTypes'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
+  | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
   | 'pluginCreator___pluginFilepath'
   | 'pluginCreator___packageJson___name'
@@ -1461,6 +4165,7 @@ export type SitePlugin = Node & {
   version?: Maybe<Scalars['String']>;
   pluginOptions?: Maybe<SitePluginPluginOptions>;
   nodeAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
+  browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
   ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
   pluginFilepath?: Maybe<Scalars['String']>;
   packageJson?: Maybe<SitePluginPackageJson>;
@@ -1583,12 +4288,18 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions___alias____'
+  | 'pluginOptions___extensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
   | 'pluginOptions___allExtensions'
+  | 'pluginOptions___name'
   | 'pluginOptions___path'
+  | 'pluginOptions___lessBabel'
+  | 'pluginOptions___mediaTypes'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
+  | 'browserAPIs'
   | 'ssrAPIs'
   | 'pluginFilepath'
   | 'packageJson___name'
@@ -1618,6 +4329,7 @@ export type SitePluginFilterInput = {
   version?: Maybe<StringQueryOperatorInput>;
   pluginOptions?: Maybe<SitePluginPluginOptionsFilterInput>;
   nodeAPIs?: Maybe<StringQueryOperatorInput>;
+  browserAPIs?: Maybe<StringQueryOperatorInput>;
   ssrAPIs?: Maybe<StringQueryOperatorInput>;
   pluginFilepath?: Maybe<StringQueryOperatorInput>;
   packageJson?: Maybe<SitePluginPackageJsonFilterInput>;
@@ -1701,18 +4413,36 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
+  alias?: Maybe<SitePluginPluginOptionsAlias>;
+  extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
+  name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
+  lessBabel?: Maybe<Scalars['Boolean']>;
+  mediaTypes?: Maybe<Array<Maybe<Scalars['String']>>>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
+export type SitePluginPluginOptionsAlias = {
+  _?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsAliasFilterInput = {
+  _?: Maybe<StringQueryOperatorInput>;
+};
+
 export type SitePluginPluginOptionsFilterInput = {
+  alias?: Maybe<SitePluginPluginOptionsAliasFilterInput>;
+  extensions?: Maybe<StringQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  lessBabel?: Maybe<BooleanQueryOperatorInput>;
+  mediaTypes?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -1736,6 +4466,262 @@ export type SiteSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type Skill = Node & {
+  members?: Maybe<Array<MemberSkill>>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type SkillConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<SkillEdge>;
+  nodes: Array<Skill>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<SkillGroupConnection>;
+};
+
+
+export type SkillConnectionDistinctArgs = {
+  field: SkillFieldsEnum;
+};
+
+
+export type SkillConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: SkillFieldsEnum;
+};
+
+export type SkillEdge = {
+  next?: Maybe<Skill>;
+  node: Skill;
+  previous?: Maybe<Skill>;
+};
+
+export type SkillFieldsEnum = 
+  | 'members'
+  | 'members___skill___members'
+  | 'members___skill___members___level'
+  | 'members___skill___members___skillName'
+  | 'members___skill___members___memberName'
+  | 'members___skill___members___id'
+  | 'members___skill___members___children'
+  | 'members___skill___name'
+  | 'members___skill___description'
+  | 'members___skill___id'
+  | 'members___skill___parent___id'
+  | 'members___skill___parent___children'
+  | 'members___skill___children'
+  | 'members___skill___children___id'
+  | 'members___skill___children___children'
+  | 'members___skill___internal___content'
+  | 'members___skill___internal___contentDigest'
+  | 'members___skill___internal___description'
+  | 'members___skill___internal___fieldOwners'
+  | 'members___skill___internal___ignoreType'
+  | 'members___skill___internal___mediaType'
+  | 'members___skill___internal___owner'
+  | 'members___skill___internal___type'
+  | 'members___member___skills'
+  | 'members___member___skills___level'
+  | 'members___member___skills___skillName'
+  | 'members___member___skills___memberName'
+  | 'members___member___skills___id'
+  | 'members___member___skills___children'
+  | 'members___member___teams'
+  | 'members___member___teams___memberName'
+  | 'members___member___teams___leader'
+  | 'members___member___teams___teamName'
+  | 'members___member___teams___id'
+  | 'members___member___teams___children'
+  | 'members___member___contributions'
+  | 'members___member___contributions___memberName'
+  | 'members___member___contributions___portfolioName'
+  | 'members___member___contributions___id'
+  | 'members___member___contributions___children'
+  | 'members___member___belongs___facultyName'
+  | 'members___member___belongs___memberName'
+  | 'members___member___belongs___grade'
+  | 'members___member___position'
+  | 'members___member___isGraduated'
+  | 'members___member___name'
+  | 'members___member___nameJa'
+  | 'members___member___joinedAt'
+  | 'members___member___social___github'
+  | 'members___member___social___twitter'
+  | 'members___member___id'
+  | 'members___member___parent___id'
+  | 'members___member___parent___children'
+  | 'members___member___children'
+  | 'members___member___children___id'
+  | 'members___member___children___children'
+  | 'members___member___internal___content'
+  | 'members___member___internal___contentDigest'
+  | 'members___member___internal___description'
+  | 'members___member___internal___fieldOwners'
+  | 'members___member___internal___ignoreType'
+  | 'members___member___internal___mediaType'
+  | 'members___member___internal___owner'
+  | 'members___member___internal___type'
+  | 'members___level'
+  | 'members___skillName'
+  | 'members___memberName'
+  | 'members___id'
+  | 'members___parent___id'
+  | 'members___parent___parent___id'
+  | 'members___parent___parent___children'
+  | 'members___parent___children'
+  | 'members___parent___children___id'
+  | 'members___parent___children___children'
+  | 'members___parent___internal___content'
+  | 'members___parent___internal___contentDigest'
+  | 'members___parent___internal___description'
+  | 'members___parent___internal___fieldOwners'
+  | 'members___parent___internal___ignoreType'
+  | 'members___parent___internal___mediaType'
+  | 'members___parent___internal___owner'
+  | 'members___parent___internal___type'
+  | 'members___children'
+  | 'members___children___id'
+  | 'members___children___parent___id'
+  | 'members___children___parent___children'
+  | 'members___children___children'
+  | 'members___children___children___id'
+  | 'members___children___children___children'
+  | 'members___children___internal___content'
+  | 'members___children___internal___contentDigest'
+  | 'members___children___internal___description'
+  | 'members___children___internal___fieldOwners'
+  | 'members___children___internal___ignoreType'
+  | 'members___children___internal___mediaType'
+  | 'members___children___internal___owner'
+  | 'members___children___internal___type'
+  | 'members___internal___content'
+  | 'members___internal___contentDigest'
+  | 'members___internal___description'
+  | 'members___internal___fieldOwners'
+  | 'members___internal___ignoreType'
+  | 'members___internal___mediaType'
+  | 'members___internal___owner'
+  | 'members___internal___type'
+  | 'name'
+  | 'description'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type SkillFilterInput = {
+  members?: Maybe<MemberSkillFilterListInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type SkillGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<SkillEdge>;
+  nodes: Array<Skill>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type SkillSortInput = {
+  fields?: Maybe<Array<Maybe<SkillFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type SortOrderEnum = 
   | 'ASC'
   | 'DESC';
@@ -1749,7 +4735,711 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type Team = Node & {
+  members: Array<TeamMember>;
+  name?: Maybe<Scalars['String']>;
+  nameJa?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type TeamConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<TeamEdge>;
+  nodes: Array<Team>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<TeamGroupConnection>;
+};
+
+
+export type TeamConnectionDistinctArgs = {
+  field: TeamFieldsEnum;
+};
+
+
+export type TeamConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: TeamFieldsEnum;
+};
+
+export type TeamEdge = {
+  next?: Maybe<Team>;
+  node: Team;
+  previous?: Maybe<Team>;
+};
+
+export type TeamFieldsEnum = 
+  | 'members'
+  | 'members___member___skills'
+  | 'members___member___skills___level'
+  | 'members___member___skills___skillName'
+  | 'members___member___skills___memberName'
+  | 'members___member___skills___id'
+  | 'members___member___skills___children'
+  | 'members___member___teams'
+  | 'members___member___teams___memberName'
+  | 'members___member___teams___leader'
+  | 'members___member___teams___teamName'
+  | 'members___member___teams___id'
+  | 'members___member___teams___children'
+  | 'members___member___contributions'
+  | 'members___member___contributions___memberName'
+  | 'members___member___contributions___portfolioName'
+  | 'members___member___contributions___id'
+  | 'members___member___contributions___children'
+  | 'members___member___belongs___facultyName'
+  | 'members___member___belongs___memberName'
+  | 'members___member___belongs___grade'
+  | 'members___member___position'
+  | 'members___member___isGraduated'
+  | 'members___member___name'
+  | 'members___member___nameJa'
+  | 'members___member___joinedAt'
+  | 'members___member___social___github'
+  | 'members___member___social___twitter'
+  | 'members___member___id'
+  | 'members___member___parent___id'
+  | 'members___member___parent___children'
+  | 'members___member___children'
+  | 'members___member___children___id'
+  | 'members___member___children___children'
+  | 'members___member___internal___content'
+  | 'members___member___internal___contentDigest'
+  | 'members___member___internal___description'
+  | 'members___member___internal___fieldOwners'
+  | 'members___member___internal___ignoreType'
+  | 'members___member___internal___mediaType'
+  | 'members___member___internal___owner'
+  | 'members___member___internal___type'
+  | 'members___team___members'
+  | 'members___team___members___memberName'
+  | 'members___team___members___leader'
+  | 'members___team___members___teamName'
+  | 'members___team___members___id'
+  | 'members___team___members___children'
+  | 'members___team___name'
+  | 'members___team___nameJa'
+  | 'members___team___id'
+  | 'members___team___parent___id'
+  | 'members___team___parent___children'
+  | 'members___team___children'
+  | 'members___team___children___id'
+  | 'members___team___children___children'
+  | 'members___team___internal___content'
+  | 'members___team___internal___contentDigest'
+  | 'members___team___internal___description'
+  | 'members___team___internal___fieldOwners'
+  | 'members___team___internal___ignoreType'
+  | 'members___team___internal___mediaType'
+  | 'members___team___internal___owner'
+  | 'members___team___internal___type'
+  | 'members___memberName'
+  | 'members___leader'
+  | 'members___teamName'
+  | 'members___id'
+  | 'members___parent___id'
+  | 'members___parent___parent___id'
+  | 'members___parent___parent___children'
+  | 'members___parent___children'
+  | 'members___parent___children___id'
+  | 'members___parent___children___children'
+  | 'members___parent___internal___content'
+  | 'members___parent___internal___contentDigest'
+  | 'members___parent___internal___description'
+  | 'members___parent___internal___fieldOwners'
+  | 'members___parent___internal___ignoreType'
+  | 'members___parent___internal___mediaType'
+  | 'members___parent___internal___owner'
+  | 'members___parent___internal___type'
+  | 'members___children'
+  | 'members___children___id'
+  | 'members___children___parent___id'
+  | 'members___children___parent___children'
+  | 'members___children___children'
+  | 'members___children___children___id'
+  | 'members___children___children___children'
+  | 'members___children___internal___content'
+  | 'members___children___internal___contentDigest'
+  | 'members___children___internal___description'
+  | 'members___children___internal___fieldOwners'
+  | 'members___children___internal___ignoreType'
+  | 'members___children___internal___mediaType'
+  | 'members___children___internal___owner'
+  | 'members___children___internal___type'
+  | 'members___internal___content'
+  | 'members___internal___contentDigest'
+  | 'members___internal___description'
+  | 'members___internal___fieldOwners'
+  | 'members___internal___ignoreType'
+  | 'members___internal___mediaType'
+  | 'members___internal___owner'
+  | 'members___internal___type'
+  | 'name'
+  | 'nameJa'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type TeamFilterInput = {
+  members?: Maybe<TeamMemberFilterListInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  nameJa?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type TeamGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<TeamEdge>;
+  nodes: Array<Team>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type TeamMember = Node & {
+  member: Member;
+  team: Team;
+  memberName?: Maybe<Scalars['String']>;
+  leader?: Maybe<Scalars['Boolean']>;
+  teamName?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type TeamMemberConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<TeamMemberEdge>;
+  nodes: Array<TeamMember>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<TeamMemberGroupConnection>;
+};
+
+
+export type TeamMemberConnectionDistinctArgs = {
+  field: TeamMemberFieldsEnum;
+};
+
+
+export type TeamMemberConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: TeamMemberFieldsEnum;
+};
+
+export type TeamMemberEdge = {
+  next?: Maybe<TeamMember>;
+  node: TeamMember;
+  previous?: Maybe<TeamMember>;
+};
+
+export type TeamMemberFieldsEnum = 
+  | 'member___skills'
+  | 'member___skills___skill___members'
+  | 'member___skills___skill___name'
+  | 'member___skills___skill___description'
+  | 'member___skills___skill___id'
+  | 'member___skills___skill___children'
+  | 'member___skills___member___skills'
+  | 'member___skills___member___teams'
+  | 'member___skills___member___contributions'
+  | 'member___skills___member___position'
+  | 'member___skills___member___isGraduated'
+  | 'member___skills___member___name'
+  | 'member___skills___member___nameJa'
+  | 'member___skills___member___joinedAt'
+  | 'member___skills___member___id'
+  | 'member___skills___member___children'
+  | 'member___skills___level'
+  | 'member___skills___skillName'
+  | 'member___skills___memberName'
+  | 'member___skills___id'
+  | 'member___skills___parent___id'
+  | 'member___skills___parent___children'
+  | 'member___skills___children'
+  | 'member___skills___children___id'
+  | 'member___skills___children___children'
+  | 'member___skills___internal___content'
+  | 'member___skills___internal___contentDigest'
+  | 'member___skills___internal___description'
+  | 'member___skills___internal___fieldOwners'
+  | 'member___skills___internal___ignoreType'
+  | 'member___skills___internal___mediaType'
+  | 'member___skills___internal___owner'
+  | 'member___skills___internal___type'
+  | 'member___teams'
+  | 'member___teams___member___skills'
+  | 'member___teams___member___teams'
+  | 'member___teams___member___contributions'
+  | 'member___teams___member___position'
+  | 'member___teams___member___isGraduated'
+  | 'member___teams___member___name'
+  | 'member___teams___member___nameJa'
+  | 'member___teams___member___joinedAt'
+  | 'member___teams___member___id'
+  | 'member___teams___member___children'
+  | 'member___teams___team___members'
+  | 'member___teams___team___name'
+  | 'member___teams___team___nameJa'
+  | 'member___teams___team___id'
+  | 'member___teams___team___children'
+  | 'member___teams___memberName'
+  | 'member___teams___leader'
+  | 'member___teams___teamName'
+  | 'member___teams___id'
+  | 'member___teams___parent___id'
+  | 'member___teams___parent___children'
+  | 'member___teams___children'
+  | 'member___teams___children___id'
+  | 'member___teams___children___children'
+  | 'member___teams___internal___content'
+  | 'member___teams___internal___contentDigest'
+  | 'member___teams___internal___description'
+  | 'member___teams___internal___fieldOwners'
+  | 'member___teams___internal___ignoreType'
+  | 'member___teams___internal___mediaType'
+  | 'member___teams___internal___owner'
+  | 'member___teams___internal___type'
+  | 'member___contributions'
+  | 'member___contributions___portfolio___contributors'
+  | 'member___contributions___portfolio___name'
+  | 'member___contributions___portfolio___nameJa'
+  | 'member___contributions___portfolio___id'
+  | 'member___contributions___portfolio___children'
+  | 'member___contributions___member___skills'
+  | 'member___contributions___member___teams'
+  | 'member___contributions___member___contributions'
+  | 'member___contributions___member___position'
+  | 'member___contributions___member___isGraduated'
+  | 'member___contributions___member___name'
+  | 'member___contributions___member___nameJa'
+  | 'member___contributions___member___joinedAt'
+  | 'member___contributions___member___id'
+  | 'member___contributions___member___children'
+  | 'member___contributions___memberName'
+  | 'member___contributions___portfolioName'
+  | 'member___contributions___id'
+  | 'member___contributions___parent___id'
+  | 'member___contributions___parent___children'
+  | 'member___contributions___children'
+  | 'member___contributions___children___id'
+  | 'member___contributions___children___children'
+  | 'member___contributions___internal___content'
+  | 'member___contributions___internal___contentDigest'
+  | 'member___contributions___internal___description'
+  | 'member___contributions___internal___fieldOwners'
+  | 'member___contributions___internal___ignoreType'
+  | 'member___contributions___internal___mediaType'
+  | 'member___contributions___internal___owner'
+  | 'member___contributions___internal___type'
+  | 'member___belongs___facultyName'
+  | 'member___belongs___faculty___members'
+  | 'member___belongs___faculty___name'
+  | 'member___belongs___faculty___nameJa'
+  | 'member___belongs___faculty___id'
+  | 'member___belongs___faculty___children'
+  | 'member___belongs___memberName'
+  | 'member___belongs___member___skills'
+  | 'member___belongs___member___teams'
+  | 'member___belongs___member___contributions'
+  | 'member___belongs___member___position'
+  | 'member___belongs___member___isGraduated'
+  | 'member___belongs___member___name'
+  | 'member___belongs___member___nameJa'
+  | 'member___belongs___member___joinedAt'
+  | 'member___belongs___member___id'
+  | 'member___belongs___member___children'
+  | 'member___belongs___grade'
+  | 'member___position'
+  | 'member___isGraduated'
+  | 'member___name'
+  | 'member___nameJa'
+  | 'member___joinedAt'
+  | 'member___social___github'
+  | 'member___social___twitter'
+  | 'member___id'
+  | 'member___parent___id'
+  | 'member___parent___parent___id'
+  | 'member___parent___parent___children'
+  | 'member___parent___children'
+  | 'member___parent___children___id'
+  | 'member___parent___children___children'
+  | 'member___parent___internal___content'
+  | 'member___parent___internal___contentDigest'
+  | 'member___parent___internal___description'
+  | 'member___parent___internal___fieldOwners'
+  | 'member___parent___internal___ignoreType'
+  | 'member___parent___internal___mediaType'
+  | 'member___parent___internal___owner'
+  | 'member___parent___internal___type'
+  | 'member___children'
+  | 'member___children___id'
+  | 'member___children___parent___id'
+  | 'member___children___parent___children'
+  | 'member___children___children'
+  | 'member___children___children___id'
+  | 'member___children___children___children'
+  | 'member___children___internal___content'
+  | 'member___children___internal___contentDigest'
+  | 'member___children___internal___description'
+  | 'member___children___internal___fieldOwners'
+  | 'member___children___internal___ignoreType'
+  | 'member___children___internal___mediaType'
+  | 'member___children___internal___owner'
+  | 'member___children___internal___type'
+  | 'member___internal___content'
+  | 'member___internal___contentDigest'
+  | 'member___internal___description'
+  | 'member___internal___fieldOwners'
+  | 'member___internal___ignoreType'
+  | 'member___internal___mediaType'
+  | 'member___internal___owner'
+  | 'member___internal___type'
+  | 'team___members'
+  | 'team___members___member___skills'
+  | 'team___members___member___teams'
+  | 'team___members___member___contributions'
+  | 'team___members___member___position'
+  | 'team___members___member___isGraduated'
+  | 'team___members___member___name'
+  | 'team___members___member___nameJa'
+  | 'team___members___member___joinedAt'
+  | 'team___members___member___id'
+  | 'team___members___member___children'
+  | 'team___members___team___members'
+  | 'team___members___team___name'
+  | 'team___members___team___nameJa'
+  | 'team___members___team___id'
+  | 'team___members___team___children'
+  | 'team___members___memberName'
+  | 'team___members___leader'
+  | 'team___members___teamName'
+  | 'team___members___id'
+  | 'team___members___parent___id'
+  | 'team___members___parent___children'
+  | 'team___members___children'
+  | 'team___members___children___id'
+  | 'team___members___children___children'
+  | 'team___members___internal___content'
+  | 'team___members___internal___contentDigest'
+  | 'team___members___internal___description'
+  | 'team___members___internal___fieldOwners'
+  | 'team___members___internal___ignoreType'
+  | 'team___members___internal___mediaType'
+  | 'team___members___internal___owner'
+  | 'team___members___internal___type'
+  | 'team___name'
+  | 'team___nameJa'
+  | 'team___id'
+  | 'team___parent___id'
+  | 'team___parent___parent___id'
+  | 'team___parent___parent___children'
+  | 'team___parent___children'
+  | 'team___parent___children___id'
+  | 'team___parent___children___children'
+  | 'team___parent___internal___content'
+  | 'team___parent___internal___contentDigest'
+  | 'team___parent___internal___description'
+  | 'team___parent___internal___fieldOwners'
+  | 'team___parent___internal___ignoreType'
+  | 'team___parent___internal___mediaType'
+  | 'team___parent___internal___owner'
+  | 'team___parent___internal___type'
+  | 'team___children'
+  | 'team___children___id'
+  | 'team___children___parent___id'
+  | 'team___children___parent___children'
+  | 'team___children___children'
+  | 'team___children___children___id'
+  | 'team___children___children___children'
+  | 'team___children___internal___content'
+  | 'team___children___internal___contentDigest'
+  | 'team___children___internal___description'
+  | 'team___children___internal___fieldOwners'
+  | 'team___children___internal___ignoreType'
+  | 'team___children___internal___mediaType'
+  | 'team___children___internal___owner'
+  | 'team___children___internal___type'
+  | 'team___internal___content'
+  | 'team___internal___contentDigest'
+  | 'team___internal___description'
+  | 'team___internal___fieldOwners'
+  | 'team___internal___ignoreType'
+  | 'team___internal___mediaType'
+  | 'team___internal___owner'
+  | 'team___internal___type'
+  | 'memberName'
+  | 'leader'
+  | 'teamName'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type TeamMemberFilterInput = {
+  member?: Maybe<MemberFilterInput>;
+  team?: Maybe<TeamFilterInput>;
+  memberName?: Maybe<StringQueryOperatorInput>;
+  leader?: Maybe<BooleanQueryOperatorInput>;
+  teamName?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type TeamMemberFilterListInput = {
+  elemMatch?: Maybe<TeamMemberFilterInput>;
+};
+
+export type TeamMemberGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<TeamMemberEdge>;
+  nodes: Array<TeamMember>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type TeamMemberSortInput = {
+  fields?: Maybe<Array<Maybe<TeamMemberFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type TeamSortInput = {
+  fields?: Maybe<Array<Maybe<TeamFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AboutPageQuery = { aboutJa?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body' | 'excerpt'>> }>, aboutEn?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body' | 'excerpt'>> }> };
+
+export type ActivityLogPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ActivityLogPageQuery = { allFile: { nodes: Array<(
+      Pick<File, 'id'>
+      & { childMdx?: Maybe<{ frontmatter?: Maybe<Pick<MdxFrontmatter, 'date' | 'title' | 'startTime' | 'endTime'>> }> }
+    )> } };
+
 export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type IndexQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+export type MembersPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MembersPageQuery = { activeMemvers: { nodes: Array<MemberFragmentFragment> }, graduatedMembers: { nodes: Array<MemberFragmentFragment> } };
+
+export type MemberFragmentFragment = (
+  Pick<Member, 'name' | 'position' | 'nameJa' | 'id' | 'joinedAt'>
+  & { belongs: (
+    Pick<MemberBelongs, 'grade'>
+    & { faculty: Pick<Faculty, 'name' | 'nameJa' | 'id'> }
+  ), skills?: Maybe<Array<(
+    Pick<MemberSkill, 'level' | 'id'>
+    & { skill: Pick<Skill, 'name' | 'id'> }
+  )>>, teams?: Maybe<Array<(
+    Pick<TeamMember, 'id' | 'leader'>
+    & { team: Pick<Team, 'name' | 'id'> }
+  )>> }
+);
+
+export type PortfoliosPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PortfoliosPageQuery = { allPortfolio: { nodes: Array<(
+      Pick<Portfolio, 'id' | 'name' | 'nameJa'>
+      & { contributors: Array<(
+        Pick<Contribution, 'id'>
+        & { member: Pick<Member, 'name'> }
+      )> }
+    )> } };
+
+export type TeamsPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TeamsPageQuery = { allTeam: { nodes: Array<(
+      Pick<Team, 'id' | 'name' | 'nameJa'>
+      & { members: Array<(
+        Pick<TeamMember, 'id' | 'leader'>
+        & { member: Pick<Member, 'name'> }
+      )> }
+    )> } };

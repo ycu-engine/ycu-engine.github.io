@@ -1,3 +1,4 @@
+import { useI18n } from '@/components/context/i18n'
 import type { IndexQueryQuery } from '@gql'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
@@ -18,6 +19,8 @@ interface IndexPageProps {
 }
 
 const IndexPage = ({ data }: IndexPageProps): JSX.Element => {
+  const { selectedLanguage, setLanguage } = useI18n()
+  console.log(selectedLanguage)
   return (
     <div>
       <h1>Hi people</h1>
@@ -25,8 +28,22 @@ const IndexPage = ({ data }: IndexPageProps): JSX.Element => {
         Welcome to your new <strong>{data.site?.siteMetadata?.title}</strong>{' '}
         site.
       </p>
-      <p>Now go build something great.</p>
-      <Link to="/page-2/">Go to page 2</Link>
+      <Link to="/members">メンバー一覧</Link>
+      {' | '}
+      <Link to="/teams">チーム一覧</Link>
+      {' | '}
+      <Link to="/activity_log">活動記録</Link>
+      {' | '}
+      <Link to="/about">Engineについて</Link>
+      {' | '}
+      <Link to="/portfolios">ポートフォリオ一覧</Link>
+      <div>
+        {selectedLanguage === 'ja' ? (
+          <button onClick={() => setLanguage('en')}>en</button>
+        ) : (
+          <button onClick={() => setLanguage('ja')}>ja</button>
+        )}
+      </div>
     </div>
   )
 }
