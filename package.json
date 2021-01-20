@@ -57,7 +57,6 @@
     "YutaUra<yuuta3594@outlook.jp>"
   ],
   "browserslist": [
-    "> 50%",
-    "last 1 versions"
+    "defaults"
   ]
 }
