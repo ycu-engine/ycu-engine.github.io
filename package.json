@@ -57,8 +57,7 @@
     "YutaUra<yuuta3594@outlook.jp>"
   ],
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "Firefox ESR"
+    "> 50%",
+    "last 1 versions"
   ]
 }
