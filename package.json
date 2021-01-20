@@ -55,5 +55,9 @@
   },
   "contributors": [
     "YutaUra<yuuta3594@outlook.jp>"
+  ],
+  "browserslist": [
+    ">0.25%",
+    "not dead"
   ]
 }
