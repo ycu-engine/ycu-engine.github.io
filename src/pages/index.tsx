@@ -1,3 +1,5 @@
+import { HeroImage } from '@/components/atoms/hero-image'
+import { MemberIcon } from '@/components/atoms/member-icon'
 import { useI18n } from '@/components/context/i18n'
 import type { IndexQueryQuery } from '@gql'
 import { graphql } from 'gatsby'
@@ -20,10 +22,9 @@ interface IndexPageProps {
 
 const IndexPage = ({ data }: IndexPageProps): JSX.Element => {
   const { selectedLanguage, setLanguage } = useI18n()
-  console.log(selectedLanguage)
   return (
     <div>
-      <h1>Hi people</h1>
+      <HeroImage />
       <p>
         Welcome to your new <strong>{data.site?.siteMetadata?.title}</strong>{' '}
         site.
@@ -44,6 +45,12 @@ const IndexPage = ({ data }: IndexPageProps): JSX.Element => {
           <button onClick={() => setLanguage('ja')}>ja</button>
         )}
       </div>
+      <MemberIcon
+        memberName="TakashiNemoto"
+        className="rounded-full"
+        size="md"
+      />
+      <MemberIcon memberName="YutaUra" className="rounded-full" size="md" />
     </div>
   )
 }

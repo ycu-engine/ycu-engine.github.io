@@ -17,19 +17,26 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "autoprefixer": "^10.2.3",
     "date-fns": "^2.16.1",
     "date-fns-tz": "^1.0.12",
     "gatsby": "^2.30.2",
+    "gatsby-image": "^2.10.0",
     "gatsby-link": "^2.9.0",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-mdx": "^1.8.0",
+    "gatsby-plugin-postcss": "^3.6.0",
     "gatsby-plugin-react-helmet": "^3.8.0",
+    "gatsby-plugin-sharp": "^2.13.0",
     "gatsby-plugin-typescript": "^2.10.0",
     "gatsby-source-filesystem": "^2.9.0",
+    "gatsby-transformer-sharp": "^2.11.0",
+    "postcss": "^8.2.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "@types/eslint": "^7.2.6",

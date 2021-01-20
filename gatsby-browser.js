@@ -1,6 +1,7 @@
 import { I18nProvider } from '@/components/context/i18n'
 import { MarkdownProvider } from '@/components/context/Markdown'
 import React from 'react'
+import 'tailwindcss/tailwind.css'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const wrapRootElement = ({ element }) => {
