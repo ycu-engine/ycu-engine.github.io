@@ -3,11 +3,42 @@ import type {
   GatsbyNode,
   SourceNodesArgs,
 } from 'gatsby'
-import { faculties } from '../src/data/faculty'
-import { members } from '../src/data/member'
-import { portfolios } from '../src/data/portfolio'
-import { skills } from '../src/data/skills'
-import { teams } from '../src/data/team'
+import { resolve } from 'path'
+import { faculties } from '../data/faculty'
+import { members } from '../data/member'
+import { portfolios } from '../data/portfolio'
+import { skills } from '../data/skills'
+import { teams } from '../data/team'
+
+export const createPages: GatsbyNode['createPages'] = async ({
+  graphql,
+  actions,
+}) => {
+  const result = await graphql<{
+    allMember: { nodes: [{ id: string; name: string }] }
+  }>(/* GraphQL */ `
+    query CreatePages {
+      allMember {
+        nodes {
+          id
+          name
+        }
+      }
+    }
+  `)
+  if (result.data) {
+    result.data.allMember.nodes.forEach(({ id, name }) => {
+      console.log('CREATE PAGE', `/members/${name}`)
+      actions.createPage({
+        path: `/members/${name}`,
+        component: resolve('src/templates/member.tsx'),
+        context: {
+          slug: id,
+        },
+      })
+    })
+  }
+}
 
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
   actions: { createNode },

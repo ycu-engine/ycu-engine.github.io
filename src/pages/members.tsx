@@ -1,3 +1,6 @@
+import { PageHeader } from '@/components/atoms/page-header'
+import { MemberCard } from '@/components/molecules/MemberCard'
+import { Tab } from '@/components/organisms/Tab'
 import type { MembersPageQuery } from '@gql'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
@@ -7,17 +10,17 @@ export const pageQuery = graphql`
   query MembersPage {
     activeMemvers: allMember(filter: { isGraduated: { ne: true } }) {
       nodes {
-        ...MemberFragment
+        ...memberInfo
       }
     }
     graduatedMembers: allMember(filter: { isGraduated: { eq: true } }) {
       nodes {
-        ...MemberFragment
+        ...memberInfo
       }
     }
   }
 
-  fragment MemberFragment on Member {
+  fragment memberInfo on Member {
     name
     position
     nameJa
@@ -57,26 +60,29 @@ interface MembersPageProps {
 const MembersPage = ({ data }: MembersPageProps): JSX.Element => {
   return (
     <div>
-      <h1>メンバー一覧</h1>
-      <h2>現役メンバー</h2>
-      <ul>
-        {data.activeMemvers.nodes.map((member) => (
-          <li key={member.id}>
-            {member.nameJa} {member.position}
-          </li>
-        ))}
-      </ul>
-      <h2>卒業したメンバー</h2>
-      <ul>
-        {data.graduatedMembers.nodes.map((member) => (
-          <li key={member.id}>
-            {member.nameJa} {member.position}
-          </li>
-        ))}
-      </ul>
+      <PageHeader pageName="members" />
+      <div className="flex flex-col my-5 mx-5">
+        <h1 className="text-center text-3xl">メンバー一覧</h1>
+        <p className="text-base px-8 md:px-16 lg:px-32">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur
+          quod eveniet repellendus delectus doloribus excepturi recusandae,
+          provident porro modi adipisci facilis reiciendis accusamus tempore,
+          quisquam cumque magni ea. Aliquam, debitis.
+        </p>
+      </div>
 
-      <p>Now go build something great.</p>
-      <Link to="/">Go to Top</Link>
+      <div className="container px-4 mx-auto">
+        <Tab
+          tabs={['現役', 'OB']}
+          items={{
+            現役: data.activeMemvers.nodes,
+            OB: data.graduatedMembers.nodes,
+          }}>
+          {(member) => <MemberCard member={member} key={member.id} />}
+        </Tab>
+
+        <Link to="/">Go to Top</Link>
+      </div>
     </div>
   )
 }
