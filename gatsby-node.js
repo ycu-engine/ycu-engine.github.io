@@ -2,9 +2,12 @@
 
 require('ts-node').register()
 
-// require('./src/__generated__/gatsby-types')
+const {
+  createSchemaCustomization,
+  sourceNodes,
+  createPages,
+} = require('./src/gatsby/node.ts')
 
-const { createSchemaCustomization, sourceNodes } = require('./gatsby/node.ts')
-
-exports.createSchemaCustomization = createSchemaCustomization
+exports.createPages = createPages
 exports.sourceNodes = sourceNodes
+exports.createSchemaCustomization = createSchemaCustomization

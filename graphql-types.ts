@@ -4136,6 +4136,7 @@ export type QuerySitePageArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
+  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -4747,6 +4748,7 @@ export type SitePage = Node & {
   children: Array<Node>;
   internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
+  context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
@@ -4771,6 +4773,14 @@ export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   field: SitePageFieldsEnum;
+};
+
+export type SitePageContext = {
+  slug?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -4872,6 +4882,7 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
+  | 'context___slug'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -4961,6 +4972,7 @@ export type SitePageFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
+  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -6248,6 +6260,27 @@ export type MemberIconQuery = { allFile: { nodes: Array<(
       & { sm?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, md?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, lg?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, xl?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }
     )> } };
 
+export type PageHeaderQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PageHeaderQuery = { allFile: { nodes: Array<(
+      Pick<File, 'name'>
+      & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }
+    )> } };
+
+export type TeamIconQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TeamIconQuery = { allFile: { nodes: Array<(
+      Pick<File, 'name'>
+      & { sm?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, md?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, lg?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, xl?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }
+    )> } };
+
+export type CreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreatePagesQuery = { allMember: { nodes: Array<Pick<Member, 'id' | 'name'>> } };
+
 export type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -6272,9 +6305,9 @@ export type IndexQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSit
 export type MembersPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MembersPageQuery = { activeMemvers: { nodes: Array<MemberFragmentFragment> }, graduatedMembers: { nodes: Array<MemberFragmentFragment> } };
+export type MembersPageQuery = { activeMemvers: { nodes: Array<MemberInfoFragment> }, graduatedMembers: { nodes: Array<MemberInfoFragment> } };
 
-export type MemberFragmentFragment = (
+export type MemberInfoFragment = (
   Pick<Member, 'name' | 'position' | 'nameJa' | 'id' | 'joinedAt'>
   & { belongs: (
     Pick<MemberBelongs, 'grade'>
@@ -6309,6 +6342,25 @@ export type TeamsPageQuery = { allTeam: { nodes: Array<(
         & { member: Pick<Member, 'name'> }
       )> }
     )> } };
+
+export type MemberTemplateQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type MemberTemplateQuery = { member?: Maybe<(
+    Pick<Member, 'isGraduated' | 'joinedAt' | 'name' | 'nameJa' | 'position'>
+    & { belongs: (
+      Pick<MemberBelongs, 'grade'>
+      & { faculty: Pick<Faculty, 'name' | 'nameJa'> }
+    ), contributions?: Maybe<Array<{ portfolio: Pick<Portfolio, 'id' | 'name' | 'nameJa'> }>>, skills?: Maybe<Array<(
+      Pick<MemberSkill, 'level'>
+      & { skill: Pick<Skill, 'id' | 'description' | 'name'> }
+    )>>, social?: Maybe<Pick<MemberSocial, 'github' | 'twitter'>>, teams?: Maybe<Array<(
+      Pick<TeamMember, 'leader' | 'id'>
+      & { team: Pick<Team, 'name' | 'nameJa'> }
+    )>> }
+  )> };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

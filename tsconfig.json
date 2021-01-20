@@ -25,10 +25,10 @@
         "baseUrl": ".",
         "paths": {
             "@/*": [
-                "./src/*"
+                "src/*"
             ],
             "@gql": [
-                "./graphql-types.ts"
+                "graphql-types.ts"
             ]
         },
     },
