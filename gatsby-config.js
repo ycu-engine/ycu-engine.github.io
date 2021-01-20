@@ -1,6 +1,5 @@
-const path = require('path')
-
 module.exports = {
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: 'Gatsby Typescript Starter',
   },
@@ -32,5 +31,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/images`,
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-postcss`,
   ],
 }

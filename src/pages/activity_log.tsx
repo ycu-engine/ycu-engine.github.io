@@ -1,4 +1,5 @@
 import { ActivityLogPageQuery } from '@gql'
+import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
