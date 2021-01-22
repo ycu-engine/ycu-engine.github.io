@@ -45,11 +45,6 @@
                 "@typescript-eslint/no-var-requires": "off",
                 "@typescript-eslint/explicit-function-return-type": "off"
             }
-        },
-        {
-            "files": "*.mdx",
-            // "parser": "eslint-mdx", // enable `eslint-mdx` manually if it does not work
-            "extends": "plugin:mdx/recommended"
         }
     ]
 }
