@@ -1,6 +1,6 @@
 import { MemberName } from '@/data/member'
 import type { MemberIconQuery } from '@gql'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import Img, { GatsbyImageProps } from 'gatsby-image'
 import * as React from 'react'
 
@@ -61,6 +61,8 @@ export const MemberIcon: React.FC<MemberIconProps> = ({
   }, [fixedImage, size])
 
   return (
-    <Img {...props} fixed={{ ...image, base64: image.base64 || undefined }} />
+    <Link to={`/members/${memberName}`}>
+      <Img {...props} fixed={{ ...image, base64: image.base64 || undefined }} />
+    </Link>
   )
 }

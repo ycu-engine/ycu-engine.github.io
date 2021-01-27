@@ -28,7 +28,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
   `)
   if (result.data) {
     result.data.allMember.nodes.forEach(({ id, name }) => {
-      console.log('CREATE PAGE', `/members/${name}`)
       actions.createPage({
         path: `/members/${name}`,
         component: resolve('src/templates/member.tsx'),

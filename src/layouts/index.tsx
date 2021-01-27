@@ -1,7 +1,6 @@
 import { Header } from '@/components/organisms/Header'
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import './index.css'
 
 export const Layout: React.FC = ({ children }) => {
   return (

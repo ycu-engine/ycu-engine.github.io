@@ -2,9 +2,15 @@ import type { TeamsPageQuery } from '@gql'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 
 export const pageQuery = graphql`
   query TeamsPage {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allTeam {
       nodes {
         id
@@ -29,6 +35,9 @@ interface TeamsPageProps {
 const TeamsPage = ({ data }: TeamsPageProps): JSX.Element => {
   return (
     <div>
+      <Helmet>
+        <title>{`チーム | ${data.site?.siteMetadata?.title}`}</title>
+      </Helmet>
       <h1>チーム一覧</h1>
       <ul>
         {data.allTeam.nodes.map((team) => (
