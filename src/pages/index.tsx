@@ -5,6 +5,7 @@ import type { IndexQueryQuery } from '@gql'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -24,6 +25,9 @@ const IndexPage = ({ data }: IndexPageProps): JSX.Element => {
   const { selectedLanguage, setLanguage } = useI18n()
   return (
     <div>
+      <Helmet>
+        <title>{`ようこそ | ${data.site?.siteMetadata?.title}`}</title>
+      </Helmet>
       <HeroImage />
       <p>
         Welcome to your new <strong>{data.site?.siteMetadata?.title}</strong>{' '}

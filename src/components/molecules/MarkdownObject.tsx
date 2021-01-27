@@ -1,6 +1,7 @@
 import { MemberName, members } from '@/data/member'
 import { PortfolioName, portfolios } from '@/data/portfolio'
 import { TeamName, teams } from '@/data/team'
+import { Link } from 'gatsby'
 import * as React from 'react'
 
 type MarkdownTeamProps = {
@@ -49,7 +50,9 @@ export const MarkdownUser = ({ name }: MarkdownUserProps): JSX.Element => {
   return (
     <>
       {' '}
-      <span>{`${name}`}</span>{' '}
+      <Link
+        className="text-gray-900 hover:text-gray-700 hover:underline"
+        to={`/members/${user.name}`}>{`@${user.nameJa}`}</Link>{' '}
     </>
   )
 }

@@ -1,7 +1,14 @@
 module.exports = {
-  flags: { PRESERVE_WEBPACK_CACHE: true },
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    FAST_DEV: true,
+    DEV_SSR: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    FAST_REFRESH: true,
+    PARALLEL_SOURCING: true,
+  },
   siteMetadata: {
-    title: 'Gatsby Typescript Starter',
+    title: 'Engine',
   },
   plugins: [
     {

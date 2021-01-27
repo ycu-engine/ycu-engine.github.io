@@ -5,9 +5,15 @@ import type { MembersPageQuery } from '@gql'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 
 export const pageQuery = graphql`
   query MembersPage {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     activeMemvers: allMember(filter: { isGraduated: { ne: true } }) {
       nodes {
         ...memberInfo
@@ -60,6 +66,9 @@ interface MembersPageProps {
 const MembersPage = ({ data }: MembersPageProps): JSX.Element => {
   return (
     <div>
+      <Helmet>
+        <title>{`メンバー | ${data.site?.siteMetadata?.title}`}</title>
+      </Helmet>
       <PageHeader pageName="members" />
       <div className="flex flex-col my-5 mx-5">
         <h1 className="text-center text-3xl">メンバー一覧</h1>

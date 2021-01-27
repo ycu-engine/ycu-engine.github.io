@@ -2,9 +2,15 @@ import { PortfoliosPageQuery } from '@gql'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 
 export const pageQuery = graphql`
   query PortfoliosPage {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allPortfolio {
       nodes {
         id
@@ -28,6 +34,9 @@ interface PortfoliosPageProps {
 const PortfoliosPage = ({ data }: PortfoliosPageProps): JSX.Element => {
   return (
     <div>
+      <Helmet>
+        <title>{`ポートフォリオ | ${data.site?.siteMetadata?.title}`}</title>
+      </Helmet>
       <h1>ポートフォリオ一覧</h1>
       <ul>
         {data.allPortfolio.nodes.map((portfolio) => (
