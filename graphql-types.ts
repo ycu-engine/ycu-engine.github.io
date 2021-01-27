@@ -1450,8 +1450,8 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___date'
   | 'childrenMdx___frontmatter___startTime'
   | 'childrenMdx___frontmatter___endTime'
-  | 'childrenMdx___frontmatter___topics'
   | 'childrenMdx___frontmatter___teamName'
+  | 'childrenMdx___frontmatter___topics'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -1525,8 +1525,8 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___date'
   | 'childMdx___frontmatter___startTime'
   | 'childMdx___frontmatter___endTime'
-  | 'childMdx___frontmatter___topics'
   | 'childMdx___frontmatter___teamName'
+  | 'childMdx___frontmatter___topics'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2463,8 +2463,8 @@ export type MdxFieldsEnum =
   | 'frontmatter___date'
   | 'frontmatter___startTime'
   | 'frontmatter___endTime'
-  | 'frontmatter___topics'
   | 'frontmatter___teamName'
+  | 'frontmatter___topics'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -2595,8 +2595,8 @@ export type MdxFrontmatter = {
   date?: Maybe<Scalars['Date']>;
   startTime?: Maybe<Scalars['Int']>;
   endTime?: Maybe<Scalars['Int']>;
-  topics?: Maybe<Array<Maybe<Scalars['String']>>>;
   teamName?: Maybe<Scalars['String']>;
+  topics?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -2614,8 +2614,8 @@ export type MdxFrontmatterFilterInput = {
   date?: Maybe<DateQueryOperatorInput>;
   startTime?: Maybe<IntQueryOperatorInput>;
   endTime?: Maybe<IntQueryOperatorInput>;
-  topics?: Maybe<StringQueryOperatorInput>;
   teamName?: Maybe<StringQueryOperatorInput>;
+  topics?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -4617,6 +4617,11 @@ export type SiteFieldsEnum =
   | 'port'
   | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
+  | 'flags___FAST_DEV'
+  | 'flags___DEV_SSR'
+  | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
+  | 'flags___FAST_REFRESH'
+  | 'flags___PARALLEL_SOURCING'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -4722,10 +4727,20 @@ export type SiteFilterInput = {
 
 export type SiteFlags = {
   PRESERVE_WEBPACK_CACHE?: Maybe<Scalars['Boolean']>;
+  FAST_DEV?: Maybe<Scalars['Boolean']>;
+  DEV_SSR?: Maybe<Scalars['Boolean']>;
+  PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<Scalars['Boolean']>;
+  FAST_REFRESH?: Maybe<Scalars['Boolean']>;
+  PARALLEL_SOURCING?: Maybe<Scalars['Boolean']>;
 };
 
 export type SiteFlagsFilterInput = {
   PRESERVE_WEBPACK_CACHE?: Maybe<BooleanQueryOperatorInput>;
+  FAST_DEV?: Maybe<BooleanQueryOperatorInput>;
+  DEV_SSR?: Maybe<BooleanQueryOperatorInput>;
+  PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<BooleanQueryOperatorInput>;
+  FAST_REFRESH?: Maybe<BooleanQueryOperatorInput>;
+  PARALLEL_SOURCING?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SiteGroupConnection = {
@@ -6284,12 +6299,12 @@ export type CreatePagesQuery = { allMember: { nodes: Array<Pick<Member, 'id' | '
 export type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AboutPageQuery = { aboutJa?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body' | 'excerpt'>> }>, aboutEn?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body' | 'excerpt'>> }> };
+export type AboutPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, aboutJa?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body' | 'excerpt'>> }>, aboutEn?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body' | 'excerpt'>> }> };
 
 export type ActivityLogPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ActivityLogPageQuery = { allFile: { nodes: Array<(
+export type ActivityLogPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allFile: { nodes: Array<(
       Pick<File, 'id'>
       & { childMdx?: Maybe<(
         Pick<Mdx, 'body'>
@@ -6305,7 +6320,7 @@ export type IndexQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSit
 export type MembersPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MembersPageQuery = { activeMemvers: { nodes: Array<MemberInfoFragment> }, graduatedMembers: { nodes: Array<MemberInfoFragment> } };
+export type MembersPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, activeMemvers: { nodes: Array<MemberInfoFragment> }, graduatedMembers: { nodes: Array<MemberInfoFragment> } };
 
 export type MemberInfoFragment = (
   Pick<Member, 'name' | 'position' | 'nameJa' | 'id' | 'joinedAt'>
@@ -6324,7 +6339,7 @@ export type MemberInfoFragment = (
 export type PortfoliosPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PortfoliosPageQuery = { allPortfolio: { nodes: Array<(
+export type PortfoliosPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allPortfolio: { nodes: Array<(
       Pick<Portfolio, 'id' | 'name' | 'nameJa'>
       & { contributors: Array<(
         Pick<Contribution, 'id'>
@@ -6335,7 +6350,7 @@ export type PortfoliosPageQuery = { allPortfolio: { nodes: Array<(
 export type TeamsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TeamsPageQuery = { allTeam: { nodes: Array<(
+export type TeamsPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allTeam: { nodes: Array<(
       Pick<Team, 'id' | 'name' | 'nameJa'>
       & { members: Array<(
         Pick<TeamMember, 'id' | 'leader'>
@@ -6348,7 +6363,7 @@ export type MemberTemplateQueryVariables = Exact<{
 }>;
 
 
-export type MemberTemplateQuery = { member?: Maybe<(
+export type MemberTemplateQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, member?: Maybe<(
     Pick<Member, 'isGraduated' | 'joinedAt' | 'name' | 'nameJa' | 'position'>
     & { belongs: (
       Pick<MemberBelongs, 'grade'>

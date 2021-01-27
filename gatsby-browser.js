@@ -1,5 +1,6 @@
 import { I18nProvider } from '@/components/context/i18n'
 import { MarkdownProvider } from '@/components/context/Markdown'
+import { Layout } from '@/layouts'
 import React from 'react'
 import 'tailwindcss/tailwind.css'
 
@@ -7,7 +8,9 @@ import 'tailwindcss/tailwind.css'
 export const wrapRootElement = ({ element }) => {
   return (
     <I18nProvider>
-      <MarkdownProvider>{element}</MarkdownProvider>
+      <MarkdownProvider>
+        <Layout>{element}</Layout>
+      </MarkdownProvider>
     </I18nProvider>
   )
 }
