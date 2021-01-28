@@ -8,6 +8,7 @@ export const memberName = [
   'YosukeMuroi',
   'MarinMiwa',
   'TakashiNemoto',
+  'FujitaItsuki',
   'ShoKohiyama',
   'KotaroTakamori',
 ] as const
@@ -24,7 +25,7 @@ export type MemberSkill = {
   level: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-export type Position = 'Leader' | 'SubLeader'
+export type Position = 'Leader' | 'SubLeader' | 'ゴブリン'
 
 export type SocialAccount = {
   github?: string
@@ -79,6 +80,18 @@ export const members: readonly Member[] = [
     nameJa: '根本 貴志',
     joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
+  },
+  {
+    name: 'FujitaItsuki',
+    nameJa: '藤田樹',
+    joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
+    position: 'ゴブリン',
+    social: {
+      github: 'fijita',
+      twitter: 'fulfill_Brownie',
+    },
+    belongs: { facultyName: 'DataScienceUndergraduate', grade: 2 },
+    skills: [{ skillName: 'python', level: 3 }],
   },
   {
     name: 'ShoKohiyama',
