@@ -71,6 +71,7 @@ export const members: readonly Member[] = [
     name: 'YosukeMuroi',
     nameJa: '室井 葉介',
     joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
+    social: { github: 'mur0ii' },
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
   },
   {
