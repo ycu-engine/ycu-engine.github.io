@@ -8,6 +8,7 @@ export const memberName = [
   'YosukeMuroi',
   'MarinMiwa',
   'TakashiNemoto',
+  'ShoKohiyama',
 ] as const
 
 export type MemberName = typeof memberName[number]
@@ -76,6 +77,12 @@ export const members: readonly Member[] = [
     name: 'TakashiNemoto',
     nameJa: '根本 貴志',
     joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
+    belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
+  },
+  {
+    name: 'ShoKohiyama',
+    nameJa: '小檜山　祥央',
+    joinedAt: zonedTimeToUtc('2021-01-28', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
   },
 ]
