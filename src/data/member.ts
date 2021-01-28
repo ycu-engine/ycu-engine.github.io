@@ -25,7 +25,7 @@ export type MemberSkill = {
   level: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-export type Position = 'Leader' | 'SubLeader' | 'ゴブリン'
+export type Position = 'Leader' | 'SubLeader' | 'Goblin'
 
 export type SocialAccount = {
   github?: string
@@ -85,7 +85,7 @@ export const members: readonly Member[] = [
     name: 'FujitaItsuki',
     nameJa: '藤田樹',
     joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
-    position: 'ゴブリン',
+    position: 'Goblin',
     social: {
       github: 'fijita',
       twitter: 'fulfill_Brownie',

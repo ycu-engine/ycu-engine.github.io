@@ -158,6 +158,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     enum Posision {
       Leader
       SubLeader
+      Goblin
     }
 
     type Contribution implements Node {
