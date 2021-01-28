@@ -71,9 +71,13 @@ export const members: readonly Member[] = [
   },
   {
     name: 'MarinMiwa',
-    nameJa: '三輪 まりん',
+    nameJa: '三輪 茉琳',
     joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
+    social:{
+      github: 'ShiroooMARISON',
+      twitter: 'ShiroooMARISON'
+    }
   },
   {
     name: 'TakashiNemoto',
