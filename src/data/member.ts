@@ -3,14 +3,14 @@ import { FacultyName } from './faculty'
 import { SkillName } from './skills'
 
 export const memberName = [
-  'YutaUra',
+  'FujitaItsuki',
+  'KotaroTakamori',
+  'MarinMiwa',
+  'ShoKohiyama',
+  'TakashiNemoto',
   'YoshiyukiKobayashi',
   'YosukeMuroi',
-  'MarinMiwa',
-  'TakashiNemoto',
-  'FujitaItsuki',
-  'ShoKohiyama',
-  'KotaroTakamori',
+  'YutaUra',
 ] as const
 
 export type MemberName = typeof memberName[number]
