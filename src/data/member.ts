@@ -8,6 +8,7 @@ export const memberName = [
   'YosukeMuroi',
   'MarinMiwa',
   'TakashiNemoto',
+  'ShoKohiyama',
   'KotaroTakamori',
 ] as const
 
@@ -80,9 +81,15 @@ export const members: readonly Member[] = [
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
   },
   {
+    name: 'ShoKohiyama',
+    nameJa: '小檜山　祥央',
+    joinedAt: zonedTimeToUtc('2021-01-28', 'Asia/Tokyo'),
+    belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
+  },
+  {
     name: 'KotaroTakamori',
     nameJa: '高森 皓太郎',
     joinedAt: zonedTimeToUtc('2021-01-28', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
-  }, 
+  },
 ]
