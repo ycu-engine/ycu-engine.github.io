@@ -61,6 +61,10 @@ export const members: readonly Member[] = [
     nameJa: '小林 義幸',
     joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
     position: 'SubLeader',
+    social:{
+      github:"yoshiyukids",
+      twitter:"yoshiyuki_ds"
+    },
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
   },
   {
