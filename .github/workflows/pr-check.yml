@@ -22,6 +22,8 @@ jobs:
 
       - name: install
         run: yarn
+      - name: format-check
+        run: yarn format-check
       - name: lint
         run: yarn lint
       - name: type-check

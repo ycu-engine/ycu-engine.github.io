@@ -138,7 +138,7 @@ export const members: readonly Member[] = [
   },
   {
     name: 'FujiharuKawahara',
-    nameJa:'河原富士晴',
+    nameJa: '河原富士晴',
     joinedAt: zonedTimeToUtc('2021-01-29', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 1 },
   },
