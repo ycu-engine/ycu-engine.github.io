@@ -11,6 +11,7 @@ export const memberName = [
   'FujitaItsuki',
   'ShoKohiyama',
   'KotaroTakamori',
+  'KentaroMorota',
   'KakeruSato',
   'FujiharuKawahara',
 ] as const
@@ -115,6 +116,12 @@ export const members: readonly Member[] = [
     nameJa: '高森 皓太郎',
     joinedAt: zonedTimeToUtc('2021-01-28', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
+  },
+  {
+    name: 'KentaroMorota',
+    nameJa: '諸田　健太朗',
+    joinedAt: zonedTimeToUtc('2021-01-29', 'Asia/Tokyo'),
+    belongs: { facultyName: 'DataScienceUndergraduate', grade: 1 },
   },
   {
     name: 'KakeruSato',
