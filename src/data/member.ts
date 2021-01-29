@@ -11,7 +11,7 @@ export const memberName = [
   'FujitaItsuki',
   'ShoKohiyama',
   'KotaroTakamori',
-  'FujiharuKawahara'
+  'FujiharuKawahara',
 ] as const
 
 export type MemberName = typeof memberName[number]
