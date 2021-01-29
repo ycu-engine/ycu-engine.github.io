@@ -12,6 +12,7 @@ export const memberName = [
   'ShoKohiyama',
   'KotaroTakamori',
   'KentaroMorota',
+  'KakeruSato',
   'FujiharuKawahara',
 ] as const
 
@@ -63,9 +64,9 @@ export const members: readonly Member[] = [
     nameJa: '小林 義幸',
     joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
     position: 'SubLeader',
-    social:{
-      github:"yoshiyukids",
-      twitter:"yoshiyuki_ds"
+    social: {
+      github: 'yoshiyukids',
+      twitter: 'yoshiyuki_ds',
     },
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
   },
@@ -81,10 +82,10 @@ export const members: readonly Member[] = [
     nameJa: '三輪 茉琳',
     joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
-    social:{
+    social: {
       github: 'ShiroooMARISON',
-      twitter: 'ShiroooMARISON'
-    }
+      twitter: 'ShiroooMARISON',
+    },
   },
   {
     name: 'TakashiNemoto',
@@ -119,7 +120,13 @@ export const members: readonly Member[] = [
   {
     name: 'KentaroMorota',
     nameJa: '諸田　健太朗',
-      joinedAt: zonedTimeToUtc('2021-01-29', 'Asia/Tokyo'),
+    joinedAt: zonedTimeToUtc('2021-01-29', 'Asia/Tokyo'),
+    belongs: { facultyName: 'DataScienceUndergraduate', grade: 1 },
+  },
+  {
+    name: 'KakeruSato',
+    nameJa: '佐藤駿',
+    joinedAt: zonedTimeToUtc('2021-01-29', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 1 },
   },
   {
