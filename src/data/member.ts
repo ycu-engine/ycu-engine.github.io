@@ -118,7 +118,7 @@ export const members: readonly Member[] = [
   {
     name: 'KentaroMorota',
     nameJa: '諸田　健太朗',
-    joinedAt: zonedTimeToUtc('2021-01-28', 'Asia/Tokyo'),
+    joinedAt: zonedTimeToUtc('2021-01-29', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 1 },
   },
 ]
