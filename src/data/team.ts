@@ -1,6 +1,6 @@
 import { MemberName } from './member'
 
-export const teamName = ['DataAnalitics', 'Web'] as const
+export const teamName = ['DataAnalitics', 'Web', 'Beginner'] as const
 
 export type TeamName = typeof teamName[number]
 
@@ -31,5 +31,15 @@ export const teams: readonly Team[] = [
     name: 'Web',
     nameJa: 'Web開発チーム',
     members: [{ memberName: 'YutaUra', leader: true }],
+  },
+  {
+    name: 'Beginner',
+    nameJa: 'ビギナーチーム',
+    members: [
+      { memberName: 'FujiharuKawahara' },
+      { memberName: 'KakeruSato' },
+      { memberName: 'KentaroMorota' },
+      { memberName: 'TsuyoshiMatsumaru' },
+    ],
   },
 ]
