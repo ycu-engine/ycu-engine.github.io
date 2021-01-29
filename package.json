@@ -8,10 +8,15 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
+    "format": "yarn format:ts && yarn format:md",
+    "format:ts": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
+    "format:md": "prettier --parser mdx --write \"src/**/*.md*\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "husky install && typesync || :",
     "type-check": "tsc",
+    "format-check": "yarn format-check:ts && yarn format-check:md",
+    "format-check:ts": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote -c \"src/**/*.ts*\"",
+    "format-check:md": "prettier --parser mdx -c \"src/**/*.md*\"",
     "lint": "yarn eslint src --ext ts,tsx,md,mdx"
   },
   "dependencies": {
