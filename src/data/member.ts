@@ -97,7 +97,7 @@ export const members: readonly Member[] = [
   {
     name: 'FujitaItsuki',
     nameJa: '藤田樹',
-    joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
+    joinedAt: zonedTimeToUtc('2021-01-28', 'Asia/Tokyo'),
     position: 'Goblin',
     social: {
       github: 'fijita',
