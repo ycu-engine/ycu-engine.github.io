@@ -21,7 +21,7 @@ export const Tab = <T extends string, V extends Record<string, unknown>>({
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`flex-grow-0 px-4 border rounded-t focus:outline-none hover:bg-accent ${
+            className={`flex-grow-0 px-8 py-2 text-lg border rounded-t focus:outline-none hover:bg-accent ${
               tab === selectedTab ? 'border-b-0' : ''
             }`}
             onClick={() => setSelectedTab(tab)}>

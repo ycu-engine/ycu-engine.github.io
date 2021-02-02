@@ -3934,7 +3934,8 @@ export type PortfolioSortInput = {
 
 export type Posision = 
   | 'Leader'
-  | 'SubLeader';
+  | 'SubLeader'
+  | 'Goblin';
 
 export type PosisionQueryOperatorInput = {
   eq?: Maybe<Posision>;
@@ -4108,6 +4109,8 @@ export type QuerySiteArgs = {
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -4411,6 +4414,8 @@ export type Site = Node & {
   port?: Maybe<Scalars['Int']>;
   host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
+  polyfill?: Maybe<Scalars['Boolean']>;
+  pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -4618,6 +4623,8 @@ export type SiteFieldsEnum =
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___FAST_REFRESH'
   | 'flags___PARALLEL_SOURCING'
+  | 'polyfill'
+  | 'pathPrefix'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -4711,6 +4718,8 @@ export type SiteFilterInput = {
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -6264,7 +6273,7 @@ export type MemberIconQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MemberIconQuery = { allFile: { nodes: Array<(
       Pick<File, 'name'>
-      & { sm?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, md?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, lg?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, xl?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }
+      & { xxs?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, xs?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, sm?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, md?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, lg?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }>, xl?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }
     )> } };
 
 export type PageHeaderQueryVariables = Exact<{ [key: string]: never; }>;
