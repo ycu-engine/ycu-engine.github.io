@@ -11,7 +11,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({ ...props }) => {
       file(relativePath: { eq: "site/hero.png" }) {
         childImageSharp {
           fluid(fit: COVER) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -30,6 +30,8 @@ export const HeroImage: React.FC<HeroImageProps> = ({ ...props }) => {
       fluid={{
         ...image.file.childImageSharp.fluid,
         base64: image.file.childImageSharp.fluid.base64 || undefined,
+        srcWebp: image.file.childImageSharp.fluid.srcSetWebp || undefined,
+        srcSetWebp: image.file.childImageSharp.fluid.srcSetWebp || undefined,
       }}
       imgStyle={{
         objectFit: 'cover',

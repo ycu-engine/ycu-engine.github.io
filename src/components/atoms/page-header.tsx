@@ -17,7 +17,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
         nodes {
           childImageSharp {
             fluid(fit: COVER) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name
@@ -45,6 +45,8 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
       fluid={{
         ...image,
         base64: image.base64 || undefined,
+        srcWebp: image.srcSetWebp || undefined,
+        srcSetWebp: image.srcSetWebp || undefined,
       }}
       imgStyle={{
         objectFit: 'cover',
