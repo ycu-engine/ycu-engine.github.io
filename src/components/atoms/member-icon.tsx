@@ -1,4 +1,5 @@
 import { MemberName } from '@/data/member'
+import { SIZE_TYPE } from '@/lib/size'
 import type { MemberIconQuery } from '@gql'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Img, { GatsbyImageProps } from 'gatsby-image'
@@ -6,7 +7,7 @@ import * as React from 'react'
 
 type MemberIconProps = Pick<GatsbyImageProps, 'className'> & {
   memberName: MemberName
-  size: 'sm' | 'md' | 'lg' | 'xl'
+  size: SIZE_TYPE
 }
 
 export const MemberIcon: React.FC<MemberIconProps> = ({
@@ -19,6 +20,16 @@ export const MemberIcon: React.FC<MemberIconProps> = ({
       allFile(filter: { relativeDirectory: { eq: "member-images" } }) {
         nodes {
           name
+          xxs: childImageSharp {
+            fixed(width: 16, height: 16) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+          xs: childImageSharp {
+            fixed(width: 24, height: 24) {
+              ...GatsbyImageSharpFixed
+            }
+          }
           sm: childImageSharp {
             fixed(width: 32, height: 32) {
               ...GatsbyImageSharpFixed

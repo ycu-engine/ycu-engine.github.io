@@ -24,7 +24,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({ ...props }) => {
   return (
     <Img
       style={{
-        height: '500px',
+        height: 'calc(100vh - 72px)',
       }}
       {...props}
       fluid={{
@@ -33,7 +33,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({ ...props }) => {
       }}
       imgStyle={{
         objectFit: 'cover',
-        height: 500,
+        height: 'calc(100vh - 72px)',
       }}
     />
   )

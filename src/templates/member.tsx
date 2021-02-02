@@ -1,4 +1,6 @@
 import { MemberIcon } from '@/components/atoms/member-icon'
+import { GithubIcon, TwitterIcon } from '@/components/atoms/social-icons'
+import { GithubLink, TwitterLink } from '@/components/atoms/social-link'
 import { MemberName } from '@/data/member'
 import type { MemberTemplateQuery } from '@gql'
 import { graphql, Link } from 'gatsby'
@@ -72,11 +74,30 @@ const MemberTemplate = ({
         <title>{`${member.nameJa} | メンバー | ${site?.siteMetadata?.title}`}</title>
       </Helmet>
       <div>
-        <Link to="/members">メンバー一覧</Link>
+        <Link to="/members">▷ メンバー一覧</Link>
       </div>
 
       <div>
-        <MemberIcon memberName={member.name as MemberName} size="xl" />
+        <MemberIcon
+          className="rounded-full"
+          memberName={member.name as MemberName}
+          size="xl"
+        />
+      </div>
+
+      <div>
+        {member.social?.twitter ? (
+          <div>
+            <TwitterIcon size="xs" className="inline" />
+            <TwitterLink username={member.social.twitter} />
+          </div>
+        ) : null}
+        {member.social?.github ? (
+          <div>
+            <GithubIcon size="xs" className="inline" />
+            <GithubLink username={member.social.github} />
+          </div>
+        ) : null}
       </div>
 
       <div>{member.nameJa}</div>
