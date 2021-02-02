@@ -18,7 +18,9 @@ export const Layout: React.FC = ({ children }) => {
           },
         ]}
       />
-      <Header />
+      <>
+        <Header />
+      </>
       <div>{children}</div>
     </div>
   )

@@ -1,5 +1,5 @@
 import { TeamName } from '@/data/team'
-import type { MemberIconQuery } from '@gql'
+import type { TeamIconQuery } from '@gql'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img, { GatsbyImageProps } from 'gatsby-image'
 import * as React from 'react'
@@ -14,29 +14,29 @@ export const TeamIcon: React.FC<TeamIconProps> = ({
   size,
   ...props
 }) => {
-  const files = useStaticQuery<MemberIconQuery>(graphql`
+  const files = useStaticQuery<TeamIconQuery>(graphql`
     query TeamIcon {
       allFile(filter: { relativeDirectory: { eq: "team-images" } }) {
         nodes {
           name
           sm: childImageSharp {
             fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
           md: childImageSharp {
             fixed(width: 48, height: 48) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
           lg: childImageSharp {
             fixed(width: 64, height: 64) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
           xl: childImageSharp {
             fixed(width: 128, height: 128) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
         }
@@ -59,6 +59,14 @@ export const TeamIcon: React.FC<TeamIconProps> = ({
   }, [fixedImage, size])
 
   return (
-    <Img {...props} fixed={{ ...image, base64: image.base64 || undefined }} />
+    <Img
+      {...props}
+      fixed={{
+        ...image,
+        base64: image.base64 || undefined,
+        srcWebp: image.srcSetWebp || undefined,
+        srcSetWebp: image.srcSetWebp || undefined,
+      }}
+    />
   )
 }

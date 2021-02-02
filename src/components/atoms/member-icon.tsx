@@ -22,32 +22,32 @@ export const MemberIcon: React.FC<MemberIconProps> = ({
           name
           xxs: childImageSharp {
             fixed(width: 16, height: 16) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
           xs: childImageSharp {
             fixed(width: 24, height: 24) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
           sm: childImageSharp {
             fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
           md: childImageSharp {
             fixed(width: 48, height: 48) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
           lg: childImageSharp {
             fixed(width: 64, height: 64) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
           xl: childImageSharp {
             fixed(width: 128, height: 128) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
         }
@@ -73,7 +73,15 @@ export const MemberIcon: React.FC<MemberIconProps> = ({
 
   return (
     <Link to={`/members/${memberName}`}>
-      <Img {...props} fixed={{ ...image, base64: image.base64 || undefined }} />
+      <Img
+        {...props}
+        fixed={{
+          ...image,
+          base64: image.base64 || undefined,
+          srcWebp: image.srcSetWebp || undefined,
+          srcSetWebp: image.srcSetWebp || undefined,
+        }}
+      />
     </Link>
   )
 }
