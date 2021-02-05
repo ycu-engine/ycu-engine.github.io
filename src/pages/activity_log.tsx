@@ -14,7 +14,13 @@ export const pageQuery = graphql`
     }
     allFile(
       filter: { sourceInstanceName: { eq: "activity_log" } }
-      sort: { fields: childMdx___frontmatter___date, order: DESC }
+      sort: {
+        fields: [
+          childMdx___frontmatter___date
+          childMdx___frontmatter___startTime
+        ]
+        order: [DESC, DESC]
+      }
     ) {
       nodes {
         id
@@ -50,6 +56,10 @@ const ActivityLogPage = ({ data }: ActivityLogPageProps): JSX.Element => {
               <h2 className="text-xl mb-3">
                 {file.childMdx?.frontmatter?.title}
               </h2>
+              <h3 className="text-lg mb-2">
+                {file.childMdx?.frontmatter?.date}{' '}
+                {file.childMdx?.frontmatter?.startTime}
+              </h3>
               {file.childMdx?.body ? (
                 <MDXRenderer>{file.childMdx.body}</MDXRenderer>
               ) : null}
