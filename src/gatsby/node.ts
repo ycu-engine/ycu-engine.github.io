@@ -301,12 +301,8 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
     Member: {
       activities: {
         type: ['Mdx'],
-        resolve(
-          source: { name: string },
-          _args: unknown,
-          context: any,
-          _info: unknown
-        ) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        resolve(source: { name: string }, _args: unknown, context: any) {
           return context.nodeModel
             .getAllNodes({ type: 'Mdx' })
             .filter(
