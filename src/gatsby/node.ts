@@ -1,4 +1,5 @@
 import type {
+  CreateResolversArgs,
   CreateSchemaCustomizationArgs,
   GatsbyNode,
   SourceNodesArgs,
@@ -234,6 +235,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       belongs: MemberBelongs!
       position: Posision
       isGraduated: Boolean
+      activities: [Mdx]
     }
 
     enum Posision {
@@ -290,4 +292,29 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       endTime: String @timeFormat
     }
   `)
+}
+
+export const createResolvers: GatsbyNode['createResolvers'] = async ({
+  createResolvers,
+}: CreateResolversArgs) => {
+  createResolvers({
+    Member: {
+      activities: {
+        type: ['Mdx'],
+        resolve(
+          source: { name: string },
+          _args: unknown,
+          context: any,
+          _info: unknown
+        ) {
+          return context.nodeModel
+            .getAllNodes({ type: 'Mdx' })
+            .filter(
+              (log: { frontmatter?: { participants?: string[] } }) =>
+                log.frontmatter?.participants?.includes?.(source.name) || false
+            )
+        },
+      },
+    },
+  })
 }
