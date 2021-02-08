@@ -29,8 +29,8 @@ export const pageQuery = graphql`
           frontmatter {
             date
             title
-            startTime
-            endTime
+            startTime(format: "hh時mm分")
+            endTime(format: "hh時mm分")
           }
         }
       }
@@ -57,8 +57,9 @@ const ActivityLogPage = ({ data }: ActivityLogPageProps): JSX.Element => {
                 {file.childMdx?.frontmatter?.title}
               </h2>
               <h3 className="text-lg mb-2">
-                {file.childMdx?.frontmatter?.date}{' '}
-                {file.childMdx?.frontmatter?.startTime}
+                {file.childMdx?.frontmatter?.date}(
+                {file.childMdx?.frontmatter?.startTime}~
+                {file.childMdx?.frontmatter?.endTime})
               </h3>
               {file.childMdx?.body ? (
                 <MDXRenderer>{file.childMdx.body}</MDXRenderer>
