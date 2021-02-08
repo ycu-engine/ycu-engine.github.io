@@ -3,6 +3,8 @@ import type {
   GatsbyNode,
   SourceNodesArgs,
 } from 'gatsby'
+import type { defaultFieldResolver } from 'graphql'
+import type { ArgsMap, ComposeFieldConfigAsObject } from 'graphql-compose'
 import { resolve } from 'path'
 import { faculties } from '../data/faculty'
 import { members } from '../data/member'
@@ -142,9 +144,88 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
   })
 }
 
+type createFieldExtensionExtend<TArgs = ArgsMap> = ComposeFieldConfigAsObject<
+  Record<string, unknown>,
+  { defaultFieldResolver: typeof defaultFieldResolver },
+  TArgs
+>
+
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = async ({
-  actions: { createTypes },
+  actions: { createTypes, createFieldExtension },
 }: CreateSchemaCustomizationArgs) => {
+  // createFieldExtension({
+  //   name: 'sub',
+  //   args: {
+  //     left: 'String!',
+  //     right: 'String!',
+  //   },
+  //   extend(options: { left: string; right: string }):ComposeFieldConfigAsObject<any,any> {
+  //     return {
+  //       type: 'Int',
+  //       resolve(source, args, context, info) {
+  //         console.log([
+  //           [options],
+  //           [source, args, context, info],
+  //         ])
+  //         info.fieldName
+  //         return source[options.left] - source[options.right]
+  //       },
+  //     }
+  //   },
+  // })
+  createFieldExtension({
+    name: 'sub',
+    args: {
+      left: 'String!',
+      right: 'String!',
+    },
+    extend(options: {
+      left: string
+      right: string
+    }): createFieldExtensionExtend {
+      return {
+        type: 'Int',
+        resolve(source) {
+          const left = source[options.left]
+          const right = source[options.right]
+          if (typeof left !== 'number' || typeof right !== 'number') {
+            throw Error('sub: left または rightの値が数値ではありません')
+          }
+          return left - right
+        },
+      }
+    },
+  })
+  createFieldExtension({
+    name: 'timeFormat',
+    args: {
+      format: { type: 'String!', defaultValue: 'hh:mm' },
+    },
+    extend(options: {
+      format: string
+    }): createFieldExtensionExtend<{ format?: string }> {
+      return {
+        type: 'String',
+        args: {
+          format: { type: 'String!', defaultValue: options.format },
+        },
+        resolve(source, args, context, info) {
+          const defaultValue = Number(
+            context.defaultFieldResolver(source, args, context, info)
+          )
+          const minutes = defaultValue % 60
+          const hour = Math.floor(defaultValue / 60)
+          const format = args.format || options.format
+          const twoDigitPadding = (num: number): string =>
+            num < 10 ? `0${num}` : `${num}`
+          return format
+            .replace(/hh/g, twoDigitPadding(hour))
+            .replace(/mm/g, twoDigitPadding(minutes))
+        },
+      }
+    },
+  })
+
   createTypes(/* GraphQL */ `
     type Member implements Node {
       skills: [MemberSkill!] @link(by: "memberName", from: "name")
@@ -204,6 +285,9 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     type MdxFrontmatter {
       team: Team @link(by: "name", from: "teamName")
       participants: [Member] @link(by: "name")
+      duration: Int @sub(left: "endTime", right: "startTime")
+      startTime: String @timeFormat
+      endTime: String @timeFormat
     }
   `)
 }
