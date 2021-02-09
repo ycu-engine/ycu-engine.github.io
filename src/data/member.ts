@@ -146,7 +146,13 @@ export const members: readonly Member[] = [
   {
     name: 'RenAgo',
     nameJa: '吾郷廉',
+<<<<<<< Updated upstream
     joinedAt: zonedTimeToUtc('2021-02-09','Asia/Tokyo'),
     belongs: {facultyName: 'DataScienceUndergraduate',grade: 1},
+=======
+    joinedAt: zonedTimeToUtc('2021-02-09', 'Asia/Tokyo'),
+    belongs: { facultyName: 'DataScienceUndergraduate', grade: 1},
+>>>>>>> Stashed changes
   },
 ]
+
