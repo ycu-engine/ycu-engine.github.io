@@ -150,4 +150,3 @@ export const members: readonly Member[] = [
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 1 },
   },
 ]
-
