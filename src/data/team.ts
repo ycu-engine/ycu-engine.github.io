@@ -40,6 +40,7 @@ export const teams: readonly Team[] = [
       { memberName: 'KakeruSato' },
       { memberName: 'KentaroMorota' },
       { memberName: 'TsuyoshiMatsumaru' },
+      { memberName: 'RenAgo' },
     ],
   },
 ]
