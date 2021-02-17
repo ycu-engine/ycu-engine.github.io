@@ -22,7 +22,24 @@ module.exports = {
     if (!isActivityLog) return {}
 
     const sourceCodeText = sourceCode.text
-    const frontmatter = matter(sourceCodeText)
+    /** @type {matter.GrayMatterFile<string>} */
+    let frontmatter
+    try {
+      frontmatter = matter(sourceCodeText)
+    } catch {
+      frontmatter = undefined
+    }
+    if (!frontmatter) {
+      return {
+        Program: (node) => {
+          context.report({
+            node,
+            message:
+              'ファイルのメタ情報(frontmatter)部分に構文エラーがあります',
+          })
+        },
+      }
+    }
     return {
       Program: (node) => {
         if (!frontmatter.data.team) return
