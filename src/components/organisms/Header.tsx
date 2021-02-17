@@ -1,3 +1,4 @@
+import { LogoImage } from '@/components/atoms/logo-image'
 import { Link } from 'gatsby'
 import * as React from 'react'
 
@@ -6,11 +7,11 @@ export const Header = (): JSX.Element => {
 
   return (
     <>
-      <div className="bg-main flex flex-row">
-        <div className="py-6 px-4 flex-grow-0">
+      <div className="bg-main flex flex-row" style={{ minHeight: 72 }}>
+        <div className="pt-3 pl-8 flex-grow-0">
           <h1>
-            <Link to="/" className="text-gray-100 ">
-              Engine
+            <Link to="/">
+              <LogoImage />
             </Link>
           </h1>
         </div>

@@ -296,8 +296,8 @@ export type ContributionFieldsEnum =
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
   | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___teamName'
   | 'member___activities___frontmatter___topics'
+  | 'member___activities___frontmatter___teamName'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -974,8 +974,8 @@ export type FacultyFieldsEnum =
   | 'members___activities___frontmatter___startTime'
   | 'members___activities___frontmatter___endTime'
   | 'members___activities___frontmatter___date'
-  | 'members___activities___frontmatter___teamName'
   | 'members___activities___frontmatter___topics'
+  | 'members___activities___frontmatter___teamName'
   | 'members___activities___slug'
   | 'members___activities___body'
   | 'members___activities___excerpt'
@@ -1539,8 +1539,8 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___startTime'
   | 'childrenMdx___frontmatter___endTime'
   | 'childrenMdx___frontmatter___date'
-  | 'childrenMdx___frontmatter___teamName'
   | 'childrenMdx___frontmatter___topics'
+  | 'childrenMdx___frontmatter___teamName'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -1616,8 +1616,8 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___startTime'
   | 'childMdx___frontmatter___endTime'
   | 'childMdx___frontmatter___date'
-  | 'childMdx___frontmatter___teamName'
   | 'childMdx___frontmatter___topics'
+  | 'childMdx___frontmatter___teamName'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2004,7 +2004,7 @@ export type ImageSharpGatsbyImageDataArgs = {
   webpOptions?: Maybe<WebPOptions>;
   avifOptions?: Maybe<AvifOptions>;
   transformOptions?: Maybe<TransformOptions>;
-  background?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
 };
 
 
@@ -2568,8 +2568,8 @@ export type MdxFieldsEnum =
   | 'frontmatter___startTime'
   | 'frontmatter___endTime'
   | 'frontmatter___date'
-  | 'frontmatter___teamName'
   | 'frontmatter___topics'
+  | 'frontmatter___teamName'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -2701,8 +2701,8 @@ export type MdxFrontmatter = {
   startTime?: Maybe<Scalars['String']>;
   endTime?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
-  teamName?: Maybe<Scalars['String']>;
   topics?: Maybe<Array<Maybe<Scalars['String']>>>;
+  teamName?: Maybe<Scalars['String']>;
 };
 
 
@@ -2731,8 +2731,8 @@ export type MdxFrontmatterFilterInput = {
   startTime?: Maybe<StringQueryOperatorInput>;
   endTime?: Maybe<StringQueryOperatorInput>;
   date?: Maybe<DateQueryOperatorInput>;
-  teamName?: Maybe<StringQueryOperatorInput>;
   topics?: Maybe<StringQueryOperatorInput>;
+  teamName?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -3309,8 +3309,8 @@ export type MemberFieldsEnum =
   | 'activities___frontmatter___startTime'
   | 'activities___frontmatter___endTime'
   | 'activities___frontmatter___date'
-  | 'activities___frontmatter___teamName'
   | 'activities___frontmatter___topics'
+  | 'activities___frontmatter___teamName'
   | 'activities___slug'
   | 'activities___body'
   | 'activities___excerpt'
@@ -3730,8 +3730,8 @@ export type MemberSkillFieldsEnum =
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
   | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___teamName'
   | 'member___activities___frontmatter___topics'
+  | 'member___activities___frontmatter___teamName'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -6355,8 +6355,8 @@ export type TeamMemberFieldsEnum =
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
   | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___teamName'
   | 'member___activities___frontmatter___topics'
+  | 'member___activities___frontmatter___teamName'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -6643,6 +6643,11 @@ export type HeroImageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type HeroImageQuery = { file?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> };
+
+export type LogoImageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LogoImageQuery = { file?: Maybe<Pick<File, 'publicURL'>> };
 
 export type MemberIconQueryVariables = Exact<{ [key: string]: never; }>;
 
