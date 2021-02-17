@@ -15,7 +15,6 @@ const getLineColumn = require('../helper/get-line-column').getLineColumn
 module.exports = {
   meta: {},
   create(context) {
-    const filename = context.getFilename()
     const sourceCode = context.getSourceCode()
     const sourceText = sourceCode.getText()
 

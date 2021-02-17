@@ -20,16 +20,34 @@ module.exports = {
     if (!isActivityLog) return {}
 
     const sourceCodeText = sourceCode.text
-    const frontmatter = matter(sourceCodeText)
+    /** @type {matter.GrayMatterFile<string>} */
+    let frontmatter
+    try {
+      frontmatter = matter(sourceCodeText)
+    } catch {
+      frontmatter = undefined
+    }
+    if (!frontmatter) {
+      return {
+        Program: (node) => {
+          context.report({
+            node,
+            message:
+              'ファイルのメタ情報(frontmatter)部分に構文エラーがあります',
+          })
+        },
+      }
+    }
     return {
       Program: (node) => {
         for (const participant of frontmatter.data.participants) {
+          if (!participant) continue
+          if (!frontmatter.matter) continue
           if (!memberName.includes(participant)) {
             const matches = stringSimilarity.findBestMatch(participant, [
               ...memberName,
             ])
             const match = sourceCodeText.match(frontmatter.matter)
-
             const data = yaml.load(frontmatter.matter)
             const particiapnts = data.mappings.find(
               (mapping) => mapping.key.value === 'participants'
