@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 export const Layout: React.FC = ({ children }) => {
   return (
-    <div>
+    <div className="flex flex-col w-screen h-screen">
       <Helmet
         htmlAttributes={{
           lang: 'ja',
@@ -18,10 +18,10 @@ export const Layout: React.FC = ({ children }) => {
           },
         ]}
       />
-      <>
+      <div className="flex-grow-0 flex-shrink-0">
         <Header />
-      </>
-      <div>{children}</div>
+      </div>
+      <main className="flex-1">{children}</main>
     </div>
   )
 }
