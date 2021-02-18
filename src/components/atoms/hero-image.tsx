@@ -311,7 +311,7 @@ export const Hero = (): JSX.Element => {
       setFrame((frame) => (frame < MAX_FRAME ? frame + 1 : frame))
     }, 100)
     return () => clearInterval(id)
-  }, [])
+  }, [setFrame])
 
   useWindowEvent('resize', resize)
 
