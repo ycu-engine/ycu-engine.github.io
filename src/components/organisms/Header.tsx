@@ -8,7 +8,7 @@ export const Header = (): JSX.Element => {
   return (
     <>
       <div className="bg-main flex flex-row" style={{ minHeight: 72 }}>
-        <div className="pt-3 pl-8 flex-grow-0">
+        <div className="pt-4 pl-8 flex-grow-0">
           <h1>
             <Link to="/">
               <LogoImage />
