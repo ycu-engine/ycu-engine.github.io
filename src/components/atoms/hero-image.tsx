@@ -56,7 +56,6 @@ const MAX_FRAME = 100
 export const Hero = (): JSX.Element => {
   const preRef = React.useRef<HTMLPreElement>(null)
   const [scale, setScale] = React.useState(1)
-  const [aspect, setAspect] = React.useState(1)
   const [frame, setFrame] = useRecoilState(heroStateFrame)
 
   const Text = React.useMemo(() => {
@@ -299,7 +298,6 @@ export const Hero = (): JSX.Element => {
   const resize = React.useCallback(() => {
     if (!preRef.current) return
     setScale(preRef.current.clientWidth / 800)
-    setAspect(preRef.current.clientHeight / preRef.current.clientWidth)
   }, [preRef, setScale])
 
   React.useEffect(() => {
@@ -327,10 +325,11 @@ export const Hero = (): JSX.Element => {
         {Text}
       </pre>
       {frame > 99 ? (
-        <div className="text-right">
+        <div
+          className="text-right absolute right-4"
+          style={{ top: 72 + 400 * scale }}>
           <button
             className="focus:outline-none border border-white text-white py-1 px-3"
-            style={{ marginTop: (1 / aspect ** 2) * 30 }}
             onClick={() => setFrame(0)}>
             reset
           </button>
