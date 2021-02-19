@@ -314,7 +314,7 @@ export const Hero = (): JSX.Element => {
   useWindowEvent('resize', resize)
 
   return (
-    <div className="bg-gray-900 w-full h-full flex flex-col p-2 px-4 overflow-x-hidden">
+    <div className="bg-gray-900 w-full h-full flex flex-col p-2 px-4 overflow-x-hidden relative">
       <pre
         ref={preRef}
         className="text-xs font-mono text-gray-50 transform origin-top-left"
@@ -326,8 +326,12 @@ export const Hero = (): JSX.Element => {
       </pre>
       {frame > 99 ? (
         <div
-          className="text-right absolute right-4"
-          style={{ top: 72 + 400 * scale }}>
+          className="text-right absolute right-12 transform origin-bottom-right"
+          style={{
+            top: 410 * scale,
+            '--tw-scale-x': scale,
+            '--tw-scale-y': scale,
+          }}>
           <button
             className="focus:outline-none border border-white text-white py-1 px-3"
             onClick={() => setFrame(0)}>
