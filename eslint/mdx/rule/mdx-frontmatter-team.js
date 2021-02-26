@@ -14,7 +14,9 @@ const teamName = require('../../../src/data/team').teamName
  *  @type { RuleModule }
  */
 module.exports = {
-  meta: {},
+  meta: {
+    fixable: 'code',
+  },
   create(context) {
     const filename = context.getFilename()
     const sourceCode = context.getSourceCode()
@@ -78,6 +80,14 @@ module.exports = {
                         ),
                     },
                   ]
+                : undefined,
+            fix:
+              matches.bestMatch.rating > 0.5
+                ? (fixer) =>
+                    fixer.replaceTextRange(
+                      [start, end],
+                      matches.bestMatch.target
+                    )
                 : undefined,
             message: `${frontmatter.data.team}というチームは存在しません。`,
           })

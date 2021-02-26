@@ -9,8 +9,6 @@ export type Portfolio = {
   contributors: MemberName[]
 }
 
-
-
 export const portfolios: readonly Portfolio[] = [
   {
     name: 'ycu-schedule',

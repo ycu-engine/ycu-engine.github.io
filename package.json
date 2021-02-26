@@ -8,18 +8,26 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "yarn format:ts && yarn format:md",
-    "format:ts": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
-    "format:md": "prettier --parser mdx --write \"src/**/*.md*\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "husky install && typesync || :",
     "type-check": "tsc",
-    "format-check": "yarn format-check:ts && yarn format-check:md",
+    "format-check": "run-p format-check:*",
     "format-check:ts": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote -c \"src/**/*.ts*\"",
     "format-check:md": "prettier --parser mdx -c \"src/**/*.md*\"",
-    "lint": "yarn lint:md && yarn lint:ts",
+    "lint": "run-p lint:*",
     "lint:md": "yarn eslint src --ext .md,.mdx",
     "lint:ts": "yarn eslint src --ext .ts,.tsx"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --parser typescript --write"
+    ],
+    "*.{md,mdx}": [
+      "prettier --parser mdx --write"
+    ],
+    "*.{js,jsx,ts,tsx,md,mdx}": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.0.0-next.8",
@@ -61,11 +69,12 @@
     "@typescript-eslint/types": "^4.15.1",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-rulesdir": "^0.1.0",
     "husky": "^5.1.1",
+    "lint-staged": "^10.5.4",
+    "npm-run-all": "^4.1.5",
     "pinst": "^2.1.6",
     "prettier": "^2.2.1",
     "string-similarity": "^4.0.4",
