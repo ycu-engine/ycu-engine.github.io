@@ -13,5 +13,21 @@
             ".tsx"
         ]
     },
+    "eslint.probe": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "vue",
+        "markdown",
+        "md",
+        "mdx"
+    ],
+    "eslint.validate": [
+        "markdown",
+        "md",
+        "mdx"
+    ],
     "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

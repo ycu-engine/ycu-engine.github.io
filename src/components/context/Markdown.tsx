@@ -29,6 +29,12 @@ export const MarkdownProvider: React.FC = ({ children }) => (
       ul: (props) => <ul {...props} className="pl-4" />,
       ol: (props) => <ol {...props} className="pl-4" />,
       strong: (props) => <strong {...props} className="font-bold" />,
+      inlineCode: (props) => (
+        <code
+          {...props}
+          className="font-mono tracking-tight bg-gray-200 rounded-md text-xs px-2 py-1"
+        />
+      ),
     }}>
     {children}
   </MDXProvider>

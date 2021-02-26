@@ -19,7 +19,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-typescript',
     'gatsby-plugin-graphql-codegen',
     {
       resolve: 'gatsby-source-filesystem',
