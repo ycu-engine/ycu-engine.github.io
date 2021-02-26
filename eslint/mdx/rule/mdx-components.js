@@ -13,7 +13,9 @@ const getLineColumn = require('../helper/get-line-column').getLineColumn
  *  @type { RuleModule }
  */
 module.exports = {
-  meta: {},
+  meta: {
+    fixable: 'code',
+  },
   create(context) {
     const sourceCode = context.getSourceCode()
     const sourceText = sourceCode.getText()
@@ -45,6 +47,8 @@ module.exports = {
                     ),
                 },
               ],
+              fix: (fixer) =>
+                fixer.replaceText(userName, `"${matches.bestMatch.target}"`),
               message: `${userName.value}というユーザーは存在しません。`,
             })
           }

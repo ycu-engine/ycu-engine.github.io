@@ -12,7 +12,9 @@ const memberName = require('../../../src/data/member').memberName
 
 /** @type { RuleModule } */
 module.exports = {
-  meta: {},
+  meta: {
+    fixable: 'code',
+  },
   create(context) {
     const filename = context.getFilename()
     const sourceCode = context.getSourceCode()
@@ -76,6 +78,14 @@ module.exports = {
                           ),
                       },
                     ]
+                  : undefined,
+              fix:
+                matches.bestMatch.rating > 0.5
+                  ? (fixer) =>
+                      fixer.replaceTextRange(
+                        [start, end],
+                        matches.bestMatch.target
+                      )
                   : undefined,
               message: `${participant}というユーザーは存在しません。`,
             })
