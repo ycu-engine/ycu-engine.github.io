@@ -16,6 +16,7 @@ export const memberName = [
   'KakeruSato',
   'FujiharuKawahara',
   'RenAgo',
+  'TenichiInaba',
 ] as const
 
 export type MemberName = typeof memberName[number]
@@ -120,6 +121,12 @@ export const members: readonly Member[] = [
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 3 },
   },
   {
+    name: 'TenichiInaba',
+    nameJa: '稲葉 天一',
+    joinedAt: zonedTimeToUtc('2021-01-28', 'Asia/Tokyo'),
+    belongs: { facultyName: 'DataScienceUndergraduate', grade: 1 },
+  },
+  {
     name: 'TsuyoshiMatsumaru',
     nameJa: '松丸 豪志',
     joinedAt: zonedTimeToUtc('2021-01-29', 'Asia/Tokyo'),
@@ -147,6 +154,12 @@ export const members: readonly Member[] = [
     name: 'RenAgo',
     nameJa: '吾郷廉',
     joinedAt: zonedTimeToUtc('2021-02-09', 'Asia/Tokyo'),
+    belongs: { facultyName: 'DataScienceUndergraduate', grade: 1 },
+  },
+  {
+    name: 'TenichiInaba',
+    nameJa: '稲葉 天一',
+    joinedAt: zonedTimeToUtc('2021-01-28', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 1 },
   },
 ]
