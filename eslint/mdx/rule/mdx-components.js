@@ -74,6 +74,8 @@ module.exports = {
                     fixer.replaceText(team, `"${matches.bestMatch.target}"`),
                 },
               ],
+              fix: (fixer) =>
+                fixer.replaceText(team, `"${matches.bestMatch.target}"`),
               message: `${team.value}というチームは存在しません。`,
             })
           }
