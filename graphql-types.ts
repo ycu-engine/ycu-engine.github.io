@@ -238,6 +238,8 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>
   siteMetadata?: Maybe<SiteSiteMetadata>
+  port?: Maybe<Scalars['Int']>
+  host?: Maybe<Scalars['String']>
   flags?: Maybe<SiteFlags>
   polyfill?: Maybe<Scalars['Boolean']>
   pathPrefix?: Maybe<Scalars['String']>
@@ -259,7 +261,6 @@ export type SiteFlags = {
   FAST_DEV?: Maybe<Scalars['Boolean']>
   DEV_SSR?: Maybe<Scalars['Boolean']>
   PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<Scalars['Boolean']>
-  FAST_REFRESH?: Maybe<Scalars['Boolean']>
   PARALLEL_SOURCING?: Maybe<Scalars['Boolean']>
 }
 
@@ -592,7 +593,26 @@ export type MdxTableOfContentsArgs = {
   maxDepth?: Maybe<Scalars['Int']>
 }
 
+export type TeamName = 'DataAnalitics' | 'WebDev' | 'Beginner' | 'AppDev'
+
+export type MemberName =
+  | 'YutaUra'
+  | 'YoshiyukiKobayashi'
+  | 'YosukeMuroi'
+  | 'MarinMiwa'
+  | 'TakashiNemoto'
+  | 'FujitaItsuki'
+  | 'ShoKohiyama'
+  | 'KotaroTakamori'
+  | 'TsuyoshiMatsumaru'
+  | 'KentaroMorota'
+  | 'KakeruSato'
+  | 'FujiharuKawahara'
+  | 'RenAgo'
+  | 'TenichiInaba'
+
 export type Member = Node & {
+  name: MemberName
   skills?: Maybe<Array<MemberSkill>>
   teams?: Maybe<Array<TeamMember>>
   contributions?: Maybe<Array<Contribution>>
@@ -600,7 +620,6 @@ export type Member = Node & {
   position?: Maybe<Posision>
   isGraduated?: Maybe<Scalars['Boolean']>
   activities?: Maybe<Array<Maybe<Mdx>>>
-  name?: Maybe<Scalars['String']>
   nameJa?: Maybe<Scalars['String']>
   joinedAt?: Maybe<Scalars['Date']>
   social?: Maybe<MemberSocial>
@@ -648,7 +667,7 @@ export type Portfolio = Node & {
 export type MemberBelongs = {
   facultyName: Scalars['String']
   faculty: Faculty
-  memberName: Scalars['String']
+  memberName: MemberName
   member: Member
   grade: Scalars['Int']
 }
@@ -698,8 +717,8 @@ export type TeamMember = Node & {
 }
 
 export type Team = Node & {
+  name: TeamName
   members: Array<TeamMember>
-  name?: Maybe<Scalars['String']>
   nameJa?: Maybe<Scalars['String']>
   id: Scalars['ID']
   parent?: Maybe<Node>
@@ -925,6 +944,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
+  port?: Maybe<IntQueryOperatorInput>
+  host?: Maybe<StringQueryOperatorInput>
   flags?: Maybe<SiteFlagsFilterInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
   pathPrefix?: Maybe<StringQueryOperatorInput>
@@ -1006,6 +1027,7 @@ export type QueryAllMdxArgs = {
 }
 
 export type QueryMemberArgs = {
+  name?: Maybe<MemberNameQueryOperatorInput>
   skills?: Maybe<MemberSkillFilterListInput>
   teams?: Maybe<TeamMemberFilterListInput>
   contributions?: Maybe<ContributionFilterListInput>
@@ -1013,7 +1035,6 @@ export type QueryMemberArgs = {
   position?: Maybe<PosisionQueryOperatorInput>
   isGraduated?: Maybe<BooleanQueryOperatorInput>
   activities?: Maybe<MdxFilterListInput>
-  name?: Maybe<StringQueryOperatorInput>
   nameJa?: Maybe<StringQueryOperatorInput>
   joinedAt?: Maybe<DateQueryOperatorInput>
   social?: Maybe<MemberSocialFilterInput>
@@ -1138,8 +1159,8 @@ export type QueryAllTeamMemberArgs = {
 }
 
 export type QueryTeamArgs = {
+  name?: Maybe<TeamNameQueryOperatorInput>
   members?: Maybe<TeamMemberFilterListInput>
-  name?: Maybe<StringQueryOperatorInput>
   nameJa?: Maybe<StringQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
@@ -1367,13 +1388,20 @@ export type MdxFrontmatterFilterInput = {
 }
 
 export type TeamFilterInput = {
+  name?: Maybe<TeamNameQueryOperatorInput>
   members?: Maybe<TeamMemberFilterListInput>
-  name?: Maybe<StringQueryOperatorInput>
   nameJa?: Maybe<StringQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
   internal?: Maybe<InternalFilterInput>
+}
+
+export type TeamNameQueryOperatorInput = {
+  eq?: Maybe<TeamName>
+  ne?: Maybe<TeamName>
+  in?: Maybe<Array<Maybe<TeamName>>>
+  nin?: Maybe<Array<Maybe<TeamName>>>
 }
 
 export type TeamMemberFilterListInput = {
@@ -1393,6 +1421,7 @@ export type TeamMemberFilterInput = {
 }
 
 export type MemberFilterInput = {
+  name?: Maybe<MemberNameQueryOperatorInput>
   skills?: Maybe<MemberSkillFilterListInput>
   teams?: Maybe<TeamMemberFilterListInput>
   contributions?: Maybe<ContributionFilterListInput>
@@ -1400,7 +1429,6 @@ export type MemberFilterInput = {
   position?: Maybe<PosisionQueryOperatorInput>
   isGraduated?: Maybe<BooleanQueryOperatorInput>
   activities?: Maybe<MdxFilterListInput>
-  name?: Maybe<StringQueryOperatorInput>
   nameJa?: Maybe<StringQueryOperatorInput>
   joinedAt?: Maybe<DateQueryOperatorInput>
   social?: Maybe<MemberSocialFilterInput>
@@ -1408,6 +1436,13 @@ export type MemberFilterInput = {
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
   internal?: Maybe<InternalFilterInput>
+}
+
+export type MemberNameQueryOperatorInput = {
+  eq?: Maybe<MemberName>
+  ne?: Maybe<MemberName>
+  in?: Maybe<Array<Maybe<MemberName>>>
+  nin?: Maybe<Array<Maybe<MemberName>>>
 }
 
 export type MemberSkillFilterListInput = {
@@ -1464,7 +1499,7 @@ export type PortfolioFilterInput = {
 export type MemberBelongsFilterInput = {
   facultyName?: Maybe<StringQueryOperatorInput>
   faculty?: Maybe<FacultyFilterInput>
-  memberName?: Maybe<StringQueryOperatorInput>
+  memberName?: Maybe<MemberNameQueryOperatorInput>
   member?: Maybe<MemberFilterInput>
   grade?: Maybe<IntQueryOperatorInput>
 }
@@ -1725,19 +1760,19 @@ export type FileFieldsEnum =
   | 'childrenMdx___rawBody'
   | 'childrenMdx___fileAbsolutePath'
   | 'childrenMdx___frontmatter___title'
-  | 'childrenMdx___frontmatter___team___members'
   | 'childrenMdx___frontmatter___team___name'
+  | 'childrenMdx___frontmatter___team___members'
   | 'childrenMdx___frontmatter___team___nameJa'
   | 'childrenMdx___frontmatter___team___id'
   | 'childrenMdx___frontmatter___team___children'
   | 'childrenMdx___frontmatter___participants'
+  | 'childrenMdx___frontmatter___participants___name'
   | 'childrenMdx___frontmatter___participants___skills'
   | 'childrenMdx___frontmatter___participants___teams'
   | 'childrenMdx___frontmatter___participants___contributions'
   | 'childrenMdx___frontmatter___participants___position'
   | 'childrenMdx___frontmatter___participants___isGraduated'
   | 'childrenMdx___frontmatter___participants___activities'
-  | 'childrenMdx___frontmatter___participants___name'
   | 'childrenMdx___frontmatter___participants___nameJa'
   | 'childrenMdx___frontmatter___participants___joinedAt'
   | 'childrenMdx___frontmatter___participants___id'
@@ -1802,19 +1837,19 @@ export type FileFieldsEnum =
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___team___members'
   | 'childMdx___frontmatter___team___name'
+  | 'childMdx___frontmatter___team___members'
   | 'childMdx___frontmatter___team___nameJa'
   | 'childMdx___frontmatter___team___id'
   | 'childMdx___frontmatter___team___children'
   | 'childMdx___frontmatter___participants'
+  | 'childMdx___frontmatter___participants___name'
   | 'childMdx___frontmatter___participants___skills'
   | 'childMdx___frontmatter___participants___teams'
   | 'childMdx___frontmatter___participants___contributions'
   | 'childMdx___frontmatter___participants___position'
   | 'childMdx___frontmatter___participants___isGraduated'
   | 'childMdx___frontmatter___participants___activities'
-  | 'childMdx___frontmatter___participants___name'
   | 'childMdx___frontmatter___participants___nameJa'
   | 'childMdx___frontmatter___participants___joinedAt'
   | 'childMdx___frontmatter___participants___id'
@@ -2234,7 +2269,6 @@ export type SiteFlagsFilterInput = {
   FAST_DEV?: Maybe<BooleanQueryOperatorInput>
   DEV_SSR?: Maybe<BooleanQueryOperatorInput>
   PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<BooleanQueryOperatorInput>
-  FAST_REFRESH?: Maybe<BooleanQueryOperatorInput>
   PARALLEL_SOURCING?: Maybe<BooleanQueryOperatorInput>
 }
 
@@ -2267,11 +2301,12 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
+  | 'port'
+  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___FAST_DEV'
   | 'flags___DEV_SSR'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
-  | 'flags___FAST_REFRESH'
   | 'flags___PARALLEL_SOURCING'
   | 'polyfill'
   | 'pathPrefix'
@@ -2374,6 +2409,8 @@ export type SiteGroupConnection = {
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
+  port?: Maybe<IntQueryOperatorInput>
+  host?: Maybe<StringQueryOperatorInput>
   flags?: Maybe<SiteFlagsFilterInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
   pathPrefix?: Maybe<StringQueryOperatorInput>
@@ -2720,13 +2757,13 @@ export type MdxFieldsEnum =
   | 'rawBody'
   | 'fileAbsolutePath'
   | 'frontmatter___title'
+  | 'frontmatter___team___name'
   | 'frontmatter___team___members'
   | 'frontmatter___team___members___memberName'
   | 'frontmatter___team___members___leader'
   | 'frontmatter___team___members___teamName'
   | 'frontmatter___team___members___id'
   | 'frontmatter___team___members___children'
-  | 'frontmatter___team___name'
   | 'frontmatter___team___nameJa'
   | 'frontmatter___team___id'
   | 'frontmatter___team___parent___id'
@@ -2743,6 +2780,7 @@ export type MdxFieldsEnum =
   | 'frontmatter___team___internal___owner'
   | 'frontmatter___team___internal___type'
   | 'frontmatter___participants'
+  | 'frontmatter___participants___name'
   | 'frontmatter___participants___skills'
   | 'frontmatter___participants___skills___level'
   | 'frontmatter___participants___skills___skillName'
@@ -2778,7 +2816,6 @@ export type MdxFieldsEnum =
   | 'frontmatter___participants___activities___timeToRead'
   | 'frontmatter___participants___activities___id'
   | 'frontmatter___participants___activities___children'
-  | 'frontmatter___participants___name'
   | 'frontmatter___participants___nameJa'
   | 'frontmatter___participants___joinedAt'
   | 'frontmatter___participants___social___github'
@@ -2943,6 +2980,7 @@ export type MemberEdge = {
 }
 
 export type MemberFieldsEnum =
+  | 'name'
   | 'skills'
   | 'skills___skill___members'
   | 'skills___skill___members___level'
@@ -2966,6 +3004,7 @@ export type MemberFieldsEnum =
   | 'skills___skill___internal___mediaType'
   | 'skills___skill___internal___owner'
   | 'skills___skill___internal___type'
+  | 'skills___member___name'
   | 'skills___member___skills'
   | 'skills___member___skills___level'
   | 'skills___member___skills___skillName'
@@ -3001,7 +3040,6 @@ export type MemberFieldsEnum =
   | 'skills___member___activities___timeToRead'
   | 'skills___member___activities___id'
   | 'skills___member___activities___children'
-  | 'skills___member___name'
   | 'skills___member___nameJa'
   | 'skills___member___joinedAt'
   | 'skills___member___social___github'
@@ -3062,6 +3100,7 @@ export type MemberFieldsEnum =
   | 'skills___internal___owner'
   | 'skills___internal___type'
   | 'teams'
+  | 'teams___member___name'
   | 'teams___member___skills'
   | 'teams___member___skills___level'
   | 'teams___member___skills___skillName'
@@ -3097,7 +3136,6 @@ export type MemberFieldsEnum =
   | 'teams___member___activities___timeToRead'
   | 'teams___member___activities___id'
   | 'teams___member___activities___children'
-  | 'teams___member___name'
   | 'teams___member___nameJa'
   | 'teams___member___joinedAt'
   | 'teams___member___social___github'
@@ -3116,13 +3154,13 @@ export type MemberFieldsEnum =
   | 'teams___member___internal___mediaType'
   | 'teams___member___internal___owner'
   | 'teams___member___internal___type'
+  | 'teams___team___name'
   | 'teams___team___members'
   | 'teams___team___members___memberName'
   | 'teams___team___members___leader'
   | 'teams___team___members___teamName'
   | 'teams___team___members___id'
   | 'teams___team___members___children'
-  | 'teams___team___name'
   | 'teams___team___nameJa'
   | 'teams___team___id'
   | 'teams___team___parent___id'
@@ -3201,6 +3239,7 @@ export type MemberFieldsEnum =
   | 'contributions___portfolio___internal___mediaType'
   | 'contributions___portfolio___internal___owner'
   | 'contributions___portfolio___internal___type'
+  | 'contributions___member___name'
   | 'contributions___member___skills'
   | 'contributions___member___skills___level'
   | 'contributions___member___skills___skillName'
@@ -3236,7 +3275,6 @@ export type MemberFieldsEnum =
   | 'contributions___member___activities___timeToRead'
   | 'contributions___member___activities___id'
   | 'contributions___member___activities___children'
-  | 'contributions___member___name'
   | 'contributions___member___nameJa'
   | 'contributions___member___joinedAt'
   | 'contributions___member___social___github'
@@ -3297,13 +3335,13 @@ export type MemberFieldsEnum =
   | 'contributions___internal___type'
   | 'belongs___facultyName'
   | 'belongs___faculty___members'
+  | 'belongs___faculty___members___name'
   | 'belongs___faculty___members___skills'
   | 'belongs___faculty___members___teams'
   | 'belongs___faculty___members___contributions'
   | 'belongs___faculty___members___position'
   | 'belongs___faculty___members___isGraduated'
   | 'belongs___faculty___members___activities'
-  | 'belongs___faculty___members___name'
   | 'belongs___faculty___members___nameJa'
   | 'belongs___faculty___members___joinedAt'
   | 'belongs___faculty___members___id'
@@ -3325,6 +3363,7 @@ export type MemberFieldsEnum =
   | 'belongs___faculty___internal___owner'
   | 'belongs___faculty___internal___type'
   | 'belongs___memberName'
+  | 'belongs___member___name'
   | 'belongs___member___skills'
   | 'belongs___member___skills___level'
   | 'belongs___member___skills___skillName'
@@ -3360,7 +3399,6 @@ export type MemberFieldsEnum =
   | 'belongs___member___activities___timeToRead'
   | 'belongs___member___activities___id'
   | 'belongs___member___activities___children'
-  | 'belongs___member___name'
   | 'belongs___member___nameJa'
   | 'belongs___member___joinedAt'
   | 'belongs___member___social___github'
@@ -3386,19 +3424,19 @@ export type MemberFieldsEnum =
   | 'activities___rawBody'
   | 'activities___fileAbsolutePath'
   | 'activities___frontmatter___title'
-  | 'activities___frontmatter___team___members'
   | 'activities___frontmatter___team___name'
+  | 'activities___frontmatter___team___members'
   | 'activities___frontmatter___team___nameJa'
   | 'activities___frontmatter___team___id'
   | 'activities___frontmatter___team___children'
   | 'activities___frontmatter___participants'
+  | 'activities___frontmatter___participants___name'
   | 'activities___frontmatter___participants___skills'
   | 'activities___frontmatter___participants___teams'
   | 'activities___frontmatter___participants___contributions'
   | 'activities___frontmatter___participants___position'
   | 'activities___frontmatter___participants___isGraduated'
   | 'activities___frontmatter___participants___activities'
-  | 'activities___frontmatter___participants___name'
   | 'activities___frontmatter___participants___nameJa'
   | 'activities___frontmatter___participants___joinedAt'
   | 'activities___frontmatter___participants___id'
@@ -3460,7 +3498,6 @@ export type MemberFieldsEnum =
   | 'activities___internal___mediaType'
   | 'activities___internal___owner'
   | 'activities___internal___type'
-  | 'name'
   | 'nameJa'
   | 'joinedAt'
   | 'social___github'
@@ -3598,13 +3635,13 @@ export type ContributionFieldsEnum =
   | 'portfolio___contributors___portfolio___nameJa'
   | 'portfolio___contributors___portfolio___id'
   | 'portfolio___contributors___portfolio___children'
+  | 'portfolio___contributors___member___name'
   | 'portfolio___contributors___member___skills'
   | 'portfolio___contributors___member___teams'
   | 'portfolio___contributors___member___contributions'
   | 'portfolio___contributors___member___position'
   | 'portfolio___contributors___member___isGraduated'
   | 'portfolio___contributors___member___activities'
-  | 'portfolio___contributors___member___name'
   | 'portfolio___contributors___member___nameJa'
   | 'portfolio___contributors___member___joinedAt'
   | 'portfolio___contributors___member___id'
@@ -3665,19 +3702,20 @@ export type ContributionFieldsEnum =
   | 'portfolio___internal___mediaType'
   | 'portfolio___internal___owner'
   | 'portfolio___internal___type'
+  | 'member___name'
   | 'member___skills'
   | 'member___skills___skill___members'
   | 'member___skills___skill___name'
   | 'member___skills___skill___description'
   | 'member___skills___skill___id'
   | 'member___skills___skill___children'
+  | 'member___skills___member___name'
   | 'member___skills___member___skills'
   | 'member___skills___member___teams'
   | 'member___skills___member___contributions'
   | 'member___skills___member___position'
   | 'member___skills___member___isGraduated'
   | 'member___skills___member___activities'
-  | 'member___skills___member___name'
   | 'member___skills___member___nameJa'
   | 'member___skills___member___joinedAt'
   | 'member___skills___member___id'
@@ -3700,19 +3738,19 @@ export type ContributionFieldsEnum =
   | 'member___skills___internal___owner'
   | 'member___skills___internal___type'
   | 'member___teams'
+  | 'member___teams___member___name'
   | 'member___teams___member___skills'
   | 'member___teams___member___teams'
   | 'member___teams___member___contributions'
   | 'member___teams___member___position'
   | 'member___teams___member___isGraduated'
   | 'member___teams___member___activities'
-  | 'member___teams___member___name'
   | 'member___teams___member___nameJa'
   | 'member___teams___member___joinedAt'
   | 'member___teams___member___id'
   | 'member___teams___member___children'
-  | 'member___teams___team___members'
   | 'member___teams___team___name'
+  | 'member___teams___team___members'
   | 'member___teams___team___nameJa'
   | 'member___teams___team___id'
   | 'member___teams___team___children'
@@ -3739,13 +3777,13 @@ export type ContributionFieldsEnum =
   | 'member___contributions___portfolio___nameJa'
   | 'member___contributions___portfolio___id'
   | 'member___contributions___portfolio___children'
+  | 'member___contributions___member___name'
   | 'member___contributions___member___skills'
   | 'member___contributions___member___teams'
   | 'member___contributions___member___contributions'
   | 'member___contributions___member___position'
   | 'member___contributions___member___isGraduated'
   | 'member___contributions___member___activities'
-  | 'member___contributions___member___name'
   | 'member___contributions___member___nameJa'
   | 'member___contributions___member___joinedAt'
   | 'member___contributions___member___id'
@@ -3773,13 +3811,13 @@ export type ContributionFieldsEnum =
   | 'member___belongs___faculty___id'
   | 'member___belongs___faculty___children'
   | 'member___belongs___memberName'
+  | 'member___belongs___member___name'
   | 'member___belongs___member___skills'
   | 'member___belongs___member___teams'
   | 'member___belongs___member___contributions'
   | 'member___belongs___member___position'
   | 'member___belongs___member___isGraduated'
   | 'member___belongs___member___activities'
-  | 'member___belongs___member___name'
   | 'member___belongs___member___nameJa'
   | 'member___belongs___member___joinedAt'
   | 'member___belongs___member___id'
@@ -3825,7 +3863,6 @@ export type ContributionFieldsEnum =
   | 'member___activities___internal___mediaType'
   | 'member___activities___internal___owner'
   | 'member___activities___internal___type'
-  | 'member___name'
   | 'member___nameJa'
   | 'member___joinedAt'
   | 'member___social___github'
@@ -4019,6 +4056,7 @@ export type PortfolioFieldsEnum =
   | 'contributors___portfolio___internal___mediaType'
   | 'contributors___portfolio___internal___owner'
   | 'contributors___portfolio___internal___type'
+  | 'contributors___member___name'
   | 'contributors___member___skills'
   | 'contributors___member___skills___level'
   | 'contributors___member___skills___skillName'
@@ -4054,7 +4092,6 @@ export type PortfolioFieldsEnum =
   | 'contributors___member___activities___timeToRead'
   | 'contributors___member___activities___id'
   | 'contributors___member___activities___children'
-  | 'contributors___member___name'
   | 'contributors___member___nameJa'
   | 'contributors___member___joinedAt'
   | 'contributors___member___social___github'
@@ -4243,19 +4280,20 @@ export type FacultyEdge = {
 
 export type FacultyFieldsEnum =
   | 'members'
+  | 'members___name'
   | 'members___skills'
   | 'members___skills___skill___members'
   | 'members___skills___skill___name'
   | 'members___skills___skill___description'
   | 'members___skills___skill___id'
   | 'members___skills___skill___children'
+  | 'members___skills___member___name'
   | 'members___skills___member___skills'
   | 'members___skills___member___teams'
   | 'members___skills___member___contributions'
   | 'members___skills___member___position'
   | 'members___skills___member___isGraduated'
   | 'members___skills___member___activities'
-  | 'members___skills___member___name'
   | 'members___skills___member___nameJa'
   | 'members___skills___member___joinedAt'
   | 'members___skills___member___id'
@@ -4278,19 +4316,19 @@ export type FacultyFieldsEnum =
   | 'members___skills___internal___owner'
   | 'members___skills___internal___type'
   | 'members___teams'
+  | 'members___teams___member___name'
   | 'members___teams___member___skills'
   | 'members___teams___member___teams'
   | 'members___teams___member___contributions'
   | 'members___teams___member___position'
   | 'members___teams___member___isGraduated'
   | 'members___teams___member___activities'
-  | 'members___teams___member___name'
   | 'members___teams___member___nameJa'
   | 'members___teams___member___joinedAt'
   | 'members___teams___member___id'
   | 'members___teams___member___children'
-  | 'members___teams___team___members'
   | 'members___teams___team___name'
+  | 'members___teams___team___members'
   | 'members___teams___team___nameJa'
   | 'members___teams___team___id'
   | 'members___teams___team___children'
@@ -4317,13 +4355,13 @@ export type FacultyFieldsEnum =
   | 'members___contributions___portfolio___nameJa'
   | 'members___contributions___portfolio___id'
   | 'members___contributions___portfolio___children'
+  | 'members___contributions___member___name'
   | 'members___contributions___member___skills'
   | 'members___contributions___member___teams'
   | 'members___contributions___member___contributions'
   | 'members___contributions___member___position'
   | 'members___contributions___member___isGraduated'
   | 'members___contributions___member___activities'
-  | 'members___contributions___member___name'
   | 'members___contributions___member___nameJa'
   | 'members___contributions___member___joinedAt'
   | 'members___contributions___member___id'
@@ -4351,13 +4389,13 @@ export type FacultyFieldsEnum =
   | 'members___belongs___faculty___id'
   | 'members___belongs___faculty___children'
   | 'members___belongs___memberName'
+  | 'members___belongs___member___name'
   | 'members___belongs___member___skills'
   | 'members___belongs___member___teams'
   | 'members___belongs___member___contributions'
   | 'members___belongs___member___position'
   | 'members___belongs___member___isGraduated'
   | 'members___belongs___member___activities'
-  | 'members___belongs___member___name'
   | 'members___belongs___member___nameJa'
   | 'members___belongs___member___joinedAt'
   | 'members___belongs___member___id'
@@ -4403,7 +4441,6 @@ export type FacultyFieldsEnum =
   | 'members___activities___internal___mediaType'
   | 'members___activities___internal___owner'
   | 'members___activities___internal___type'
-  | 'members___name'
   | 'members___nameJa'
   | 'members___joinedAt'
   | 'members___social___github'
@@ -4581,13 +4618,13 @@ export type MemberSkillFieldsEnum =
   | 'skill___members___skill___description'
   | 'skill___members___skill___id'
   | 'skill___members___skill___children'
+  | 'skill___members___member___name'
   | 'skill___members___member___skills'
   | 'skill___members___member___teams'
   | 'skill___members___member___contributions'
   | 'skill___members___member___position'
   | 'skill___members___member___isGraduated'
   | 'skill___members___member___activities'
-  | 'skill___members___member___name'
   | 'skill___members___member___nameJa'
   | 'skill___members___member___joinedAt'
   | 'skill___members___member___id'
@@ -4649,19 +4686,20 @@ export type MemberSkillFieldsEnum =
   | 'skill___internal___mediaType'
   | 'skill___internal___owner'
   | 'skill___internal___type'
+  | 'member___name'
   | 'member___skills'
   | 'member___skills___skill___members'
   | 'member___skills___skill___name'
   | 'member___skills___skill___description'
   | 'member___skills___skill___id'
   | 'member___skills___skill___children'
+  | 'member___skills___member___name'
   | 'member___skills___member___skills'
   | 'member___skills___member___teams'
   | 'member___skills___member___contributions'
   | 'member___skills___member___position'
   | 'member___skills___member___isGraduated'
   | 'member___skills___member___activities'
-  | 'member___skills___member___name'
   | 'member___skills___member___nameJa'
   | 'member___skills___member___joinedAt'
   | 'member___skills___member___id'
@@ -4684,19 +4722,19 @@ export type MemberSkillFieldsEnum =
   | 'member___skills___internal___owner'
   | 'member___skills___internal___type'
   | 'member___teams'
+  | 'member___teams___member___name'
   | 'member___teams___member___skills'
   | 'member___teams___member___teams'
   | 'member___teams___member___contributions'
   | 'member___teams___member___position'
   | 'member___teams___member___isGraduated'
   | 'member___teams___member___activities'
-  | 'member___teams___member___name'
   | 'member___teams___member___nameJa'
   | 'member___teams___member___joinedAt'
   | 'member___teams___member___id'
   | 'member___teams___member___children'
-  | 'member___teams___team___members'
   | 'member___teams___team___name'
+  | 'member___teams___team___members'
   | 'member___teams___team___nameJa'
   | 'member___teams___team___id'
   | 'member___teams___team___children'
@@ -4723,13 +4761,13 @@ export type MemberSkillFieldsEnum =
   | 'member___contributions___portfolio___nameJa'
   | 'member___contributions___portfolio___id'
   | 'member___contributions___portfolio___children'
+  | 'member___contributions___member___name'
   | 'member___contributions___member___skills'
   | 'member___contributions___member___teams'
   | 'member___contributions___member___contributions'
   | 'member___contributions___member___position'
   | 'member___contributions___member___isGraduated'
   | 'member___contributions___member___activities'
-  | 'member___contributions___member___name'
   | 'member___contributions___member___nameJa'
   | 'member___contributions___member___joinedAt'
   | 'member___contributions___member___id'
@@ -4757,13 +4795,13 @@ export type MemberSkillFieldsEnum =
   | 'member___belongs___faculty___id'
   | 'member___belongs___faculty___children'
   | 'member___belongs___memberName'
+  | 'member___belongs___member___name'
   | 'member___belongs___member___skills'
   | 'member___belongs___member___teams'
   | 'member___belongs___member___contributions'
   | 'member___belongs___member___position'
   | 'member___belongs___member___isGraduated'
   | 'member___belongs___member___activities'
-  | 'member___belongs___member___name'
   | 'member___belongs___member___nameJa'
   | 'member___belongs___member___joinedAt'
   | 'member___belongs___member___id'
@@ -4809,7 +4847,6 @@ export type MemberSkillFieldsEnum =
   | 'member___activities___internal___mediaType'
   | 'member___activities___internal___owner'
   | 'member___activities___internal___type'
-  | 'member___name'
   | 'member___nameJa'
   | 'member___joinedAt'
   | 'member___social___github'
@@ -5005,6 +5042,7 @@ export type SkillFieldsEnum =
   | 'members___skill___internal___mediaType'
   | 'members___skill___internal___owner'
   | 'members___skill___internal___type'
+  | 'members___member___name'
   | 'members___member___skills'
   | 'members___member___skills___level'
   | 'members___member___skills___skillName'
@@ -5040,7 +5078,6 @@ export type SkillFieldsEnum =
   | 'members___member___activities___timeToRead'
   | 'members___member___activities___id'
   | 'members___member___activities___children'
-  | 'members___member___name'
   | 'members___member___nameJa'
   | 'members___member___joinedAt'
   | 'members___member___social___github'
@@ -5229,19 +5266,20 @@ export type TeamMemberEdge = {
 }
 
 export type TeamMemberFieldsEnum =
+  | 'member___name'
   | 'member___skills'
   | 'member___skills___skill___members'
   | 'member___skills___skill___name'
   | 'member___skills___skill___description'
   | 'member___skills___skill___id'
   | 'member___skills___skill___children'
+  | 'member___skills___member___name'
   | 'member___skills___member___skills'
   | 'member___skills___member___teams'
   | 'member___skills___member___contributions'
   | 'member___skills___member___position'
   | 'member___skills___member___isGraduated'
   | 'member___skills___member___activities'
-  | 'member___skills___member___name'
   | 'member___skills___member___nameJa'
   | 'member___skills___member___joinedAt'
   | 'member___skills___member___id'
@@ -5264,19 +5302,19 @@ export type TeamMemberFieldsEnum =
   | 'member___skills___internal___owner'
   | 'member___skills___internal___type'
   | 'member___teams'
+  | 'member___teams___member___name'
   | 'member___teams___member___skills'
   | 'member___teams___member___teams'
   | 'member___teams___member___contributions'
   | 'member___teams___member___position'
   | 'member___teams___member___isGraduated'
   | 'member___teams___member___activities'
-  | 'member___teams___member___name'
   | 'member___teams___member___nameJa'
   | 'member___teams___member___joinedAt'
   | 'member___teams___member___id'
   | 'member___teams___member___children'
-  | 'member___teams___team___members'
   | 'member___teams___team___name'
+  | 'member___teams___team___members'
   | 'member___teams___team___nameJa'
   | 'member___teams___team___id'
   | 'member___teams___team___children'
@@ -5303,13 +5341,13 @@ export type TeamMemberFieldsEnum =
   | 'member___contributions___portfolio___nameJa'
   | 'member___contributions___portfolio___id'
   | 'member___contributions___portfolio___children'
+  | 'member___contributions___member___name'
   | 'member___contributions___member___skills'
   | 'member___contributions___member___teams'
   | 'member___contributions___member___contributions'
   | 'member___contributions___member___position'
   | 'member___contributions___member___isGraduated'
   | 'member___contributions___member___activities'
-  | 'member___contributions___member___name'
   | 'member___contributions___member___nameJa'
   | 'member___contributions___member___joinedAt'
   | 'member___contributions___member___id'
@@ -5337,13 +5375,13 @@ export type TeamMemberFieldsEnum =
   | 'member___belongs___faculty___id'
   | 'member___belongs___faculty___children'
   | 'member___belongs___memberName'
+  | 'member___belongs___member___name'
   | 'member___belongs___member___skills'
   | 'member___belongs___member___teams'
   | 'member___belongs___member___contributions'
   | 'member___belongs___member___position'
   | 'member___belongs___member___isGraduated'
   | 'member___belongs___member___activities'
-  | 'member___belongs___member___name'
   | 'member___belongs___member___nameJa'
   | 'member___belongs___member___joinedAt'
   | 'member___belongs___member___id'
@@ -5389,7 +5427,6 @@ export type TeamMemberFieldsEnum =
   | 'member___activities___internal___mediaType'
   | 'member___activities___internal___owner'
   | 'member___activities___internal___type'
-  | 'member___name'
   | 'member___nameJa'
   | 'member___joinedAt'
   | 'member___social___github'
@@ -5432,20 +5469,21 @@ export type TeamMemberFieldsEnum =
   | 'member___internal___mediaType'
   | 'member___internal___owner'
   | 'member___internal___type'
+  | 'team___name'
   | 'team___members'
+  | 'team___members___member___name'
   | 'team___members___member___skills'
   | 'team___members___member___teams'
   | 'team___members___member___contributions'
   | 'team___members___member___position'
   | 'team___members___member___isGraduated'
   | 'team___members___member___activities'
-  | 'team___members___member___name'
   | 'team___members___member___nameJa'
   | 'team___members___member___joinedAt'
   | 'team___members___member___id'
   | 'team___members___member___children'
-  | 'team___members___team___members'
   | 'team___members___team___name'
+  | 'team___members___team___members'
   | 'team___members___team___nameJa'
   | 'team___members___team___id'
   | 'team___members___team___children'
@@ -5466,7 +5504,6 @@ export type TeamMemberFieldsEnum =
   | 'team___members___internal___mediaType'
   | 'team___members___internal___owner'
   | 'team___members___internal___type'
-  | 'team___name'
   | 'team___nameJa'
   | 'team___id'
   | 'team___parent___id'
@@ -5636,7 +5673,9 @@ export type TeamEdge = {
 }
 
 export type TeamFieldsEnum =
+  | 'name'
   | 'members'
+  | 'members___member___name'
   | 'members___member___skills'
   | 'members___member___skills___level'
   | 'members___member___skills___skillName'
@@ -5672,7 +5711,6 @@ export type TeamFieldsEnum =
   | 'members___member___activities___timeToRead'
   | 'members___member___activities___id'
   | 'members___member___activities___children'
-  | 'members___member___name'
   | 'members___member___nameJa'
   | 'members___member___joinedAt'
   | 'members___member___social___github'
@@ -5691,13 +5729,13 @@ export type TeamFieldsEnum =
   | 'members___member___internal___mediaType'
   | 'members___member___internal___owner'
   | 'members___member___internal___type'
+  | 'members___team___name'
   | 'members___team___members'
   | 'members___team___members___memberName'
   | 'members___team___members___leader'
   | 'members___team___members___teamName'
   | 'members___team___members___id'
   | 'members___team___members___children'
-  | 'members___team___name'
   | 'members___team___nameJa'
   | 'members___team___id'
   | 'members___team___parent___id'
@@ -5754,7 +5792,6 @@ export type TeamFieldsEnum =
   | 'members___internal___mediaType'
   | 'members___internal___owner'
   | 'members___internal___type'
-  | 'name'
   | 'nameJa'
   | 'id'
   | 'parent___id'
@@ -6272,7 +6309,8 @@ export type PageHeaderQuery = {
 export type TeamIconQueryVariables = Exact<{ [key: string]: never }>
 
 export type TeamIconQuery = {
-  allFile: {
+  svgs: { nodes: Array<Pick<File, 'name' | 'publicURL'>> }
+  images: {
     nodes: Array<
       Pick<File, 'name'> & {
         xxs?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>>
@@ -6290,6 +6328,7 @@ export type CreatePagesQueryVariables = Exact<{ [key: string]: never }>
 
 export type CreatePagesQuery = {
   allMember: { nodes: Array<Pick<Member, 'id' | 'name'>> }
+  allTeam: { nodes: Array<Pick<Team, 'id' | 'name'>> }
 }
 
 export type AboutPageQueryVariables = Exact<{ [key: string]: never }>
@@ -6416,6 +6455,15 @@ export type MemberTemplateQuery = {
       >
     }
   >
+}
+
+export type TeamTemplateQueryVariables = Exact<{
+  slug: Scalars['String']
+}>
+
+export type TeamTemplateQuery = {
+  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>
+  team?: Maybe<Pick<Team, 'name' | 'nameJa'>>
 }
 
 export type GatsbyImageSharpFixedFragment = Pick<

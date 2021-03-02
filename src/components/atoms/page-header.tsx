@@ -35,5 +35,5 @@ export const PageHeader = ({
     throw Error(`Image site/${pageName}-header.{png,jpeg...} not found!`)
   }, [images, pageName])
 
-  return <ImageWrapper {...props} image={image.gatsbyImageData} alt="" />
+  return <ImageWrapper {...props} file={image.gatsbyImageData} alt="" />
 }

@@ -6,20 +6,27 @@ import type {
 } from 'gatsby'
 import { resolve } from 'path'
 import { faculties } from '../data/faculty'
-import { members } from '../data/member'
+import { memberName, members } from '../data/member'
 import { portfolios } from '../data/portfolio'
 import { skills } from '../data/skills'
-import { teams } from '../data/team'
+import { teamName, teams } from '../data/team'
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
-  actions,
+  actions: { createPage },
 }) => {
   const result = await graphql<{
     allMember: { nodes: [{ id: string; name: string }] }
+    allTeam: { nodes: [{ id: string; name: string }] }
   }>(/* GraphQL */ `
     query CreatePages {
       allMember {
+        nodes {
+          id
+          name
+        }
+      }
+      allTeam {
         nodes {
           id
           name
@@ -29,9 +36,18 @@ export const createPages: GatsbyNode['createPages'] = async ({
   `)
   if (result.data) {
     result.data.allMember.nodes.forEach(({ id, name }) => {
-      actions.createPage({
+      createPage({
         path: `/members/${name}`,
         component: resolve('src/templates/member.tsx'),
+        context: {
+          slug: id,
+        },
+      })
+    })
+    result.data.allTeam.nodes.forEach(({ id, name }) => {
+      createPage({
+        path: `/team/${name}`,
+        component: resolve('src/templates/team.tsx'),
         context: {
           slug: id,
         },
@@ -145,27 +161,8 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
 
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = async ({
   actions: { createTypes, createFieldExtension },
+  schema,
 }: CreateSchemaCustomizationArgs) => {
-  // createFieldExtension({
-  //   name: 'sub',
-  //   args: {
-  //     left: 'String!',
-  //     right: 'String!',
-  //   },
-  //   extend(options: { left: string; right: string }):ComposeFieldConfigAsObject<any,any> {
-  //     return {
-  //       type: 'Int',
-  //       resolve(source, args, context, info) {
-  //         console.log([
-  //           [options],
-  //           [source, args, context, info],
-  //         ])
-  //         info.fieldName
-  //         return source[options.left] - source[options.right]
-  //       },
-  //     }
-  //   },
-  // })
   createFieldExtension({
     name: 'sub',
     args: {
@@ -214,8 +211,20 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     },
   })
 
+  createTypes([
+    schema.buildEnumType({
+      name: 'TeamName',
+      values: Object.fromEntries(teamName.map((v) => [v, { value: v }])),
+    }),
+    schema.buildEnumType({
+      name: 'MemberName',
+      values: Object.fromEntries(memberName.map((v) => [v, { value: v }])),
+    }),
+  ])
+
   createTypes(/* GraphQL */ `
     type Member implements Node {
+      name: MemberName!
       skills: [MemberSkill!] @link(by: "memberName", from: "name")
       teams: [TeamMember!] @link(by: "memberName", from: "name")
       contributions: [Contribution!] @link(by: "memberName", from: "name")
@@ -243,7 +252,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     type MemberBelongs {
       facultyName: String!
       faculty: Faculty! @link(by: "name", from: "facultyName")
-      memberName: String!
+      memberName: MemberName!
       member: Member! @link(by: "name", from: "memberName")
       grade: Int!
     }
@@ -268,6 +277,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     }
 
     type Team implements Node {
+      name: TeamName!
       members: [TeamMember!]! @link(by: "teamName", from: "name")
     }
 

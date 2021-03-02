@@ -1,6 +1,7 @@
 import type { LogoImageQuery } from '@gql'
 import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
+import { ImageWrapper } from './image-wrapper'
 
 type LogoImageProps = Omit<
   React.DetailedHTMLProps<
@@ -19,13 +20,18 @@ export const LogoImage: React.FC<LogoImageProps> = ({ ...props }) => {
     }
   `)
 
+  if (!image.file) {
+    throw Error('Logo Image not found')
+  }
+
   if (!image.file?.publicURL) {
     throw Error('Logo Image not found')
   }
+
   return (
-    <img
+    <ImageWrapper
       {...props}
-      src={image.file.publicURL}
+      file={image.file}
       width="200px"
       height="48px"
       alt="Engineのロゴ"

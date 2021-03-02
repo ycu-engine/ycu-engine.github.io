@@ -1,0 +1,33 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<rect width="100" height="100" fill="white"/>
+<line x1="20.3021" y1="90" x2="20.3021" y2="15" stroke="black" stroke-width="0.2"/>
+<line x1="30.3021" y1="90" x2="30.3021" y2="15" stroke="black" stroke-width="0.2"/>
+<line x1="40.3021" y1="90" x2="40.3021" y2="15" stroke="black" stroke-width="0.2"/>
+<line x1="50.3021" y1="90" x2="50.3021" y2="15" stroke="black" stroke-width="0.2"/>
+<line x1="60.3021" y1="90" x2="60.3021" y2="15" stroke="black" stroke-width="0.2"/>
+<line x1="70.3021" y1="90" x2="70.3021" y2="15" stroke="black" stroke-width="0.2"/>
+<line x1="80.3021" y1="90" x2="80.3021" y2="15" stroke="black" stroke-width="0.2"/>
+<line x1="10.4021" y1="79.9" x2="85.4021" y2="79.9" stroke="black" stroke-width="0.2"/>
+<line x1="10.4021" y1="69.9" x2="85.4021" y2="69.9" stroke="black" stroke-width="0.2"/>
+<line x1="10.4021" y1="59.9" x2="85.4021" y2="59.9" stroke="black" stroke-width="0.2"/>
+<line x1="10.4021" y1="49.9" x2="85.4021" y2="49.9" stroke="black" stroke-width="0.2"/>
+<line x1="10.4021" y1="39.9" x2="85.4021" y2="39.9" stroke="black" stroke-width="0.2"/>
+<line x1="10.4021" y1="29.9" x2="85.4021" y2="29.9" stroke="black" stroke-width="0.2"/>
+<line x1="10.4021" y1="19.9" x2="85.4021" y2="19.9" stroke="black" stroke-width="0.2"/>
+<rect x="15.4021" y="61" width="10" height="29" fill="#2D9CDB" stroke="#4F4F4F" stroke-width="0.5"/>
+<rect x="25.4021" y="74" width="10" height="16" fill="#2D9CDB" stroke="#4F4F4F" stroke-width="0.5"/>
+<rect x="35.4021" y="65" width="10" height="25" fill="#2D9CDB" stroke="#4F4F4F" stroke-width="0.5"/>
+<rect x="45.4021" y="42" width="10" height="48" fill="#2D9CDB" stroke="#4F4F4F" stroke-width="0.5"/>
+<rect x="55.4021" y="30" width="10" height="60" fill="#2D9CDB" stroke="#4F4F4F" stroke-width="0.5"/>
+<rect x="65.4021" y="23" width="10" height="67" fill="#2D9CDB" stroke="#4F4F4F" stroke-width="0.5"/>
+<path d="M10.4021 90H9.90208V90.5H10.4021V90ZM10.7556 9.64645C10.5604 9.45118 10.2438 9.45118 10.0485 9.64645L6.86655 12.8284C6.67129 13.0237 6.67129 13.3403 6.86655 13.5355C7.06181 13.7308 7.3784 13.7308 7.57366 13.5355L10.4021 10.7071L13.2305 13.5355C13.4258 13.7308 13.7424 13.7308 13.9376 13.5355C14.1329 13.3403 14.1329 13.0237 13.9376 12.8284L10.7556 9.64645ZM90.7556 90.3536C90.9509 90.1583 90.9509 89.8417 90.7556 89.6464L87.5737 86.4645C87.3784 86.2692 87.0618 86.2692 86.8666 86.4645C86.6713 86.6597 86.6713 86.9763 86.8666 87.1716L89.695 90L86.8666 92.8284C86.6713 93.0237 86.6713 93.3403 86.8666 93.5355C87.0618 93.7308 87.3784 93.7308 87.5737 93.5355L90.7556 90.3536ZM10.9021 90V10H9.90208V90H10.9021ZM10.4021 90.5H90.4021V89.5H10.4021V90.5Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.6925 58.218C32.5024 64.0219 42.7188 63.1957 48.5115 56.3725C54.3041 49.5492 53.4795 39.3129 46.6695 33.509C39.8596 27.705 29.6432 28.5313 23.8506 35.3545C18.0579 42.1777 18.8826 52.414 25.6925 58.218ZM28.6293 54.7587C33.5325 58.9376 40.8883 58.3427 45.059 53.4299C49.2297 48.5172 48.6359 41.1471 43.7328 36.9682C38.8296 32.7894 31.4738 33.3843 27.3031 38.297C23.1324 43.2097 23.7262 50.5799 28.6293 54.7587Z" fill="black"/>
+<path d="M24.0655 55.1278L28.9977 59.3314L11.7965 79.5928L6.86436 75.3892L24.0655 55.1278Z" fill="black"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="100" height="100" fill="white"/>
+</clipPath>
+</defs>
+</svg>
