@@ -2,12 +2,13 @@ import { MemberName } from '@/data/member'
 import { SIZE_TYPE } from '@/lib/size'
 import type { MemberIconQuery } from '@gql'
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import Img, { GatsbyImageProps } from 'gatsby-image'
 import * as React from 'react'
+import { ImageWrapper } from './image-wrapper'
 
-type MemberIconProps = Pick<GatsbyImageProps, 'className'> & {
+type MemberIconProps = {
   memberName: MemberName
   size: SIZE_TYPE
+  className?: string
 }
 
 export const MemberIcon: React.FC<MemberIconProps> = ({
@@ -21,34 +22,22 @@ export const MemberIcon: React.FC<MemberIconProps> = ({
         nodes {
           name
           xxs: childImageSharp {
-            fixed(width: 16, height: 16) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 16, width: 16)
           }
           xs: childImageSharp {
-            fixed(width: 24, height: 24) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 24, width: 24)
           }
           sm: childImageSharp {
-            fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 32, width: 32)
           }
           md: childImageSharp {
-            fixed(width: 48, height: 48) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 48, width: 48)
           }
           lg: childImageSharp {
-            fixed(width: 64, height: 64) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 64, width: 64)
           }
           xl: childImageSharp {
-            fixed(width: 128, height: 128) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 128, width: 128)
           }
         }
       }
@@ -66,21 +55,17 @@ export const MemberIcon: React.FC<MemberIconProps> = ({
     throw Error('Default Image not found')
   }, [memberName, files])
   const image = React.useMemo(() => {
-    const image = fixedImage[size]?.fixed
+    const image = fixedImage[size]
     if (!image) throw Error("Image can't resolved")
     return image
   }, [fixedImage, size])
 
   return (
     <Link to={`/members/${memberName}`}>
-      <Img
+      <ImageWrapper
         {...props}
-        fixed={{
-          ...image,
-          base64: image.base64 || undefined,
-          srcWebp: image.srcSetWebp || undefined,
-          srcSetWebp: image.srcSetWebp || undefined,
-        }}
+        image={image.gatsbyImageData}
+        alt={`${memberName}のアイコン`}
       />
     </Link>
   )

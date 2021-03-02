@@ -4,8 +4,6 @@ import type {
   GatsbyNode,
   SourceNodesArgs,
 } from 'gatsby'
-import type { defaultFieldResolver } from 'graphql'
-import type { ArgsMap, ComposeFieldConfigAsObject } from 'graphql-compose'
 import { resolve } from 'path'
 import { faculties } from '../data/faculty'
 import { members } from '../data/member'
@@ -145,12 +143,6 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
   })
 }
 
-type createFieldExtensionExtend<TArgs = ArgsMap> = ComposeFieldConfigAsObject<
-  Record<string, unknown>,
-  { defaultFieldResolver: typeof defaultFieldResolver },
-  TArgs
->
-
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = async ({
   actions: { createTypes, createFieldExtension },
 }: CreateSchemaCustomizationArgs) => {
@@ -180,13 +172,10 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       left: 'String!',
       right: 'String!',
     },
-    extend(options: {
-      left: string
-      right: string
-    }): createFieldExtensionExtend {
+    extend(options: { left: string; right: string }) {
       return {
         type: 'Int',
-        resolve(source) {
+        resolve(source: any) {
           const left = source[options.left]
           const right = source[options.right]
           if (typeof left !== 'number' || typeof right !== 'number') {
@@ -202,15 +191,13 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     args: {
       format: { type: 'String!', defaultValue: 'hh:mm' },
     },
-    extend(options: {
-      format: string
-    }): createFieldExtensionExtend<{ format?: string }> {
+    extend(options: { format: string }) {
       return {
         type: 'String',
         args: {
           format: { type: 'String!', defaultValue: options.format },
         },
-        resolve(source, args, context, info) {
+        resolve(source: any, args: any, context: any, info: any) {
           const defaultValue = Number(
             context.defaultFieldResolver(source, args, context, info)
           )
