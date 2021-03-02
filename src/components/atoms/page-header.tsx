@@ -1,24 +1,23 @@
 import type { PageHeaderQuery } from '@gql'
 import { graphql, useStaticQuery } from 'gatsby'
-import Img, { GatsbyImageProps } from 'gatsby-image'
 import * as React from 'react'
+import { ImageWrapper } from './image-wrapper'
 
-type PageHeaderProps = Pick<GatsbyImageProps, 'className'> & {
+type PageHeaderProps = {
   pageName: 'members'
+  className?: string
 }
 
-export const PageHeader: React.FC<PageHeaderProps> = ({
+export const PageHeader = ({
   pageName,
   ...props
-}) => {
+}: PageHeaderProps): JSX.Element => {
   const images = useStaticQuery<PageHeaderQuery>(graphql`
     query PageHeader {
       allFile(filter: { relativeDirectory: { eq: "site" } }) {
         nodes {
           childImageSharp {
-            fluid(fit: COVER) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
           name
         }
@@ -30,28 +29,11 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
     const image = images.allFile.nodes.find(
       (node) => node.name === `${pageName}-header`
     )
-    if (image?.childImageSharp?.fluid) {
-      return image.childImageSharp.fluid
+    if (image?.childImageSharp) {
+      return image.childImageSharp
     }
     throw Error(`Image site/${pageName}-header.{png,jpeg...} not found!`)
   }, [images, pageName])
 
-  return (
-    <Img
-      style={{
-        height: '200px',
-      }}
-      {...props}
-      fluid={{
-        ...image,
-        base64: image.base64 || undefined,
-        srcWebp: image.srcSetWebp || undefined,
-        srcSetWebp: image.srcSetWebp || undefined,
-      }}
-      imgStyle={{
-        objectFit: 'cover',
-        height: 200,
-      }}
-    />
-  )
+  return <ImageWrapper {...props} image={image.gatsbyImageData} alt="" />
 }

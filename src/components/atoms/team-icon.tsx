@@ -1,12 +1,14 @@
 import { TeamName } from '@/data/team'
+import { SIZE_TYPE } from '@/lib/size'
 import type { TeamIconQuery } from '@gql'
 import { graphql, useStaticQuery } from 'gatsby'
-import Img, { GatsbyImageProps } from 'gatsby-image'
 import * as React from 'react'
+import { ImageWrapper } from './image-wrapper'
 
-type TeamIconProps = Pick<GatsbyImageProps, 'className'> & {
+type TeamIconProps = {
   teamName: TeamName
-  size: 'sm' | 'md' | 'lg' | 'xl'
+  size: SIZE_TYPE
+  className?: string
 }
 
 export const TeamIcon: React.FC<TeamIconProps> = ({
@@ -19,30 +21,29 @@ export const TeamIcon: React.FC<TeamIconProps> = ({
       allFile(filter: { relativeDirectory: { eq: "team-images" } }) {
         nodes {
           name
+          xxs: childImageSharp {
+            gatsbyImageData(layout: FIXED, height: 16, width: 16)
+          }
+          xs: childImageSharp {
+            gatsbyImageData(layout: FIXED, height: 24, width: 24)
+          }
           sm: childImageSharp {
-            fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 32, width: 32)
           }
           md: childImageSharp {
-            fixed(width: 48, height: 48) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 48, width: 48)
           }
           lg: childImageSharp {
-            fixed(width: 64, height: 64) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 64, width: 64)
           }
           xl: childImageSharp {
-            fixed(width: 128, height: 128) {
-              ...GatsbyImageSharpFixed_withWebp
-            }
+            gatsbyImageData(layout: FIXED, height: 128, width: 128)
           }
         }
       }
     }
   `)
+
   const fixedImage = React.useMemo(() => {
     const teamsOne = files.allFile.nodes.find((node) => node.name === teamName)
     if (teamsOne) return teamsOne
@@ -53,20 +54,16 @@ export const TeamIcon: React.FC<TeamIconProps> = ({
     throw Error('Default Image not found')
   }, [teamName, files])
   const image = React.useMemo(() => {
-    const image = fixedImage[size]?.fixed
+    const image = fixedImage[size]
     if (!image) throw Error("Image can't resolved")
     return image
   }, [fixedImage, size])
 
   return (
-    <Img
+    <ImageWrapper
       {...props}
-      fixed={{
-        ...image,
-        base64: image.base64 || undefined,
-        srcWebp: image.srcSetWebp || undefined,
-        srcSetWebp: image.srcSetWebp || undefined,
-      }}
+      image={image.gatsbyImageData}
+      alt={`${teamName}のアイコン`}
     />
   )
 }

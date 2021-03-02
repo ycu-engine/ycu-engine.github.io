@@ -29,5 +29,6 @@
         "md",
         "mdx"
     ],
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "liveServer.settings.root": "/public"
 }
