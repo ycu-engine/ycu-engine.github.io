@@ -1,7 +1,7 @@
 import { TeamName } from '@/data/team'
-import { SIZE_TYPE } from '@/lib/size'
+import { SIZE, SIZE_TYPE } from '@/lib/size'
 import type { TeamIconQuery } from '@gql'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import { ImageWrapper } from './image-wrapper'
 
@@ -14,11 +14,28 @@ type TeamIconProps = {
 export const TeamIcon: React.FC<TeamIconProps> = ({
   teamName,
   size,
+  className,
   ...props
 }) => {
   const files = useStaticQuery<TeamIconQuery>(graphql`
     query TeamIcon {
-      allFile(filter: { relativeDirectory: { eq: "team-images" } }) {
+      svgs: allFile(
+        filter: {
+          relativeDirectory: { eq: "team-images" }
+          extension: { in: ["svg"] }
+        }
+      ) {
+        nodes {
+          name
+          publicURL
+        }
+      }
+      images: allFile(
+        filter: {
+          relativeDirectory: { eq: "team-images" }
+          extension: { nin: ["svg"] }
+        }
+      ) {
         nodes {
           name
           xxs: childImageSharp {
@@ -44,26 +61,32 @@ export const TeamIcon: React.FC<TeamIconProps> = ({
     }
   `)
 
-  const fixedImage = React.useMemo(() => {
-    const teamsOne = files.allFile.nodes.find((node) => node.name === teamName)
-    if (teamsOne) return teamsOne
-    const defaultImage = files.allFile.nodes.find(
+  const image = React.useMemo(() => {
+    const svg = files.svgs.nodes.find((node) => node.name === teamName)
+    if (svg) return svg
+    const image = files.images.nodes.find((node) => node.name === teamName)
+    if (image) return image[size]
+    const defaultImage = files.images.nodes.find(
       (node) => node.name === 'default'
     )
-    if (defaultImage) return defaultImage
+    if (defaultImage) return defaultImage[size]
     throw Error('Default Image not found')
-  }, [teamName, files])
-  const image = React.useMemo(() => {
-    const image = fixedImage[size]
-    if (!image) throw Error("Image can't resolved")
-    return image
-  }, [fixedImage, size])
+  }, [teamName, files, size])
+
+  const nonNullImage = React.useMemo(() => {
+    if (image) return image
+    throw Error(`image is ${image}`)
+  }, [image])
 
   return (
-    <ImageWrapper
-      {...props}
-      image={image.gatsbyImageData}
-      alt={`${teamName}のアイコン`}
-    />
+    <Link to={`/team/${teamName}`} className={className}>
+      <ImageWrapper
+        {...props}
+        file={nonNullImage}
+        alt={`${teamName}のアイコン`}
+        width={SIZE[size]}
+        height={SIZE[size]}
+      />
+    </Link>
   )
 }

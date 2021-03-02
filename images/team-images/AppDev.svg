@@ -1,0 +1,44 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="100" fill="white"/>
+<path d="M25 13C25 8.58172 28.5817 5 33 5H67C71.4183 5 75 8.58172 75 13V87C75 91.4183 71.4183 95 67 95H33C28.5817 95 25 91.4183 25 87V13Z" fill="#2C2C2C"/>
+<g filter="url(#filter0_b)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M34 6C29.5817 6 26 9.58172 26 14V86C26 90.4183 29.5817 94 34 94H66C70.4183 94 74 90.4183 74 86V14C74 9.58172 70.4183 6 66 6H65V12C65 12.5523 64.5523 13 64 13H36C35.4477 13 35 12.5523 35 12V6H34Z" fill="#C0C0C0"/>
+</g>
+<path d="M43 9C43 8.44772 43.4477 8 44 8H56C56.5523 8 57 8.44772 57 9V9C57 9.55228 56.5523 10 56 10H44C43.4477 10 43 9.55228 43 9V9Z" fill="#C4C4C4"/>
+<rect x="31" y="81" width="8" height="8" rx="3" fill="#27AE60"/>
+<rect x="31" y="71" width="8" height="8" rx="3" fill="#4F4F4F"/>
+<rect x="31" y="61" width="8" height="8" rx="3" fill="#F2C94C"/>
+<rect x="31" y="51" width="8" height="8" rx="3" fill="#EB5757"/>
+<rect x="31" y="41" width="8" height="8" rx="3" fill="#F2F2F2"/>
+<rect x="31" y="31" width="8" height="8" rx="3" fill="#56CCF2"/>
+<rect x="31" y="21" width="8" height="8" rx="3" fill="#27AE60"/>
+<rect x="41" y="81" width="8" height="8" rx="3" fill="#EB5757"/>
+<rect x="41" y="71" width="8" height="8" rx="3" fill="#F2994A"/>
+<rect x="41" y="61" width="8" height="8" rx="3" fill="#9B51E0"/>
+<rect x="41" y="51" width="8" height="8" rx="3" fill="#219653"/>
+<rect x="41" y="41" width="8" height="8" rx="3" fill="#27AE60"/>
+<rect x="41" y="31" width="8" height="8" rx="3" fill="#4F4F4F"/>
+<rect x="41" y="21" width="8" height="8" rx="3" fill="#9B51E0"/>
+<rect x="51" y="81" width="8" height="8" rx="3" fill="#2F80ED"/>
+<rect x="51" y="71" width="8" height="8" rx="3" fill="#56CCF2"/>
+<rect x="51" y="61" width="8" height="8" rx="3" fill="#27AE60"/>
+<rect x="51" y="51" width="8" height="8" rx="3" fill="#2D9CDB"/>
+<rect x="51" y="41" width="8" height="8" rx="3" fill="#F2994A"/>
+<rect x="51" y="31" width="8" height="8" rx="3" fill="#EB5757"/>
+<rect x="51" y="21" width="8" height="8" rx="3" fill="#F2994A"/>
+<rect x="61" y="81" width="8" height="8" rx="3" fill="#9B51E0"/>
+<rect x="61" y="71" width="8" height="8" rx="3" fill="#6FCF97"/>
+<rect x="61" y="61" width="8" height="8" rx="3" fill="#4F4F4F"/>
+<rect x="61" y="51" width="8" height="8" rx="3" fill="#2F80ED"/>
+<rect x="61" y="41" width="8" height="8" rx="3" fill="#BB6BD9"/>
+<rect x="61" y="31" width="8" height="8" rx="3" fill="#27AE60"/>
+<rect x="61" y="21" width="8" height="8" rx="3" fill="#EEEEEE"/>
+<defs>
+<filter id="filter0_b" x="22" y="2" width="56" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImage" stdDeviation="2"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
+</filter>
+</defs>
+</svg>

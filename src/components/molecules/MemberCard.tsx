@@ -24,11 +24,11 @@ export const MemberCard = ({ member }: MemberCardProps): JSX.Element => {
         <div className="text-lg">
           <Link to={`/members/${member.name}`}>{member.nameJa} ▷</Link>
         </div>
-        <div>
+        <div className="flex flex-row">
           {member.teams
             ? member.teams.map((team) => (
                 <TeamIcon
-                  className="mr-3"
+                  className="mr-1"
                   key={team.id}
                   teamName={team.team.name as TeamName}
                   size="sm"

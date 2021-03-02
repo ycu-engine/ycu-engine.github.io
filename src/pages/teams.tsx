@@ -1,3 +1,5 @@
+import { MemberIcon } from '@/components/atoms/member-icon'
+import { TeamIcon } from '@/components/atoms/team-icon'
 import type { TeamsPageQuery } from '@gql'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
@@ -42,10 +44,18 @@ const TeamsPage = ({ data }: TeamsPageProps): JSX.Element => {
       <ul>
         {data.allTeam.nodes.map((team) => (
           <li key={team.id}>
+            <TeamIcon teamName={team.name} size="lg" />
             {team.nameJa}
             <ul>
               {team.members.map((teamMember) => (
-                <li key={teamMember.id}>{teamMember.member.name}</li>
+                <li key={teamMember.id}>
+                  <MemberIcon
+                    memberName={teamMember.member.name}
+                    size="sm"
+                    className="rounded-full"
+                  />
+                  {teamMember.member.name}
+                </li>
               ))}
             </ul>
           </li>

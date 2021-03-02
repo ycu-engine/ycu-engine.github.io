@@ -1,5 +1,5 @@
 import { MemberName } from '@/data/member'
-import { SIZE_TYPE } from '@/lib/size'
+import { SIZE, SIZE_TYPE } from '@/lib/size'
 import type { MemberIconQuery } from '@gql'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import * as React from 'react'
@@ -64,8 +64,10 @@ export const MemberIcon: React.FC<MemberIconProps> = ({
     <Link to={`/members/${memberName}`}>
       <ImageWrapper
         {...props}
-        image={image.gatsbyImageData}
+        file={image}
         alt={`${memberName}のアイコン`}
+        width={SIZE[size]}
+        height={SIZE[size]}
       />
     </Link>
   )
