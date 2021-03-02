@@ -78,7 +78,7 @@
     "prettier": "^2.2.1",
     "string-similarity": "^4.0.4",
     "ts-node": "^9.1.1",
-    "typescript": "~4.2",
+    "typescript": "^4.2.2",
     "typesync": "^0.8.0",
     "yaml-ast-parser": "^0.0.43"
   },
