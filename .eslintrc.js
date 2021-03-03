@@ -24,7 +24,13 @@ module.exports = {
       version: 'detect',
     },
   },
-  plugins: ['react-hooks', 'react', '@typescript-eslint', 'rulesdir'],
+  plugins: [
+    'react-hooks',
+    'react',
+    '@typescript-eslint',
+    'rulesdir',
+    'graphql',
+  ],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -35,6 +41,14 @@ module.exports = {
   ],
   rules: {
     'react/prop-types': 'off',
+    'graphql/template-strings': [
+      'error',
+      {
+        env: 'relay',
+        schemaJson: require('./schema.json'),
+        tagName: 'graphql',
+      },
+    ],
   },
   overrides: [
     {
