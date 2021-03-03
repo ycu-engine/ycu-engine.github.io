@@ -79,7 +79,7 @@ export const TeamIcon: React.FC<TeamIconProps> = ({
   }, [image])
 
   return (
-    <Link to={`/team/${teamName}`} className={className}>
+    <Link to={`/teams/${teamName}`} className={className}>
       <ImageWrapper
         {...props}
         file={nonNullImage}

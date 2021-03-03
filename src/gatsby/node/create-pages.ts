@@ -36,7 +36,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     })
     result.data.allTeam.nodes.forEach(({ id, name }) => {
       createPage({
-        path: `/team/${name}`,
+        path: `/teams/${name}`,
         component: resolve('src/templates/team.tsx'),
         context: {
           slug: id,
