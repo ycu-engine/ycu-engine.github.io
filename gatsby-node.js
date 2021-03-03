@@ -7,9 +7,11 @@ const {
   sourceNodes,
   createPages,
   createResolvers,
-} = require('./src/gatsby/node.ts')
+  onPostBootstrap,
+} = require('./src/gatsby/node/index.ts')
 
 exports.createPages = createPages
 exports.sourceNodes = sourceNodes
 exports.createSchemaCustomization = createSchemaCustomization
 exports.createResolvers = createResolvers
+exports.onPostBootstrap = onPostBootstrap
