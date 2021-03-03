@@ -42,6 +42,7 @@ export interface Member {
   name: MemberName
   nameJa: string
   joinedAt: Date
+  description?: string
   position?: Position
   social?: SocialAccount
   isGraduated?: boolean
@@ -53,6 +54,7 @@ export const members: readonly Member[] = [
   {
     name: 'YutaUra',
     nameJa: '浦 優太',
+    description: 'Engineを立ちあげました。Web開発を中心に学んでいます。',
     joinedAt: zonedTimeToUtc('2021-01-08', 'Asia/Tokyo'),
     position: 'Leader',
     social: {

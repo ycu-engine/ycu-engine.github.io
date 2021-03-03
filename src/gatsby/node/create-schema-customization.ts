@@ -70,13 +70,14 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
   createTypes(/* GraphQL */ `
     type Member implements Node {
       name: MemberName!
+      description: String
       skills: [MemberSkill!] @link(by: "memberName", from: "name")
       teams: [TeamMember!] @link(by: "memberName", from: "name")
       contributions: [Contribution!] @link(by: "memberName", from: "name")
       belongs: MemberBelongs!
       position: Posision
       isGraduated: Boolean
-      activities: [Mdx]
+      activities: [Mdx!]
     }
 
     enum Posision {
@@ -123,6 +124,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 
     type Team implements Node {
       name: TeamName!
+      activities: [Mdx!]
       members: [TeamMember!]! @link(by: "teamName", from: "name")
     }
 

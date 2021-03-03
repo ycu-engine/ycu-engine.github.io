@@ -18,5 +18,19 @@ export const createResolvers: GatsbyNode['createResolvers'] = async ({
         },
       },
     },
+    Team: {
+      activities: {
+        type: ['Mdx'],
+        resolve(source: { name: string }, _args: unknown, context: any) {
+          return context.nodeModel
+            .getAllNodes({ type: 'Mdx' })
+            .filter(
+              (log: { frontmatter?: { teamName?: string } }) =>
+                log.frontmatter?.teamName &&
+                log.frontmatter.teamName == source.name
+            )
+        },
+      },
+    },
   })
 }

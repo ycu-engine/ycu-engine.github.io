@@ -27,9 +27,21 @@ const propsIsGatsbyImageProps = (
 }
 export const ImageWrapper = (props: ImageWrapperProps): JSX.Element => {
   if (propsIsGatsbyImageProps(props)) {
-    const { file, ...rest } = props
-    return <GatsbyImage {...rest} image={file.gatsbyImageData} />
+    const { file, className, ...rest } = props
+    return (
+      <GatsbyImage
+        {...rest}
+        className={`${className || ''} inline-block`}
+        image={file.gatsbyImageData}
+      />
+    )
   }
-  const { file, ...rest } = props
-  return <img {...rest} src={file.publicURL || undefined} />
+  const { file, className, ...rest } = props
+  return (
+    <img
+      {...rest}
+      className={`${className || ''} inline`}
+      src={file.publicURL || undefined}
+    />
+  )
 }
