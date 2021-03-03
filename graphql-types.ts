@@ -529,8 +529,8 @@ export type MdxFrontmatter = {
   startTime?: Maybe<Scalars['String']>
   endTime?: Maybe<Scalars['String']>
   date?: Maybe<Scalars['Date']>
-  topics?: Maybe<Array<Maybe<Scalars['String']>>>
   teamName?: Maybe<Scalars['String']>
+  topics?: Maybe<Array<Maybe<Scalars['String']>>>
 }
 
 export type MdxFrontmatterStartTimeArgs = {
@@ -1383,8 +1383,8 @@ export type MdxFrontmatterFilterInput = {
   startTime?: Maybe<StringQueryOperatorInput>
   endTime?: Maybe<StringQueryOperatorInput>
   date?: Maybe<DateQueryOperatorInput>
-  topics?: Maybe<StringQueryOperatorInput>
   teamName?: Maybe<StringQueryOperatorInput>
+  topics?: Maybe<StringQueryOperatorInput>
 }
 
 export type TeamFilterInput = {
@@ -1781,8 +1781,8 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___startTime'
   | 'childrenMdx___frontmatter___endTime'
   | 'childrenMdx___frontmatter___date'
-  | 'childrenMdx___frontmatter___topics'
   | 'childrenMdx___frontmatter___teamName'
+  | 'childrenMdx___frontmatter___topics'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -1858,8 +1858,8 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___startTime'
   | 'childMdx___frontmatter___endTime'
   | 'childMdx___frontmatter___date'
-  | 'childMdx___frontmatter___topics'
   | 'childMdx___frontmatter___teamName'
+  | 'childMdx___frontmatter___topics'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2838,8 +2838,8 @@ export type MdxFieldsEnum =
   | 'frontmatter___startTime'
   | 'frontmatter___endTime'
   | 'frontmatter___date'
-  | 'frontmatter___topics'
   | 'frontmatter___teamName'
+  | 'frontmatter___topics'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -3445,8 +3445,8 @@ export type MemberFieldsEnum =
   | 'activities___frontmatter___startTime'
   | 'activities___frontmatter___endTime'
   | 'activities___frontmatter___date'
-  | 'activities___frontmatter___topics'
   | 'activities___frontmatter___teamName'
+  | 'activities___frontmatter___topics'
   | 'activities___slug'
   | 'activities___body'
   | 'activities___excerpt'
@@ -3834,8 +3834,8 @@ export type ContributionFieldsEnum =
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
   | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___topics'
   | 'member___activities___frontmatter___teamName'
+  | 'member___activities___frontmatter___topics'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -4412,8 +4412,8 @@ export type FacultyFieldsEnum =
   | 'members___activities___frontmatter___startTime'
   | 'members___activities___frontmatter___endTime'
   | 'members___activities___frontmatter___date'
-  | 'members___activities___frontmatter___topics'
   | 'members___activities___frontmatter___teamName'
+  | 'members___activities___frontmatter___topics'
   | 'members___activities___slug'
   | 'members___activities___body'
   | 'members___activities___excerpt'
@@ -4818,8 +4818,8 @@ export type MemberSkillFieldsEnum =
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
   | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___topics'
   | 'member___activities___frontmatter___teamName'
+  | 'member___activities___frontmatter___topics'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -5398,8 +5398,8 @@ export type TeamMemberFieldsEnum =
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
   | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___topics'
   | 'member___activities___frontmatter___teamName'
+  | 'member___activities___frontmatter___topics'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
