@@ -759,6 +759,8 @@ export type SitePlugin = Node & {
 }
 
 export type SitePluginPluginOptions = {
+  output?: Maybe<Scalars['String']>
+  createLinkInHead?: Maybe<Scalars['Boolean']>
   alias?: Maybe<SitePluginPluginOptionsAlias>
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>
   name?: Maybe<Scalars['String']>
@@ -770,8 +772,7 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars['Boolean']>
   defaultQuality?: Maybe<Scalars['Int']>
   failOnError?: Maybe<Scalars['Boolean']>
-  output?: Maybe<Scalars['String']>
-  createLinkInHead?: Maybe<Scalars['Boolean']>
+  trackingIds?: Maybe<Array<Maybe<Scalars['String']>>>
   pathCheck?: Maybe<Scalars['Boolean']>
   allExtensions?: Maybe<Scalars['Boolean']>
   isTSX?: Maybe<Scalars['Boolean']>
@@ -6235,6 +6236,8 @@ export type SiteBuildMetadataSortInput = {
 }
 
 export type SitePluginPluginOptionsFilterInput = {
+  output?: Maybe<StringQueryOperatorInput>
+  createLinkInHead?: Maybe<BooleanQueryOperatorInput>
   alias?: Maybe<SitePluginPluginOptionsAliasFilterInput>
   extensions?: Maybe<StringQueryOperatorInput>
   name?: Maybe<StringQueryOperatorInput>
@@ -6246,8 +6249,7 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>
   defaultQuality?: Maybe<IntQueryOperatorInput>
   failOnError?: Maybe<BooleanQueryOperatorInput>
-  output?: Maybe<StringQueryOperatorInput>
-  createLinkInHead?: Maybe<BooleanQueryOperatorInput>
+  trackingIds?: Maybe<StringQueryOperatorInput>
   pathCheck?: Maybe<BooleanQueryOperatorInput>
   allExtensions?: Maybe<BooleanQueryOperatorInput>
   isTSX?: Maybe<BooleanQueryOperatorInput>
@@ -6413,6 +6415,8 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions___output'
+  | 'pluginOptions___createLinkInHead'
   | 'pluginOptions___alias____'
   | 'pluginOptions___extensions'
   | 'pluginOptions___name'
@@ -6424,8 +6428,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
   | 'pluginOptions___failOnError'
-  | 'pluginOptions___output'
-  | 'pluginOptions___createLinkInHead'
+  | 'pluginOptions___trackingIds'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
