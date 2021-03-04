@@ -1,15 +1,1 @@
-<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="100" height="100" fill="white"/>
-<rect x="10" y="26" width="80" height="47.5676" rx="1" fill="#2C2C2C"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M11 26C10.4477 26 10 26.4477 10 27V33.5676H90V27C90 26.4477 89.5523 26 89 26H11Z" fill="#4F4F4F"/>
-<circle cx="13.7838" cy="29.7838" r="2.7027" fill="#F82828"/>
-<circle cx="20.2703" cy="29.7838" r="2.7027" fill="#FECB47"/>
-<circle cx="26.7568" cy="29.7838" r="2.7027" fill="#75E64D"/>
-<path d="M59.2716 36H41.752L33 53.4977L41.752 71H59.2716L68 53.4977L59.2716 36ZM46.2338 70.9728L35.2546 57.9706L39.5208 40.4955L54.7662 36.0272L65.7454 49.0294L61.4752 66.4999L46.2338 70.9728ZM54.5662 36.8692L40.058 41.1248L35.9957 57.7533L46.4416 70.1308L60.9498 65.8752L65.0043 49.2467L54.5662 36.8692ZM56.0288 64.5487H44.9751L39.4503 53.4977L44.9751 42.4513H56.0249L61.5497 53.4977L56.0288 64.5487Z" fill="url(#paint0_linear)"/>
-<defs>
-<linearGradient id="paint0_linear" x1="50.202" y1="71.1313" x2="51.1114" y2="30.7309" gradientUnits="userSpaceOnUse">
-<stop stop-color="#9E9E9F"/>
-<stop offset="1" stop-color="#EEEEEF"/>
-</linearGradient>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95.9 95.9"><defs><style>.cls-1{fill:#b5b5b6;}.cls-2{fill:#2c2c2c;}.cls-3{fill:#504f4f;fill-rule:evenodd;}.cls-4{fill:#e7302c;}.cls-5{fill:#f4c54b;}.cls-6{fill:#80c153;}.cls-7{fill:#f7f8f8;opacity:0.65;}.cls-8{opacity:0.84;font-size:15px;fill:#fff;font-family:YuGothic-Regular, Yu Gothic;}</style></defs><g id="レイヤー_2" data-name="レイヤー 2"><g id="レイヤー_1-2" data-name="レイヤー 1"><rect class="cls-1" width="95.9" height="95.9" rx="18.81"/><path class="cls-2" d="M10.87,19.73h74a1.09,1.09,0,0,1,.94,1.19V75a1.09,1.09,0,0,1-.94,1.19h-74A1.09,1.09,0,0,1,9.92,75V20.92A1.09,1.09,0,0,1,10.87,19.73Z"/><path class="cls-3" d="M10.87,19.73c-.53,0-.95.6-.95,1.35V29.9H85.85V21.08c0-.75-.42-1.35-.94-1.35Z"/><circle class="cls-4" cx="16.24" cy="25.52" r="3.32"/><circle class="cls-5" cx="24.22" cy="25.52" r="3.32"/><circle class="cls-6" cx="32.2" cy="25.52" r="3.32"/><path class="cls-7" d="M33.65,46.05H26.76l-3.45,6.19,3.45,6.2h6.89l3.43-6.2ZM28.52,58.43l-4.32-4.6,1.68-6.19,6-1.58,4.32,4.6-1.68,6.18ZM31.8,46.36l-5.71,1.5-1.6,5.89,4.11,4.38,5.71-1.51,1.6-5.88Zm.57,9.79H28l-2.17-3.91L28,48.33h4.35l2.18,3.91Z"/><text class="cls-8" transform="translate(40.4 57.53)">web</text></g></g></svg>

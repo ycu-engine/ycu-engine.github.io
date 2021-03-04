@@ -38,17 +38,6 @@ export const teams: readonly Team[] = [
     members: [{ memberName: 'YutaUra', leader: true }],
   },
   {
-    name: 'Beginner',
-    nameJa: 'ビギナーチーム',
-    members: [
-      { memberName: 'FujiharuKawahara' },
-      { memberName: 'KakeruSato' },
-      { memberName: 'KentaroMorota' },
-      { memberName: 'TsuyoshiMatsumaru' },
-      { memberName: 'RenAgo' },
-    ],
-  },
-  {
     name: 'AppDev',
     nameJa: 'アプリ開発チーム',
     members: [
@@ -57,6 +46,17 @@ export const teams: readonly Team[] = [
       { memberName: 'YutaUra' },
       { memberName: 'TsuyoshiMatsumaru' },
       { memberName: 'ShoKohiyama' },
+    ],
+  },
+  {
+    name: 'Beginner',
+    nameJa: 'ビギナーチーム',
+    members: [
+      { memberName: 'FujiharuKawahara' },
+      { memberName: 'KakeruSato' },
+      { memberName: 'KentaroMorota' },
+      { memberName: 'TsuyoshiMatsumaru' },
+      { memberName: 'RenAgo' },
     ],
   },
 ]

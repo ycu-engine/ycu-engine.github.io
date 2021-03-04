@@ -8,8 +8,10 @@ module.exports = {
   },
   siteMetadata: {
     title: 'Engine',
+    siteUrl: `https://ycu-engine.github.io`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -47,5 +49,15 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['G-990F70B9NT'],
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
+      },
+    },
   ],
 }

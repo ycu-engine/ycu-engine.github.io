@@ -238,8 +238,6 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>
   siteMetadata?: Maybe<SiteSiteMetadata>
-  port?: Maybe<Scalars['Int']>
-  host?: Maybe<Scalars['String']>
   flags?: Maybe<SiteFlags>
   polyfill?: Maybe<Scalars['Boolean']>
   pathPrefix?: Maybe<Scalars['String']>
@@ -267,6 +265,7 @@ export type SiteFlags = {
 export type SiteSiteMetadata = {
   title?: Maybe<Scalars['String']>
   description?: Maybe<Scalars['String']>
+  siteUrl?: Maybe<Scalars['String']>
 }
 
 export type SitePage = Node & {
@@ -760,6 +759,8 @@ export type SitePlugin = Node & {
 }
 
 export type SitePluginPluginOptions = {
+  output?: Maybe<Scalars['String']>
+  createLinkInHead?: Maybe<Scalars['Boolean']>
   alias?: Maybe<SitePluginPluginOptionsAlias>
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>
   name?: Maybe<Scalars['String']>
@@ -771,6 +772,8 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars['Boolean']>
   defaultQuality?: Maybe<Scalars['Int']>
   failOnError?: Maybe<Scalars['Boolean']>
+  trackingIds?: Maybe<Array<Maybe<Scalars['String']>>>
+  pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfig>
   pathCheck?: Maybe<Scalars['Boolean']>
   allExtensions?: Maybe<Scalars['Boolean']>
   isTSX?: Maybe<Scalars['Boolean']>
@@ -779,6 +782,11 @@ export type SitePluginPluginOptions = {
 
 export type SitePluginPluginOptionsAlias = {
   _?: Maybe<Scalars['String']>
+}
+
+export type SitePluginPluginOptionsPluginConfig = {
+  head?: Maybe<Scalars['Boolean']>
+  respectDNT?: Maybe<Scalars['Boolean']>
 }
 
 export type SitePluginPackageJson = {
@@ -946,8 +954,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
-  port?: Maybe<IntQueryOperatorInput>
-  host?: Maybe<StringQueryOperatorInput>
   flags?: Maybe<SiteFlagsFilterInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
   pathPrefix?: Maybe<StringQueryOperatorInput>
@@ -2272,6 +2278,7 @@ export type DirectorySortInput = {
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>
   description?: Maybe<StringQueryOperatorInput>
+  siteUrl?: Maybe<StringQueryOperatorInput>
 }
 
 export type SiteFlagsFilterInput = {
@@ -2311,8 +2318,7 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
-  | 'port'
-  | 'host'
+  | 'siteMetadata___siteUrl'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___FAST_DEV'
   | 'flags___DEV_SSR'
@@ -2419,8 +2425,6 @@ export type SiteGroupConnection = {
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
-  port?: Maybe<IntQueryOperatorInput>
-  host?: Maybe<StringQueryOperatorInput>
   flags?: Maybe<SiteFlagsFilterInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
   pathPrefix?: Maybe<StringQueryOperatorInput>
@@ -6238,6 +6242,8 @@ export type SiteBuildMetadataSortInput = {
 }
 
 export type SitePluginPluginOptionsFilterInput = {
+  output?: Maybe<StringQueryOperatorInput>
+  createLinkInHead?: Maybe<BooleanQueryOperatorInput>
   alias?: Maybe<SitePluginPluginOptionsAliasFilterInput>
   extensions?: Maybe<StringQueryOperatorInput>
   name?: Maybe<StringQueryOperatorInput>
@@ -6249,6 +6255,8 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>
   defaultQuality?: Maybe<IntQueryOperatorInput>
   failOnError?: Maybe<BooleanQueryOperatorInput>
+  trackingIds?: Maybe<StringQueryOperatorInput>
+  pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfigFilterInput>
   pathCheck?: Maybe<BooleanQueryOperatorInput>
   allExtensions?: Maybe<BooleanQueryOperatorInput>
   isTSX?: Maybe<BooleanQueryOperatorInput>
@@ -6257,6 +6265,11 @@ export type SitePluginPluginOptionsFilterInput = {
 
 export type SitePluginPluginOptionsAliasFilterInput = {
   _?: Maybe<StringQueryOperatorInput>
+}
+
+export type SitePluginPluginOptionsPluginConfigFilterInput = {
+  head?: Maybe<BooleanQueryOperatorInput>
+  respectDNT?: Maybe<BooleanQueryOperatorInput>
 }
 
 export type SitePluginPackageJsonFilterInput = {
@@ -6414,6 +6427,8 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions___output'
+  | 'pluginOptions___createLinkInHead'
   | 'pluginOptions___alias____'
   | 'pluginOptions___extensions'
   | 'pluginOptions___name'
@@ -6425,6 +6440,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
   | 'pluginOptions___failOnError'
+  | 'pluginOptions___trackingIds'
+  | 'pluginOptions___pluginConfig___head'
+  | 'pluginOptions___pluginConfig___respectDNT'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
