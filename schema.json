@@ -7344,6 +7344,30 @@
         "description": null,
         "fields": [
           {
+            "name": "output",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createLinkInHead",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "alias",
             "description": null,
             "args": [],
@@ -7484,25 +7508,17 @@
             "deprecationReason": null
           },
           {
-            "name": "output",
+            "name": "trackingIds",
             "description": null,
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "createLinkInHead",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -44784,6 +44800,26 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "output",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createLinkInHead",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BooleanQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "alias",
             "description": null,
             "type": {
@@ -44894,21 +44930,11 @@
             "defaultValue": null
           },
           {
-            "name": "output",
+            "name": "trackingIds",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "createLinkInHead",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BooleanQueryOperatorInput",
               "ofType": null
             },
             "defaultValue": null
@@ -46029,6 +46055,18 @@
             "deprecationReason": null
           },
           {
+            "name": "pluginOptions___output",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginOptions___createLinkInHead",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "pluginOptions___alias____",
             "description": null,
             "isDeprecated": false,
@@ -46095,13 +46133,7 @@
             "deprecationReason": null
           },
           {
-            "name": "pluginOptions___output",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginOptions___createLinkInHead",
+            "name": "pluginOptions___trackingIds",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
