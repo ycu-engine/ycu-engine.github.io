@@ -8,8 +8,10 @@ module.exports = {
   },
   siteMetadata: {
     title: 'Engine',
+    siteUrl: `https://ycu-engine.github.io`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
