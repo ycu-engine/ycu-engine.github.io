@@ -1,15 +1,1 @@
-<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="100" height="100" fill="white"/>
-<rect x="10" y="26" width="80" height="47.5676" rx="1" fill="#2C2C2C"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M11 26C10.4477 26 10 26.4477 10 27V33.5676H90V27C90 26.4477 89.5523 26 89 26H11Z" fill="#4F4F4F"/>
-<circle cx="13.7838" cy="29.7838" r="2.7027" fill="#F82828"/>
-<circle cx="20.2703" cy="29.7838" r="2.7027" fill="#FECB47"/>
-<circle cx="26.7568" cy="29.7838" r="2.7027" fill="#75E64D"/>
-<path d="M59.2716 36H41.752L33 53.4977L41.752 71H59.2716L68 53.4977L59.2716 36ZM46.2338 70.9728L35.2546 57.9706L39.5208 40.4955L54.7662 36.0272L65.7454 49.0294L61.4752 66.4999L46.2338 70.9728ZM54.5662 36.8692L40.058 41.1248L35.9957 57.7533L46.4416 70.1308L60.9498 65.8752L65.0043 49.2467L54.5662 36.8692ZM56.0288 64.5487H44.9751L39.4503 53.4977L44.9751 42.4513H56.0249L61.5497 53.4977L56.0288 64.5487Z" fill="url(#paint0_linear)"/>
-<defs>
-<linearGradient id="paint0_linear" x1="50.202" y1="71.1313" x2="51.1114" y2="30.7309" gradientUnits="userSpaceOnUse">
-<stop stop-color="#9E9E9F"/>
-<stop offset="1" stop-color="#EEEEEF"/>
-</linearGradient>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 95.9 95.9"><defs><style>.cls-1{fill:#b4b4b5;}.cls-2{fill:#2b2c2c;}.cls-3{fill:#4f4e4f;fill-rule:evenodd;}.cls-4{fill:#e62f2b;}.cls-5{fill:#f3c34a;}.cls-6{fill:#7fbf53;}.cls-7{opacity:0.42;fill:url(#名称未設定グラデーション_2);}</style><linearGradient id="名称未設定グラデーション_2" x1="48.75" y1="26.14" x2="49.6" y2="68.09" gradientTransform="matrix(1, 0, 0, -1, 0, 96.35)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9d9d9e"/><stop offset="1" stop-color="#eeedee"/></linearGradient></defs><g id="レイヤー_2" data-name="レイヤー 2"><g id="レイヤー_1-2" data-name="レイヤー 1"><rect class="cls-1" width="95.9" height="95.9" rx="18.81"/><path class="cls-2" d="M9,19.73H87a1.11,1.11,0,0,1,1,1.19V75a1.11,1.11,0,0,1-1,1.19H9A1.11,1.11,0,0,1,8,75V20.92A1.11,1.11,0,0,1,9,19.73Z"/><path class="cls-3" d="M9,19.73c-.55,0-1,.6-1,1.35V29.9H88V21.08c0-.75-.45-1.35-1-1.35Z"/><circle class="cls-4" cx="13.24" cy="25.52" r="3.32"/><circle class="cls-5" cx="21.22" cy="25.52" r="3.32"/><circle class="cls-6" cx="29.2" cy="25.52" r="3.32"/><path class="cls-7" d="M59.25,33.73H39L28.92,51.9,39,70.07H59.25L69.32,51.9ZM44.2,70,31.52,56.54,36.45,38.4l17.6-4.64,12.67,13.5L61.79,65.4Zm9.61-35.41L37.07,39.05,32.38,56.32,44.44,69.17l16.74-4.42,4.68-17.27ZM55.5,63.37H42.74L36.37,51.9l6.37-11.47H55.5L61.88,51.9Z"/></g></g></svg>
