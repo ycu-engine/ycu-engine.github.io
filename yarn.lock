@@ -2777,12 +2777,12 @@
     "@typescript-eslint/types" "4.17.0"
     "@typescript-eslint/visitor-keys" "4.17.0"
 
-"@typescript-eslint/types@4.16.1", "@typescript-eslint/types@^4.16.1":
+"@typescript-eslint/types@4.16.1":
   version "4.16.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-4.16.1.tgz#5ba2d3e38b1a67420d2487519e193163054d9c15"
   integrity sha512-nnKqBwMgRlhzmJQF8tnFDZWfunXmJyuXj55xc8Kbfup4PbkzdoDXZvzN8//EiKR27J6vUSU8j4t37yUuYPiLqA==
 
-"@typescript-eslint/types@4.17.0":
+"@typescript-eslint/types@4.17.0", "@typescript-eslint/types@^4.17.0":
   version "4.17.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-4.17.0.tgz#f57d8fc7f31b348db946498a43050083d25f40ad"
   integrity sha512-RN5z8qYpJ+kXwnLlyzZkiJwfW2AY458Bf8WqllkondQIcN2ZxQowAToGSd9BlAUZDB5Ea8I6mqL2quGYCLT+2g==
