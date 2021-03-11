@@ -40,7 +40,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: './images/icon.jpg',
+        icon: 'images/favicon.png',
       },
     },
     'gatsby-plugin-react-helmet',
