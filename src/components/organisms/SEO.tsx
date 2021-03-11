@@ -39,7 +39,7 @@ export const SEO = ({
 
   const seo = useMemo(
     () => ({
-      title: title || site?.siteMetadata?.defaultTitle,
+      title: title,
       description: description || site?.siteMetadata?.defaultDescription,
       image: `${image || site?.siteMetadata?.defaultImage}`,
       lang: lang || 'ja',
