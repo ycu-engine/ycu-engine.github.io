@@ -35,7 +35,7 @@ type EventTempalteProps = {
   data: EventTempalteQuery
 }
 
-export const EventTempalte = ({ data }: EventTempalteProps) => {
+export const EventTempalte = ({ data }: EventTempalteProps): JSX.Element => {
   return (
     <>
       <SEO
