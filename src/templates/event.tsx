@@ -2,7 +2,7 @@ import { SEO } from '@/components/organisms/SEO'
 import { EventTempalteQuery } from '@gql'
 import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import * as React from 'React'
+import * as React from 'react'
 import { Helmet } from 'react-helmet'
 
 export const query = graphql`
