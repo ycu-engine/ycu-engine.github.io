@@ -7090,7 +7090,7 @@ export type EventTempalteQueryVariables = Exact<{
 }>;
 
 
-export type EventTempalteQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, file?: Maybe<{ childMdx?: Maybe<(
+export type EventTempalteQuery = { file?: Maybe<{ childMdx?: Maybe<(
       Pick<Mdx, 'body' | 'excerpt'>
       & { frontmatter?: Maybe<(
         Pick<MdxFrontmatter, 'title' | 'createdAt' | 'keywords' | 'endAt'>
