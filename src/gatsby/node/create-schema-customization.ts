@@ -134,6 +134,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       duration: Int @sub(left: "endTime", right: "startTime")
       startTime: String @timeFormat
       endTime: String @timeFormat
+      author: Member @link(by: "name")
     }
   `)
 }

@@ -265,7 +265,13 @@ export type SiteFlags = {
 export type SiteSiteMetadata = {
   title?: Maybe<Scalars['String']>
   description?: Maybe<Scalars['String']>
+  titleTemplate?: Maybe<Scalars['String']>
   siteUrl?: Maybe<Scalars['String']>
+  author?: Maybe<Scalars['String']>
+  url?: Maybe<Scalars['String']>
+  image?: Maybe<Scalars['String']>
+  twitterUsername?: Maybe<Scalars['String']>
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>
 }
 
 export type SitePage = Node & {
@@ -527,9 +533,15 @@ export type MdxFrontmatter = {
   duration?: Maybe<Scalars['Int']>
   startTime?: Maybe<Scalars['String']>
   endTime?: Maybe<Scalars['String']>
+  author?: Maybe<Member>
   date?: Maybe<Scalars['Date']>
-  topics?: Maybe<Array<Maybe<Scalars['String']>>>
   teamName?: Maybe<Scalars['String']>
+  topics?: Maybe<Array<Maybe<Scalars['String']>>>
+  createdAt?: Maybe<Scalars['Date']>
+  endAt?: Maybe<Scalars['Date']>
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>
+  related?: Maybe<Array<Maybe<Scalars['String']>>>
+  private?: Maybe<Scalars['Boolean']>
 }
 
 export type MdxFrontmatterStartTimeArgs = {
@@ -541,6 +553,20 @@ export type MdxFrontmatterEndTimeArgs = {
 }
 
 export type MdxFrontmatterDateArgs = {
+  formatString?: Maybe<Scalars['String']>
+  fromNow?: Maybe<Scalars['Boolean']>
+  difference?: Maybe<Scalars['String']>
+  locale?: Maybe<Scalars['String']>
+}
+
+export type MdxFrontmatterCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>
+  fromNow?: Maybe<Scalars['Boolean']>
+  difference?: Maybe<Scalars['String']>
+  locale?: Maybe<Scalars['String']>
+}
+
+export type MdxFrontmatterEndAtArgs = {
   formatString?: Maybe<Scalars['String']>
   fromNow?: Maybe<Scalars['Boolean']>
   difference?: Maybe<Scalars['String']>
@@ -763,6 +789,13 @@ export type SitePluginPluginOptions = {
   createLinkInHead?: Maybe<Scalars['Boolean']>
   alias?: Maybe<SitePluginPluginOptionsAlias>
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>
+  icon?: Maybe<Scalars['String']>
+  legacy?: Maybe<Scalars['Boolean']>
+  theme_color_in_head?: Maybe<Scalars['Boolean']>
+  cache_busting_mode?: Maybe<Scalars['String']>
+  crossOrigin?: Maybe<Scalars['String']>
+  include_favicon?: Maybe<Scalars['Boolean']>
+  cacheDigest?: Maybe<Scalars['String']>
   name?: Maybe<Scalars['String']>
   path?: Maybe<Scalars['String']>
   lessBabel?: Maybe<Scalars['Boolean']>
@@ -1392,9 +1425,15 @@ export type MdxFrontmatterFilterInput = {
   duration?: Maybe<IntQueryOperatorInput>
   startTime?: Maybe<StringQueryOperatorInput>
   endTime?: Maybe<StringQueryOperatorInput>
+  author?: Maybe<MemberFilterInput>
   date?: Maybe<DateQueryOperatorInput>
-  topics?: Maybe<StringQueryOperatorInput>
   teamName?: Maybe<StringQueryOperatorInput>
+  topics?: Maybe<StringQueryOperatorInput>
+  createdAt?: Maybe<DateQueryOperatorInput>
+  endAt?: Maybe<DateQueryOperatorInput>
+  keywords?: Maybe<StringQueryOperatorInput>
+  related?: Maybe<StringQueryOperatorInput>
+  private?: Maybe<BooleanQueryOperatorInput>
 }
 
 export type TeamFilterInput = {
@@ -1794,9 +1833,26 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___duration'
   | 'childrenMdx___frontmatter___startTime'
   | 'childrenMdx___frontmatter___endTime'
+  | 'childrenMdx___frontmatter___author___name'
+  | 'childrenMdx___frontmatter___author___description'
+  | 'childrenMdx___frontmatter___author___skills'
+  | 'childrenMdx___frontmatter___author___teams'
+  | 'childrenMdx___frontmatter___author___contributions'
+  | 'childrenMdx___frontmatter___author___position'
+  | 'childrenMdx___frontmatter___author___isGraduated'
+  | 'childrenMdx___frontmatter___author___activities'
+  | 'childrenMdx___frontmatter___author___nameJa'
+  | 'childrenMdx___frontmatter___author___joinedAt'
+  | 'childrenMdx___frontmatter___author___id'
+  | 'childrenMdx___frontmatter___author___children'
   | 'childrenMdx___frontmatter___date'
-  | 'childrenMdx___frontmatter___topics'
   | 'childrenMdx___frontmatter___teamName'
+  | 'childrenMdx___frontmatter___topics'
+  | 'childrenMdx___frontmatter___createdAt'
+  | 'childrenMdx___frontmatter___endAt'
+  | 'childrenMdx___frontmatter___keywords'
+  | 'childrenMdx___frontmatter___related'
+  | 'childrenMdx___frontmatter___private'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -1873,9 +1929,26 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___duration'
   | 'childMdx___frontmatter___startTime'
   | 'childMdx___frontmatter___endTime'
+  | 'childMdx___frontmatter___author___name'
+  | 'childMdx___frontmatter___author___description'
+  | 'childMdx___frontmatter___author___skills'
+  | 'childMdx___frontmatter___author___teams'
+  | 'childMdx___frontmatter___author___contributions'
+  | 'childMdx___frontmatter___author___position'
+  | 'childMdx___frontmatter___author___isGraduated'
+  | 'childMdx___frontmatter___author___activities'
+  | 'childMdx___frontmatter___author___nameJa'
+  | 'childMdx___frontmatter___author___joinedAt'
+  | 'childMdx___frontmatter___author___id'
+  | 'childMdx___frontmatter___author___children'
   | 'childMdx___frontmatter___date'
-  | 'childMdx___frontmatter___topics'
   | 'childMdx___frontmatter___teamName'
+  | 'childMdx___frontmatter___topics'
+  | 'childMdx___frontmatter___createdAt'
+  | 'childMdx___frontmatter___endAt'
+  | 'childMdx___frontmatter___keywords'
+  | 'childMdx___frontmatter___related'
+  | 'childMdx___frontmatter___private'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2278,7 +2351,13 @@ export type DirectorySortInput = {
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>
   description?: Maybe<StringQueryOperatorInput>
+  titleTemplate?: Maybe<StringQueryOperatorInput>
   siteUrl?: Maybe<StringQueryOperatorInput>
+  author?: Maybe<StringQueryOperatorInput>
+  url?: Maybe<StringQueryOperatorInput>
+  image?: Maybe<StringQueryOperatorInput>
+  twitterUsername?: Maybe<StringQueryOperatorInput>
+  keywords?: Maybe<StringQueryOperatorInput>
 }
 
 export type SiteFlagsFilterInput = {
@@ -2318,7 +2397,13 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
+  | 'siteMetadata___titleTemplate'
   | 'siteMetadata___siteUrl'
+  | 'siteMetadata___author'
+  | 'siteMetadata___url'
+  | 'siteMetadata___image'
+  | 'siteMetadata___twitterUsername'
+  | 'siteMetadata___keywords'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___FAST_DEV'
   | 'flags___DEV_SSR'
@@ -2865,9 +2950,69 @@ export type MdxFieldsEnum =
   | 'frontmatter___duration'
   | 'frontmatter___startTime'
   | 'frontmatter___endTime'
+  | 'frontmatter___author___name'
+  | 'frontmatter___author___description'
+  | 'frontmatter___author___skills'
+  | 'frontmatter___author___skills___level'
+  | 'frontmatter___author___skills___skillName'
+  | 'frontmatter___author___skills___memberName'
+  | 'frontmatter___author___skills___id'
+  | 'frontmatter___author___skills___children'
+  | 'frontmatter___author___teams'
+  | 'frontmatter___author___teams___memberName'
+  | 'frontmatter___author___teams___leader'
+  | 'frontmatter___author___teams___teamName'
+  | 'frontmatter___author___teams___id'
+  | 'frontmatter___author___teams___children'
+  | 'frontmatter___author___contributions'
+  | 'frontmatter___author___contributions___memberName'
+  | 'frontmatter___author___contributions___portfolioName'
+  | 'frontmatter___author___contributions___id'
+  | 'frontmatter___author___contributions___children'
+  | 'frontmatter___author___belongs___facultyName'
+  | 'frontmatter___author___belongs___memberName'
+  | 'frontmatter___author___belongs___grade'
+  | 'frontmatter___author___position'
+  | 'frontmatter___author___isGraduated'
+  | 'frontmatter___author___activities'
+  | 'frontmatter___author___activities___rawBody'
+  | 'frontmatter___author___activities___fileAbsolutePath'
+  | 'frontmatter___author___activities___slug'
+  | 'frontmatter___author___activities___body'
+  | 'frontmatter___author___activities___excerpt'
+  | 'frontmatter___author___activities___headings'
+  | 'frontmatter___author___activities___html'
+  | 'frontmatter___author___activities___mdxAST'
+  | 'frontmatter___author___activities___tableOfContents'
+  | 'frontmatter___author___activities___timeToRead'
+  | 'frontmatter___author___activities___id'
+  | 'frontmatter___author___activities___children'
+  | 'frontmatter___author___nameJa'
+  | 'frontmatter___author___joinedAt'
+  | 'frontmatter___author___social___github'
+  | 'frontmatter___author___social___twitter'
+  | 'frontmatter___author___id'
+  | 'frontmatter___author___parent___id'
+  | 'frontmatter___author___parent___children'
+  | 'frontmatter___author___children'
+  | 'frontmatter___author___children___id'
+  | 'frontmatter___author___children___children'
+  | 'frontmatter___author___internal___content'
+  | 'frontmatter___author___internal___contentDigest'
+  | 'frontmatter___author___internal___description'
+  | 'frontmatter___author___internal___fieldOwners'
+  | 'frontmatter___author___internal___ignoreType'
+  | 'frontmatter___author___internal___mediaType'
+  | 'frontmatter___author___internal___owner'
+  | 'frontmatter___author___internal___type'
   | 'frontmatter___date'
-  | 'frontmatter___topics'
   | 'frontmatter___teamName'
+  | 'frontmatter___topics'
+  | 'frontmatter___createdAt'
+  | 'frontmatter___endAt'
+  | 'frontmatter___keywords'
+  | 'frontmatter___related'
+  | 'frontmatter___private'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -3493,9 +3638,26 @@ export type MemberFieldsEnum =
   | 'activities___frontmatter___duration'
   | 'activities___frontmatter___startTime'
   | 'activities___frontmatter___endTime'
+  | 'activities___frontmatter___author___name'
+  | 'activities___frontmatter___author___description'
+  | 'activities___frontmatter___author___skills'
+  | 'activities___frontmatter___author___teams'
+  | 'activities___frontmatter___author___contributions'
+  | 'activities___frontmatter___author___position'
+  | 'activities___frontmatter___author___isGraduated'
+  | 'activities___frontmatter___author___activities'
+  | 'activities___frontmatter___author___nameJa'
+  | 'activities___frontmatter___author___joinedAt'
+  | 'activities___frontmatter___author___id'
+  | 'activities___frontmatter___author___children'
   | 'activities___frontmatter___date'
-  | 'activities___frontmatter___topics'
   | 'activities___frontmatter___teamName'
+  | 'activities___frontmatter___topics'
+  | 'activities___frontmatter___createdAt'
+  | 'activities___frontmatter___endAt'
+  | 'activities___frontmatter___keywords'
+  | 'activities___frontmatter___related'
+  | 'activities___frontmatter___private'
   | 'activities___slug'
   | 'activities___body'
   | 'activities___excerpt'
@@ -3890,8 +4052,13 @@ export type ContributionFieldsEnum =
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
   | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___topics'
   | 'member___activities___frontmatter___teamName'
+  | 'member___activities___frontmatter___topics'
+  | 'member___activities___frontmatter___createdAt'
+  | 'member___activities___frontmatter___endAt'
+  | 'member___activities___frontmatter___keywords'
+  | 'member___activities___frontmatter___related'
+  | 'member___activities___frontmatter___private'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -4475,8 +4642,13 @@ export type FacultyFieldsEnum =
   | 'members___activities___frontmatter___startTime'
   | 'members___activities___frontmatter___endTime'
   | 'members___activities___frontmatter___date'
-  | 'members___activities___frontmatter___topics'
   | 'members___activities___frontmatter___teamName'
+  | 'members___activities___frontmatter___topics'
+  | 'members___activities___frontmatter___createdAt'
+  | 'members___activities___frontmatter___endAt'
+  | 'members___activities___frontmatter___keywords'
+  | 'members___activities___frontmatter___related'
+  | 'members___activities___frontmatter___private'
   | 'members___activities___slug'
   | 'members___activities___body'
   | 'members___activities___excerpt'
@@ -4888,8 +5060,13 @@ export type MemberSkillFieldsEnum =
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
   | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___topics'
   | 'member___activities___frontmatter___teamName'
+  | 'member___activities___frontmatter___topics'
+  | 'member___activities___frontmatter___createdAt'
+  | 'member___activities___frontmatter___endAt'
+  | 'member___activities___frontmatter___keywords'
+  | 'member___activities___frontmatter___related'
+  | 'member___activities___frontmatter___private'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -5475,8 +5652,13 @@ export type TeamMemberFieldsEnum =
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
   | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___topics'
   | 'member___activities___frontmatter___teamName'
+  | 'member___activities___frontmatter___topics'
+  | 'member___activities___frontmatter___createdAt'
+  | 'member___activities___frontmatter___endAt'
+  | 'member___activities___frontmatter___keywords'
+  | 'member___activities___frontmatter___related'
+  | 'member___activities___frontmatter___private'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -5556,8 +5738,13 @@ export type TeamMemberFieldsEnum =
   | 'team___activities___frontmatter___startTime'
   | 'team___activities___frontmatter___endTime'
   | 'team___activities___frontmatter___date'
-  | 'team___activities___frontmatter___topics'
   | 'team___activities___frontmatter___teamName'
+  | 'team___activities___frontmatter___topics'
+  | 'team___activities___frontmatter___createdAt'
+  | 'team___activities___frontmatter___endAt'
+  | 'team___activities___frontmatter___keywords'
+  | 'team___activities___frontmatter___related'
+  | 'team___activities___frontmatter___private'
   | 'team___activities___slug'
   | 'team___activities___body'
   | 'team___activities___excerpt'
@@ -5817,9 +6004,26 @@ export type TeamFieldsEnum =
   | 'activities___frontmatter___duration'
   | 'activities___frontmatter___startTime'
   | 'activities___frontmatter___endTime'
+  | 'activities___frontmatter___author___name'
+  | 'activities___frontmatter___author___description'
+  | 'activities___frontmatter___author___skills'
+  | 'activities___frontmatter___author___teams'
+  | 'activities___frontmatter___author___contributions'
+  | 'activities___frontmatter___author___position'
+  | 'activities___frontmatter___author___isGraduated'
+  | 'activities___frontmatter___author___activities'
+  | 'activities___frontmatter___author___nameJa'
+  | 'activities___frontmatter___author___joinedAt'
+  | 'activities___frontmatter___author___id'
+  | 'activities___frontmatter___author___children'
   | 'activities___frontmatter___date'
-  | 'activities___frontmatter___topics'
   | 'activities___frontmatter___teamName'
+  | 'activities___frontmatter___topics'
+  | 'activities___frontmatter___createdAt'
+  | 'activities___frontmatter___endAt'
+  | 'activities___frontmatter___keywords'
+  | 'activities___frontmatter___related'
+  | 'activities___frontmatter___private'
   | 'activities___slug'
   | 'activities___body'
   | 'activities___excerpt'
@@ -6246,6 +6450,13 @@ export type SitePluginPluginOptionsFilterInput = {
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>
   alias?: Maybe<SitePluginPluginOptionsAliasFilterInput>
   extensions?: Maybe<StringQueryOperatorInput>
+  icon?: Maybe<StringQueryOperatorInput>
+  legacy?: Maybe<BooleanQueryOperatorInput>
+  theme_color_in_head?: Maybe<BooleanQueryOperatorInput>
+  cache_busting_mode?: Maybe<StringQueryOperatorInput>
+  crossOrigin?: Maybe<StringQueryOperatorInput>
+  include_favicon?: Maybe<BooleanQueryOperatorInput>
+  cacheDigest?: Maybe<StringQueryOperatorInput>
   name?: Maybe<StringQueryOperatorInput>
   path?: Maybe<StringQueryOperatorInput>
   lessBabel?: Maybe<BooleanQueryOperatorInput>
@@ -6431,6 +6642,13 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___createLinkInHead'
   | 'pluginOptions___alias____'
   | 'pluginOptions___extensions'
+  | 'pluginOptions___icon'
+  | 'pluginOptions___legacy'
+  | 'pluginOptions___theme_color_in_head'
+  | 'pluginOptions___cache_busting_mode'
+  | 'pluginOptions___crossOrigin'
+  | 'pluginOptions___include_favicon'
+  | 'pluginOptions___cacheDigest'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
   | 'pluginOptions___lessBabel'
@@ -6549,17 +6767,35 @@ export type TeamIconQuery = {
   }
 }
 
+export type SeoQueryVariables = Exact<{ [key: string]: never }>
+
+export type SeoQuery = {
+  site?: Maybe<{
+    siteMetadata?: Maybe<
+      Pick<
+        SiteSiteMetadata,
+        'titleTemplate' | 'twitterUsername' | 'keywords'
+      > & {
+        defaultTitle: SiteSiteMetadata['title']
+        defaultDescription: SiteSiteMetadata['description']
+        siteUrl: SiteSiteMetadata['url']
+        defaultImage: SiteSiteMetadata['image']
+      }
+    >
+  }>
+}
+
 export type CreatePagesQueryVariables = Exact<{ [key: string]: never }>
 
 export type CreatePagesQuery = {
   allMember: { nodes: Array<Pick<Member, 'id' | 'name'>> }
   allTeam: { nodes: Array<Pick<Team, 'id' | 'name'>> }
+  allEvent: { nodes: Array<Pick<File, 'id' | 'name'>> }
 }
 
 export type AboutPageQueryVariables = Exact<{ [key: string]: never }>
 
 export type AboutPageQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>
   aboutJa?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body' | 'excerpt'>> }>
   aboutEn?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body' | 'excerpt'>> }>
 }
@@ -6567,7 +6803,6 @@ export type AboutPageQuery = {
 export type ActivityLogPageQueryVariables = Exact<{ [key: string]: never }>
 
 export type ActivityLogPageQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>
   allFile: {
     nodes: Array<
       Pick<File, 'id'> & {
@@ -6583,16 +6818,25 @@ export type ActivityLogPageQuery = {
   }
 }
 
-export type IndexQueryQueryVariables = Exact<{ [key: string]: never }>
+export type EventsPageQueryVariables = Exact<{ [key: string]: never }>
 
-export type IndexQueryQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>
+export type EventsPageQuery = {
+  allFile: {
+    nodes: Array<
+      Pick<File, 'id' | 'name'> & {
+        childMdx?: Maybe<
+          Pick<Mdx, 'excerpt'> & {
+            frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'endAt'>>
+          }
+        >
+      }
+    >
+  }
 }
 
 export type MembersPageQueryVariables = Exact<{ [key: string]: never }>
 
 export type MembersPageQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>
   activeMemvers: { nodes: Array<MemberInfoFragment> }
   graduatedMembers: { nodes: Array<MemberInfoFragment> }
 }
@@ -6619,7 +6863,6 @@ export type MemberInfoFragment = Pick<
 export type PortfoliosPageQueryVariables = Exact<{ [key: string]: never }>
 
 export type PortfoliosPageQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>
   allPortfolio: {
     nodes: Array<
       Pick<Portfolio, 'id' | 'name' | 'nameJa'> & {
@@ -6634,7 +6877,6 @@ export type PortfoliosPageQuery = {
 export type TeamsPageQueryVariables = Exact<{ [key: string]: never }>
 
 export type TeamsPageQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>
   allTeam: {
     nodes: Array<
       Pick<Team, 'id' | 'name' | 'nameJa'> & {
@@ -6646,12 +6888,30 @@ export type TeamsPageQuery = {
   }
 }
 
+export type EventTempalteQueryVariables = Exact<{
+  slug: Scalars['String']
+}>
+
+export type EventTempalteQuery = {
+  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>
+  file?: Maybe<{
+    childMdx?: Maybe<
+      Pick<Mdx, 'body' | 'excerpt'> & {
+        frontmatter?: Maybe<
+          Pick<MdxFrontmatter, 'title' | 'createdAt' | 'keywords' | 'endAt'> & {
+            author?: Maybe<Pick<Member, 'name' | 'nameJa'>>
+          }
+        >
+      }
+    >
+  }>
+}
+
 export type MemberTemplateQueryVariables = Exact<{
   slug: Scalars['String']
 }>
 
 export type MemberTemplateQuery = {
-  site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>
   member?: Maybe<
     Pick<
       Member,

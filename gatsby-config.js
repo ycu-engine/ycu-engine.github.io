@@ -8,7 +8,25 @@ module.exports = {
   },
   siteMetadata: {
     title: 'Engine',
+    titleTemplate: `%s | Engine`,
     siteUrl: `https://ycu-engine.github.io`,
+    author: 'ycu-engine',
+    description: `横浜市立大学公認プログラミングサークルEngineのホームページです`,
+    url: `https://ycu-engine.github.io`,
+    image: `/icons/icon-512x512.png`,
+    twitterUsername: `@ycu_engine`,
+    keywords: [
+      '横浜市立大学',
+      '横市',
+      'ycu',
+      'YCU',
+      'プログラミング',
+      'サークル',
+      'プログラミングサークル',
+      'Engine',
+      'engine',
+      'ycu-engine',
+    ],
   },
   plugins: [
     `gatsby-plugin-sitemap`,
@@ -19,6 +37,12 @@ module.exports = {
         extensions: [],
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: './images/icon.jpg',
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-graphql-codegen',
     {
@@ -26,6 +50,13 @@ module.exports = {
       options: {
         name: `activity_log`,
         path: `${__dirname}/src/data/activity_log`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `events`,
+        path: `${__dirname}/src/data/events`,
       },
     },
     {

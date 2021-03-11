@@ -1,29 +1,25 @@
 import { Hero } from '@/components/atoms/hero-image'
-import type { IndexQueryQuery } from '@gql'
-import { graphql } from 'gatsby'
+import { SEO } from '@/components/organisms/SEO'
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 
-export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query IndexQuery {
+//     site {
+//       siteMetadata {
+//         title
+//       }
+//     }
+//   }
+// `
 
-interface IndexPageProps {
-  data: IndexQueryQuery
-}
+// interface IndexPageProps {
+//  data: IndexQueryQuery
+// }
 
-const IndexPage = ({ data }: IndexPageProps): JSX.Element => {
+const IndexPage = (): JSX.Element => {
   return (
     <>
-      <Helmet>
-        <title>{`ようこそ | ${data.site?.siteMetadata?.title}`}</title>
-      </Helmet>
+      <SEO title={`ようこそ`} />
       {/* <div className="relative"> */}
       {/* <HeroImage /> */}
       <Hero />

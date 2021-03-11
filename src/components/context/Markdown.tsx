@@ -13,10 +13,12 @@ export const MarkdownProvider: React.FC = ({ children }) => (
       user: MarkdownUser,
       team: MarkdownTeam,
       portfolio: MarkdownPortfolio,
-      h1: (props) => <h1 {...props} className="text-2xl mt-1 mb-3" />,
-      h2: (props) => <h2 {...props} className="text-xl mb-2" />,
-      h3: (props) => <h3 {...props} className="text-lg mb-1" />,
-      p: (props) => <p {...props} className="text-base text-gray-900" />,
+      h1: (props) => (
+        <h1 {...props} className="text-gray-900 text-2xl mt-1 mb-3" />
+      ),
+      h2: (props) => <h2 {...props} className="text-gray-900 text-xl mb-2" />,
+      h3: (props) => <h3 {...props} className="text-gray-900 text-lg mb-1" />,
+      p: (props) => <p {...props} className="text-gray-900 text-base mb-1" />,
       a: (props) => (
         <a
           {...props}
@@ -25,14 +27,16 @@ export const MarkdownProvider: React.FC = ({ children }) => (
           rel="noreferrer"
         />
       ),
-      li: (props) => <li {...props} />,
-      ul: (props) => <ul {...props} className="pl-4" />,
+      li: (props) => <li className="text-gray-900 mb-1" {...props} />,
+      ul: (props) => <ul {...props} className="pl-4 mb-2" />,
       ol: (props) => <ol {...props} className="pl-4" />,
-      strong: (props) => <strong {...props} className="font-bold" />,
+      strong: (props) => (
+        <strong {...props} className="text-gray-900 font-bold" />
+      ),
       inlineCode: (props) => (
         <code
           {...props}
-          className="font-mono tracking-tight bg-gray-200 rounded-md text-xs px-2 py-1"
+          className="text-gray-900 font-mono tracking-tight bg-gray-200 rounded-md text-xs px-2 py-1"
         />
       ),
     }}>
