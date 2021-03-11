@@ -18,8 +18,11 @@
 <url> <loc>https://ycu-engine.github.io/teams/WebDev</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ycu-engine.github.io/teams/AppDev</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ycu-engine.github.io/teams/Beginner</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ycu-engine.github.io/events/2021-pc-consultation-meeting</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ycu-engine.github.io/events/2021-pc-setup-intro</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ycu-engine.github.io/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ycu-engine.github.io/activity_log/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ycu-engine.github.io/events/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ycu-engine.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ycu-engine.github.io/members/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ycu-engine.github.io/portfolios/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
