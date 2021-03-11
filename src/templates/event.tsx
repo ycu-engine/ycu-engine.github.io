@@ -3,15 +3,9 @@ import { EventTempalteQuery } from '@gql'
 import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 
 export const query = graphql`
   query EventTempalte($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     file(id: { eq: $slug }) {
       childMdx {
         body
@@ -43,19 +37,16 @@ export const EventTempalte = ({ data }: EventTempalteProps): JSX.Element => {
         description={data.file?.childMdx?.excerpt}
         keywords={data.file?.childMdx?.frontmatter?.keywords}
       />
-      <Helmet>
-        <title>{`${data.file?.childMdx?.frontmatter?.title} | イベント | ${data.site?.siteMetadata?.title}`}</title>
-      </Helmet>
       <div className="p-5 md:pl-10 md:pr-20">
         <h1 className="text-2xl mb-4">
           {data.file?.childMdx?.frontmatter?.title}
         </h1>
         <div className="flex flex-row mb-3">
-          {data.file?.childMdx?.frontmatter?.author && (
+          {data.file?.childMdx?.frontmatter?.author?.name && (
             <p className="mr-4">
               <Link
                 className="border-b-2 border-gray-600 "
-                to={`/members/${data.file?.childMdx?.frontmatter?.author}`}>
+                to={`/members/${data.file.childMdx.frontmatter.author.name}`}>
                 作成者: {data.file.childMdx.frontmatter.author.nameJa}
               </Link>
             </p>
