@@ -4994,6 +4994,87 @@
             "deprecationReason": null
           },
           {
+            "name": "date",
+            "description": null,
+            "args": [
+              {
+                "name": "formatString",
+                "description": "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "fromNow",
+                "description": "Returns a string generated with Moment.js' `fromNow` function",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "difference",
+                "description": "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "locale",
+                "description": "Configures the locale Moment.js will use to format the date.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Date",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "topics",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "teamName",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": null,
             "args": [
@@ -5139,87 +5220,6 @@
               "kind": "SCALAR",
               "name": "Boolean",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "date",
-            "description": null,
-            "args": [
-              {
-                "name": "formatString",
-                "description": "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "fromNow",
-                "description": "Returns a string generated with Moment.js' `fromNow` function",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "difference",
-                "description": "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "locale",
-                "description": "Configures the locale Moment.js will use to format the date.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Date",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "teamName",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "topics",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -7858,6 +7858,22 @@
             "deprecationReason": null
           },
           {
+            "name": "policy",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "SitePluginPluginOptionsPolicy",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "pathCheck",
             "description": null,
             "args": [],
@@ -7958,6 +7974,41 @@
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "SitePluginPluginOptionsPolicy",
+        "description": null,
+        "fields": [
+          {
+            "name": "userAgent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "allow",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -12934,6 +12985,36 @@
             "defaultValue": null
           },
           {
+            "name": "date",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "DateQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "topics",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "teamName",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "createdAt",
             "description": null,
             "type": {
@@ -12979,36 +13060,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "BooleanQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "date",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "DateQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "teamName",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "topics",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
               "ofType": null
             },
             "defaultValue": null
@@ -15908,6 +15959,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "childrenMdx___frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "childrenMdx___frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "childrenMdx___frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "childrenMdx___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -15933,24 +16002,6 @@
           },
           {
             "name": "childrenMdx___frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childrenMdx___frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childrenMdx___frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childrenMdx___frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -16484,6 +16535,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "childMdx___frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "childMdx___frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "childMdx___frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "childMdx___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -16509,24 +16578,6 @@
           },
           {
             "name": "childMdx___frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMdx___frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMdx___frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMdx___frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -21151,6 +21202,16 @@
             "defaultValue": null
           },
           {
+            "name": "policy",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "SitePluginPluginOptionsPolicyFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "pathCheck",
             "description": null,
             "type": {
@@ -21238,6 +21299,58 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "BooleanQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "SitePluginPluginOptionsPolicyFilterListInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "elemMatch",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "SitePluginPluginOptionsPolicyFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "SitePluginPluginOptionsPolicyFilterInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "userAgent",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "allow",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
               "ofType": null
             },
             "defaultValue": null
@@ -22700,6 +22813,24 @@
           },
           {
             "name": "pluginCreator___pluginOptions___pluginConfig___respectDNT",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___policy",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___policy___userAgent",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___policy___allow",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -25450,6 +25581,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -25475,24 +25624,6 @@
           },
           {
             "name": "frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -29483,6 +29614,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "activities___frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "activities___frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "activities___frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -29508,24 +29657,6 @@
           },
           {
             "name": "activities___frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "activities___frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "activities___frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "activities___frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -32052,6 +32183,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "member___activities___frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "member___activities___frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "member___activities___frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "member___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -32077,24 +32226,6 @@
           },
           {
             "name": "member___activities___frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -35918,6 +36049,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "members___activities___frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "members___activities___frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "members___activities___frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "members___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -35943,24 +36092,6 @@
           },
           {
             "name": "members___activities___frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "members___activities___frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "members___activities___frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "members___activities___frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -38589,6 +38720,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "member___activities___frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "member___activities___frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "member___activities___frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "member___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -38614,24 +38763,6 @@
           },
           {
             "name": "member___activities___frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -42467,6 +42598,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "member___activities___frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "member___activities___frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "member___activities___frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "member___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -42492,24 +42641,6 @@
           },
           {
             "name": "member___activities___frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -42983,6 +43114,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "team___activities___frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "team___activities___frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "team___activities___frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "team___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -43008,24 +43157,6 @@
           },
           {
             "name": "team___activities___frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "team___activities___frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "team___activities___frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "team___activities___frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -44820,6 +44951,24 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "activities___frontmatter___date",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "activities___frontmatter___topics",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
+            "name": "activities___frontmatter___teamName",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -44845,24 +44994,6 @@
           },
           {
             "name": "activities___frontmatter___private",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "activities___frontmatter___date",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "activities___frontmatter___teamName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "activities___frontmatter___topics",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -48556,6 +48687,24 @@
           },
           {
             "name": "pluginOptions___pluginConfig___respectDNT",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginOptions___policy",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginOptions___policy___userAgent",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginOptions___policy___allow",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

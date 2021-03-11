@@ -576,14 +576,14 @@ export type MdxFrontmatter = {
   startTime?: Maybe<Scalars['String']>;
   endTime?: Maybe<Scalars['String']>;
   author?: Maybe<Member>;
+  date?: Maybe<Scalars['Date']>;
+  topics?: Maybe<Array<Maybe<Scalars['String']>>>;
+  teamName?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   endAt?: Maybe<Scalars['Date']>;
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   related?: Maybe<Array<Maybe<Scalars['String']>>>;
   private?: Maybe<Scalars['Boolean']>;
-  date?: Maybe<Scalars['Date']>;
-  teamName?: Maybe<Scalars['String']>;
-  topics?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -597,6 +597,14 @@ export type MdxFrontmatterEndTimeArgs = {
 };
 
 
+export type MdxFrontmatterDateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
 export type MdxFrontmatterCreatedAtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
@@ -606,14 +614,6 @@ export type MdxFrontmatterCreatedAtArgs = {
 
 
 export type MdxFrontmatterEndAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type MdxFrontmatterDateArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -872,6 +872,7 @@ export type SitePluginPluginOptions = {
   failOnError?: Maybe<Scalars['Boolean']>;
   trackingIds?: Maybe<Array<Maybe<Scalars['String']>>>;
   pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfig>;
+  policy?: Maybe<Array<Maybe<SitePluginPluginOptionsPolicy>>>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -885,6 +886,11 @@ export type SitePluginPluginOptionsAlias = {
 export type SitePluginPluginOptionsPluginConfig = {
   head?: Maybe<Scalars['Boolean']>;
   respectDNT?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsPolicy = {
+  userAgent?: Maybe<Scalars['String']>;
+  allow?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPackageJson = {
@@ -1528,14 +1534,14 @@ export type MdxFrontmatterFilterInput = {
   startTime?: Maybe<StringQueryOperatorInput>;
   endTime?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<MemberFilterInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  topics?: Maybe<StringQueryOperatorInput>;
+  teamName?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   endAt?: Maybe<DateQueryOperatorInput>;
   keywords?: Maybe<StringQueryOperatorInput>;
   related?: Maybe<StringQueryOperatorInput>;
   private?: Maybe<BooleanQueryOperatorInput>;
-  date?: Maybe<DateQueryOperatorInput>;
-  teamName?: Maybe<StringQueryOperatorInput>;
-  topics?: Maybe<StringQueryOperatorInput>;
 };
 
 export type TeamFilterInput = {
@@ -1949,14 +1955,14 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___author___joinedAt'
   | 'childrenMdx___frontmatter___author___id'
   | 'childrenMdx___frontmatter___author___children'
+  | 'childrenMdx___frontmatter___date'
+  | 'childrenMdx___frontmatter___topics'
+  | 'childrenMdx___frontmatter___teamName'
   | 'childrenMdx___frontmatter___createdAt'
   | 'childrenMdx___frontmatter___endAt'
   | 'childrenMdx___frontmatter___keywords'
   | 'childrenMdx___frontmatter___related'
   | 'childrenMdx___frontmatter___private'
-  | 'childrenMdx___frontmatter___date'
-  | 'childrenMdx___frontmatter___teamName'
-  | 'childrenMdx___frontmatter___topics'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -2045,14 +2051,14 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___author___joinedAt'
   | 'childMdx___frontmatter___author___id'
   | 'childMdx___frontmatter___author___children'
+  | 'childMdx___frontmatter___date'
+  | 'childMdx___frontmatter___topics'
+  | 'childMdx___frontmatter___teamName'
   | 'childMdx___frontmatter___createdAt'
   | 'childMdx___frontmatter___endAt'
   | 'childMdx___frontmatter___keywords'
   | 'childMdx___frontmatter___related'
   | 'childMdx___frontmatter___private'
-  | 'childMdx___frontmatter___date'
-  | 'childMdx___frontmatter___teamName'
-  | 'childMdx___frontmatter___topics'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2677,6 +2683,7 @@ export type SitePluginPluginOptionsFilterInput = {
   failOnError?: Maybe<BooleanQueryOperatorInput>;
   trackingIds?: Maybe<StringQueryOperatorInput>;
   pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfigFilterInput>;
+  policy?: Maybe<SitePluginPluginOptionsPolicyFilterListInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -2690,6 +2697,15 @@ export type SitePluginPluginOptionsAliasFilterInput = {
 export type SitePluginPluginOptionsPluginConfigFilterInput = {
   head?: Maybe<BooleanQueryOperatorInput>;
   respectDNT?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPolicyFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsPolicyFilterInput>;
+};
+
+export type SitePluginPluginOptionsPolicyFilterInput = {
+  userAgent?: Maybe<StringQueryOperatorInput>;
+  allow?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPackageJsonFilterInput = {
@@ -2917,6 +2933,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___trackingIds'
   | 'pluginCreator___pluginOptions___pluginConfig___head'
   | 'pluginCreator___pluginOptions___pluginConfig___respectDNT'
+  | 'pluginCreator___pluginOptions___policy'
+  | 'pluginCreator___pluginOptions___policy___userAgent'
+  | 'pluginCreator___pluginOptions___policy___allow'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -3316,14 +3335,14 @@ export type MdxFieldsEnum =
   | 'frontmatter___author___internal___mediaType'
   | 'frontmatter___author___internal___owner'
   | 'frontmatter___author___internal___type'
+  | 'frontmatter___date'
+  | 'frontmatter___topics'
+  | 'frontmatter___teamName'
   | 'frontmatter___createdAt'
   | 'frontmatter___endAt'
   | 'frontmatter___keywords'
   | 'frontmatter___related'
   | 'frontmatter___private'
-  | 'frontmatter___date'
-  | 'frontmatter___teamName'
-  | 'frontmatter___topics'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -3963,14 +3982,14 @@ export type MemberFieldsEnum =
   | 'activities___frontmatter___author___joinedAt'
   | 'activities___frontmatter___author___id'
   | 'activities___frontmatter___author___children'
+  | 'activities___frontmatter___date'
+  | 'activities___frontmatter___topics'
+  | 'activities___frontmatter___teamName'
   | 'activities___frontmatter___createdAt'
   | 'activities___frontmatter___endAt'
   | 'activities___frontmatter___keywords'
   | 'activities___frontmatter___related'
   | 'activities___frontmatter___private'
-  | 'activities___frontmatter___date'
-  | 'activities___frontmatter___teamName'
-  | 'activities___frontmatter___topics'
   | 'activities___slug'
   | 'activities___body'
   | 'activities___excerpt'
@@ -4366,14 +4385,14 @@ export type ContributionFieldsEnum =
   | 'member___activities___frontmatter___duration'
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
+  | 'member___activities___frontmatter___date'
+  | 'member___activities___frontmatter___topics'
+  | 'member___activities___frontmatter___teamName'
   | 'member___activities___frontmatter___createdAt'
   | 'member___activities___frontmatter___endAt'
   | 'member___activities___frontmatter___keywords'
   | 'member___activities___frontmatter___related'
   | 'member___activities___frontmatter___private'
-  | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___teamName'
-  | 'member___activities___frontmatter___topics'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -4960,14 +4979,14 @@ export type FacultyFieldsEnum =
   | 'members___activities___frontmatter___duration'
   | 'members___activities___frontmatter___startTime'
   | 'members___activities___frontmatter___endTime'
+  | 'members___activities___frontmatter___date'
+  | 'members___activities___frontmatter___topics'
+  | 'members___activities___frontmatter___teamName'
   | 'members___activities___frontmatter___createdAt'
   | 'members___activities___frontmatter___endAt'
   | 'members___activities___frontmatter___keywords'
   | 'members___activities___frontmatter___related'
   | 'members___activities___frontmatter___private'
-  | 'members___activities___frontmatter___date'
-  | 'members___activities___frontmatter___teamName'
-  | 'members___activities___frontmatter___topics'
   | 'members___activities___slug'
   | 'members___activities___body'
   | 'members___activities___excerpt'
@@ -5380,14 +5399,14 @@ export type MemberSkillFieldsEnum =
   | 'member___activities___frontmatter___duration'
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
+  | 'member___activities___frontmatter___date'
+  | 'member___activities___frontmatter___topics'
+  | 'member___activities___frontmatter___teamName'
   | 'member___activities___frontmatter___createdAt'
   | 'member___activities___frontmatter___endAt'
   | 'member___activities___frontmatter___keywords'
   | 'member___activities___frontmatter___related'
   | 'member___activities___frontmatter___private'
-  | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___teamName'
-  | 'member___activities___frontmatter___topics'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -5976,14 +5995,14 @@ export type TeamMemberFieldsEnum =
   | 'member___activities___frontmatter___duration'
   | 'member___activities___frontmatter___startTime'
   | 'member___activities___frontmatter___endTime'
+  | 'member___activities___frontmatter___date'
+  | 'member___activities___frontmatter___topics'
+  | 'member___activities___frontmatter___teamName'
   | 'member___activities___frontmatter___createdAt'
   | 'member___activities___frontmatter___endAt'
   | 'member___activities___frontmatter___keywords'
   | 'member___activities___frontmatter___related'
   | 'member___activities___frontmatter___private'
-  | 'member___activities___frontmatter___date'
-  | 'member___activities___frontmatter___teamName'
-  | 'member___activities___frontmatter___topics'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -6062,14 +6081,14 @@ export type TeamMemberFieldsEnum =
   | 'team___activities___frontmatter___duration'
   | 'team___activities___frontmatter___startTime'
   | 'team___activities___frontmatter___endTime'
+  | 'team___activities___frontmatter___date'
+  | 'team___activities___frontmatter___topics'
+  | 'team___activities___frontmatter___teamName'
   | 'team___activities___frontmatter___createdAt'
   | 'team___activities___frontmatter___endAt'
   | 'team___activities___frontmatter___keywords'
   | 'team___activities___frontmatter___related'
   | 'team___activities___frontmatter___private'
-  | 'team___activities___frontmatter___date'
-  | 'team___activities___frontmatter___teamName'
-  | 'team___activities___frontmatter___topics'
   | 'team___activities___slug'
   | 'team___activities___body'
   | 'team___activities___excerpt'
@@ -6343,14 +6362,14 @@ export type TeamFieldsEnum =
   | 'activities___frontmatter___author___joinedAt'
   | 'activities___frontmatter___author___id'
   | 'activities___frontmatter___author___children'
+  | 'activities___frontmatter___date'
+  | 'activities___frontmatter___topics'
+  | 'activities___frontmatter___teamName'
   | 'activities___frontmatter___createdAt'
   | 'activities___frontmatter___endAt'
   | 'activities___frontmatter___keywords'
   | 'activities___frontmatter___related'
   | 'activities___frontmatter___private'
-  | 'activities___frontmatter___date'
-  | 'activities___frontmatter___teamName'
-  | 'activities___frontmatter___topics'
   | 'activities___slug'
   | 'activities___body'
   | 'activities___excerpt'
@@ -6914,6 +6933,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___trackingIds'
   | 'pluginOptions___pluginConfig___head'
   | 'pluginOptions___pluginConfig___respectDNT'
+  | 'pluginOptions___policy'
+  | 'pluginOptions___policy___userAgent'
+  | 'pluginOptions___policy___allow'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
