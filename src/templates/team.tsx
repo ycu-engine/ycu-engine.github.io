@@ -1,20 +1,15 @@
 import { MemberIcon } from '@/components/atoms/member-icon'
 import { TeamIcon } from '@/components/atoms/team-icon'
 import { Section } from '@/components/molecules/section'
+import { SEO } from '@/components/organisms/SEO'
 import { isNotNullUndefined } from '@/lib/filter'
 import { TeamTemplateQuery } from '@gql'
 import { graphql } from 'gatsby'
 import { sortBy } from 'lodash-es'
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 
 export const query = graphql`
   query TeamTemplate($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     team(id: { eq: $slug }) {
       name
       nameJa
@@ -41,17 +36,16 @@ type TeamTemplateProps = {
   data: TeamTemplateQuery
 }
 
-const TeamTemplate = ({
-  data: { team, site },
-}: TeamTemplateProps): JSX.Element => {
+const TeamTemplate = ({ data: { team } }: TeamTemplateProps): JSX.Element => {
   if (!team) {
     throw Error('Member not found')
   }
   return (
     <>
-      <Helmet>
-        <title>{`${team.nameJa} | チーム | ${site?.siteMetadata?.title}`}</title>
-      </Helmet>
+      <SEO
+        title={`${team.nameJa} | チーム`}
+        keywords={[team.name, team.nameJa]}
+      />
       <section className="px-8 py-6">
         <div>
           <TeamIcon className="rounded-full" teamName={team.name} size="xl" />

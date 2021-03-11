@@ -1,17 +1,12 @@
 import { useI18n } from '@/components/context/i18n'
+import { SEO } from '@/components/organisms/SEO'
 import type { AboutPageQuery } from '@gql'
 import { graphql, Link, navigate } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 
 export const pageQuery = graphql`
   query AboutPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     aboutJa: file(
       sourceInstanceName: { eq: "meta" }
       name: { eq: "about.ja" }
@@ -56,9 +51,7 @@ const AboutPage = ({ data }: AboutPageProps): JSX.Element => {
 
   return (
     <>
-      <Helmet>
-        <title>{`About | ${data.site?.siteMetadata?.title}`}</title>
-      </Helmet>
+      <SEO title="About" />
       <div>
         <button onClick={() => setLanguage('ja')}>ja</button>
         <button onClick={() => setLanguage('en')}>en</button>

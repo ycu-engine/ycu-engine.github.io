@@ -1,16 +1,11 @@
+import { SEO } from '@/components/organisms/SEO'
 import { PortfoliosPageQuery } from '@gql'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 
 export const pageQuery = graphql`
   query PortfoliosPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allPortfolio {
       nodes {
         id
@@ -33,26 +28,26 @@ interface PortfoliosPageProps {
 
 const PortfoliosPage = ({ data }: PortfoliosPageProps): JSX.Element => {
   return (
-    <div>
-      <Helmet>
-        <title>{`ポートフォリオ | ${data.site?.siteMetadata?.title}`}</title>
-      </Helmet>
-      <h1>ポートフォリオ一覧</h1>
-      <ul>
-        {data.allPortfolio.nodes.map((portfolio) => (
-          <li key={portfolio.id}>
-            <h2>{portfolio.nameJa}</h2>
-            <ul>
-              {portfolio.contributors.map((contributor) => (
-                <li key={contributor.id}>{contributor.member.name}</li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-      <p>Now go build something great.</p>
-      <Link to="/">Go to Top</Link>
-    </div>
+    <>
+      <SEO title={`ポートフォリオ`} />
+      <div>
+        <h1>ポートフォリオ一覧</h1>
+        <ul>
+          {data.allPortfolio.nodes.map((portfolio) => (
+            <li key={portfolio.id}>
+              <h2>{portfolio.nameJa}</h2>
+              <ul>
+                {portfolio.contributors.map((contributor) => (
+                  <li key={contributor.id}>{contributor.member.name}</li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+        <p>Now go build something great.</p>
+        <Link to="/">Go to Top</Link>
+      </div>
+    </>
   )
 }
 

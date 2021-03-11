@@ -6,8 +6,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
   actions: { createPage },
 }) => {
   const result = await graphql<{
-    allMember: { nodes: [{ id: string; name: string }] }
-    allTeam: { nodes: [{ id: string; name: string }] }
+    allMember: { nodes: { id: string; name: string }[] }
+    allTeam: { nodes: { id: string; name: string }[] }
+    allEvent: { nodes: { id: string; name: string }[] }
   }>(/* GraphQL */ `
     query CreatePages {
       allMember {
@@ -17,6 +18,20 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
       }
       allTeam {
+        nodes {
+          id
+          name
+        }
+      }
+      allEvent: allFile(
+        filter: {
+          sourceInstanceName: { eq: "events" }
+          childrenMdx: {
+            elemMatch: { frontmatter: { private: { ne: false } } }
+          }
+        }
+        sort: { fields: childrenMdx___frontmatter___createdAt, order: DESC }
+      ) {
         nodes {
           id
           name
@@ -38,6 +53,15 @@ export const createPages: GatsbyNode['createPages'] = async ({
       createPage({
         path: `/teams/${name}`,
         component: resolve('src/templates/team.tsx'),
+        context: {
+          slug: id,
+        },
+      })
+    })
+    result.data.allEvent.nodes.forEach(({ id, name }) => {
+      createPage({
+        path: `/events/${name}`,
+        component: resolve('src/templates/event.tsx'),
         context: {
           slug: id,
         },

@@ -3,20 +3,15 @@ import { GithubIcon, TwitterIcon } from '@/components/atoms/social-icons'
 import { GithubLink, TwitterLink } from '@/components/atoms/social-link'
 import { TeamIcon } from '@/components/atoms/team-icon'
 import { Section } from '@/components/molecules/section'
+import { SEO } from '@/components/organisms/SEO'
 import { MemberName } from '@/data/member'
 import type { MemberTemplateQuery } from '@gql'
 import { graphql, Link } from 'gatsby'
 import { sortBy } from 'lodash-es'
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 
 export const query = graphql`
   query MemberTemplate($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     member(id: { eq: $slug }) {
       belongs {
         grade
@@ -81,16 +76,17 @@ type MemberTemplateProps = {
 }
 
 const MemberTemplate = ({
-  data: { member, site },
+  data: { member },
 }: MemberTemplateProps): JSX.Element => {
   if (!member) {
     throw Error('Member not found')
   }
   return (
     <>
-      <Helmet>
-        <title>{`${member.nameJa} | メンバー | ${site?.siteMetadata?.title}`}</title>
-      </Helmet>
+      <SEO
+        title={`${member.nameJa} | メンバー`}
+        keywords={[member.name, member?.nameJa]}
+      />
       <section className="px-8 py-6">
         <div>
           <MemberIcon
