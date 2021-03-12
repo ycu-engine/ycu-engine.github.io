@@ -33,6 +33,11 @@ export const Header = (): JSX.Element => {
               </Link>
             </li>
             <li className="mx-1">
+              <Link to="/events" className="text-gray-100">
+                イベント
+              </Link>
+            </li>
+            <li className="mx-1">
               <Link to="/portfolios" className="text-gray-100">
                 ポートフォリオ
               </Link>
@@ -89,6 +94,14 @@ export const Header = (): JSX.Element => {
               onClick={() => setMenuOpen(false)}
               to="/activity_log">
               活動記録
+            </Link>
+          </li>
+          <li className="mb-8 border-b-2 border-accent text-center">
+            <Link
+              className="block my-4 text-accent font-bold text-lg"
+              onClick={() => setMenuOpen(false)}
+              to="/events">
+              イベント
             </Link>
           </li>
           <li className="mb-8 border-b-2 border-accent text-center">
