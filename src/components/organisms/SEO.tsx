@@ -41,7 +41,9 @@ export const SEO = ({
     () => ({
       title: title,
       description: description || site?.siteMetadata?.defaultDescription,
-      image: `${image || site?.siteMetadata?.defaultImage}`,
+      image: `${site?.siteMetadata?.siteUrl}${
+        image || site?.siteMetadata?.defaultImage
+      }`,
       lang: lang || 'ja',
       url: `${site?.siteMetadata?.siteUrl}${pathname}`,
       keywords: (site?.siteMetadata?.keywords || []).concat(

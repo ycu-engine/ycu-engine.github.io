@@ -579,11 +579,11 @@ export type MdxFrontmatter = {
   date?: Maybe<Scalars['Date']>;
   topics?: Maybe<Array<Maybe<Scalars['String']>>>;
   teamName?: Maybe<Scalars['String']>;
+  private?: Maybe<Scalars['Boolean']>;
   createdAt?: Maybe<Scalars['Date']>;
   endAt?: Maybe<Scalars['Date']>;
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   related?: Maybe<Array<Maybe<Scalars['String']>>>;
-  private?: Maybe<Scalars['Boolean']>;
 };
 
 
@@ -1537,11 +1537,11 @@ export type MdxFrontmatterFilterInput = {
   date?: Maybe<DateQueryOperatorInput>;
   topics?: Maybe<StringQueryOperatorInput>;
   teamName?: Maybe<StringQueryOperatorInput>;
+  private?: Maybe<BooleanQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   endAt?: Maybe<DateQueryOperatorInput>;
   keywords?: Maybe<StringQueryOperatorInput>;
   related?: Maybe<StringQueryOperatorInput>;
-  private?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type TeamFilterInput = {
@@ -1958,11 +1958,11 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___date'
   | 'childrenMdx___frontmatter___topics'
   | 'childrenMdx___frontmatter___teamName'
+  | 'childrenMdx___frontmatter___private'
   | 'childrenMdx___frontmatter___createdAt'
   | 'childrenMdx___frontmatter___endAt'
   | 'childrenMdx___frontmatter___keywords'
   | 'childrenMdx___frontmatter___related'
-  | 'childrenMdx___frontmatter___private'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -2054,11 +2054,11 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___date'
   | 'childMdx___frontmatter___topics'
   | 'childMdx___frontmatter___teamName'
+  | 'childMdx___frontmatter___private'
   | 'childMdx___frontmatter___createdAt'
   | 'childMdx___frontmatter___endAt'
   | 'childMdx___frontmatter___keywords'
   | 'childMdx___frontmatter___related'
-  | 'childMdx___frontmatter___private'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -3338,11 +3338,11 @@ export type MdxFieldsEnum =
   | 'frontmatter___date'
   | 'frontmatter___topics'
   | 'frontmatter___teamName'
+  | 'frontmatter___private'
   | 'frontmatter___createdAt'
   | 'frontmatter___endAt'
   | 'frontmatter___keywords'
   | 'frontmatter___related'
-  | 'frontmatter___private'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -3985,11 +3985,11 @@ export type MemberFieldsEnum =
   | 'activities___frontmatter___date'
   | 'activities___frontmatter___topics'
   | 'activities___frontmatter___teamName'
+  | 'activities___frontmatter___private'
   | 'activities___frontmatter___createdAt'
   | 'activities___frontmatter___endAt'
   | 'activities___frontmatter___keywords'
   | 'activities___frontmatter___related'
-  | 'activities___frontmatter___private'
   | 'activities___slug'
   | 'activities___body'
   | 'activities___excerpt'
@@ -4388,11 +4388,11 @@ export type ContributionFieldsEnum =
   | 'member___activities___frontmatter___date'
   | 'member___activities___frontmatter___topics'
   | 'member___activities___frontmatter___teamName'
+  | 'member___activities___frontmatter___private'
   | 'member___activities___frontmatter___createdAt'
   | 'member___activities___frontmatter___endAt'
   | 'member___activities___frontmatter___keywords'
   | 'member___activities___frontmatter___related'
-  | 'member___activities___frontmatter___private'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -4982,11 +4982,11 @@ export type FacultyFieldsEnum =
   | 'members___activities___frontmatter___date'
   | 'members___activities___frontmatter___topics'
   | 'members___activities___frontmatter___teamName'
+  | 'members___activities___frontmatter___private'
   | 'members___activities___frontmatter___createdAt'
   | 'members___activities___frontmatter___endAt'
   | 'members___activities___frontmatter___keywords'
   | 'members___activities___frontmatter___related'
-  | 'members___activities___frontmatter___private'
   | 'members___activities___slug'
   | 'members___activities___body'
   | 'members___activities___excerpt'
@@ -5402,11 +5402,11 @@ export type MemberSkillFieldsEnum =
   | 'member___activities___frontmatter___date'
   | 'member___activities___frontmatter___topics'
   | 'member___activities___frontmatter___teamName'
+  | 'member___activities___frontmatter___private'
   | 'member___activities___frontmatter___createdAt'
   | 'member___activities___frontmatter___endAt'
   | 'member___activities___frontmatter___keywords'
   | 'member___activities___frontmatter___related'
-  | 'member___activities___frontmatter___private'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -5998,11 +5998,11 @@ export type TeamMemberFieldsEnum =
   | 'member___activities___frontmatter___date'
   | 'member___activities___frontmatter___topics'
   | 'member___activities___frontmatter___teamName'
+  | 'member___activities___frontmatter___private'
   | 'member___activities___frontmatter___createdAt'
   | 'member___activities___frontmatter___endAt'
   | 'member___activities___frontmatter___keywords'
   | 'member___activities___frontmatter___related'
-  | 'member___activities___frontmatter___private'
   | 'member___activities___slug'
   | 'member___activities___body'
   | 'member___activities___excerpt'
@@ -6084,11 +6084,11 @@ export type TeamMemberFieldsEnum =
   | 'team___activities___frontmatter___date'
   | 'team___activities___frontmatter___topics'
   | 'team___activities___frontmatter___teamName'
+  | 'team___activities___frontmatter___private'
   | 'team___activities___frontmatter___createdAt'
   | 'team___activities___frontmatter___endAt'
   | 'team___activities___frontmatter___keywords'
   | 'team___activities___frontmatter___related'
-  | 'team___activities___frontmatter___private'
   | 'team___activities___slug'
   | 'team___activities___body'
   | 'team___activities___excerpt'
@@ -6365,11 +6365,11 @@ export type TeamFieldsEnum =
   | 'activities___frontmatter___date'
   | 'activities___frontmatter___topics'
   | 'activities___frontmatter___teamName'
+  | 'activities___frontmatter___private'
   | 'activities___frontmatter___createdAt'
   | 'activities___frontmatter___endAt'
   | 'activities___frontmatter___keywords'
   | 'activities___frontmatter___related'
-  | 'activities___frontmatter___private'
   | 'activities___slug'
   | 'activities___body'
   | 'activities___excerpt'

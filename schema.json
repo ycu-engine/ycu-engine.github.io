@@ -5075,6 +5075,18 @@
             "deprecationReason": null
           },
           {
+            "name": "private",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": null,
             "args": [
@@ -5208,18 +5220,6 @@
                 "name": "String",
                 "ofType": null
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "private",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -13015,6 +13015,16 @@
             "defaultValue": null
           },
           {
+            "name": "private",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BooleanQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "createdAt",
             "description": null,
             "type": {
@@ -13050,16 +13060,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "private",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BooleanQueryOperatorInput",
               "ofType": null
             },
             "defaultValue": null
@@ -15977,6 +15977,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "childrenMdx___frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "childrenMdx___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -15996,12 +16002,6 @@
           },
           {
             "name": "childrenMdx___frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childrenMdx___frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -16553,6 +16553,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "childMdx___frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "childMdx___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -16572,12 +16578,6 @@
           },
           {
             "name": "childMdx___frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMdx___frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -25599,6 +25599,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -25618,12 +25624,6 @@
           },
           {
             "name": "frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -29632,6 +29632,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "activities___frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -29651,12 +29657,6 @@
           },
           {
             "name": "activities___frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "activities___frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -32201,6 +32201,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "member___activities___frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "member___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -32220,12 +32226,6 @@
           },
           {
             "name": "member___activities___frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -36067,6 +36067,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "members___activities___frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "members___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -36086,12 +36092,6 @@
           },
           {
             "name": "members___activities___frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "members___activities___frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -38738,6 +38738,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "member___activities___frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "member___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -38757,12 +38763,6 @@
           },
           {
             "name": "member___activities___frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -42616,6 +42616,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "member___activities___frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "member___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -42635,12 +42641,6 @@
           },
           {
             "name": "member___activities___frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "member___activities___frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -43132,6 +43132,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "team___activities___frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "team___activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -43151,12 +43157,6 @@
           },
           {
             "name": "team___activities___frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "team___activities___frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -44969,6 +44969,12 @@
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           },
           {
+            "name": "activities___frontmatter___private",
+            "description": null,
+            "isDeprecated": true,
+            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+          },
+          {
             "name": "activities___frontmatter___createdAt",
             "description": null,
             "isDeprecated": true,
@@ -44988,12 +44994,6 @@
           },
           {
             "name": "activities___frontmatter___related",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "activities___frontmatter___private",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
