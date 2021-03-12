@@ -43,7 +43,7 @@ export const SEO = ({
       description: description || site?.siteMetadata?.defaultDescription,
       image: `${site?.siteMetadata?.siteUrl}${
         image || site?.siteMetadata?.defaultImage
-      }`,
+      }?${Math.random().toFixed(5)}`,
       lang: lang || 'ja',
       url: `${site?.siteMetadata?.siteUrl}${pathname}`,
       keywords: (site?.siteMetadata?.keywords || []).concat(
