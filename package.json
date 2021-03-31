@@ -61,7 +61,7 @@
     "tailwindcss": "^2.0.4"
   },
   "devDependencies": {
-    "@types/eslint": "^7.2.7",
+    "@types/eslint": "^7.2.8",
     "@types/lodash-es": "^4.17.4",
     "@types/mdx-js__react": "^1.5.3",
     "@types/node": "^14.14.37",
