@@ -9,9 +9,10 @@ type MarkdownTeamProps = {
 }
 
 export const MarkdownTeam = ({ name }: MarkdownTeamProps): JSX.Element => {
-  const team = React.useMemo(() => teams.find((team) => team.name === name), [
-    name,
-  ])
+  const team = React.useMemo(
+    () => teams.find((team) => team.name === name),
+    [name]
+  )
 
   if (!team) {
     return (
