@@ -1,6 +1,6 @@
 import { MemberName } from './member'
 
-export const portfolioName = ['ycu-schedule'] as const
+export const portfolioName = ['ycu-schedule', 'signate_gakkyoku'] as const
 export type PortfolioName = typeof portfolioName[number]
 
 export type Portfolio = {
@@ -14,5 +14,10 @@ export const portfolios: readonly Portfolio[] = [
     name: 'ycu-schedule',
     nameJa: 'YCUスケジュール',
     contributors: ['YutaUra'],
+  },
+  {
+    name: 'signate_gakkyoku',
+    nameJa: 'SIGNATE楽曲分析＿銅メダル入賞',
+    contributors: ['KentaroMorota', 'KakeruSato'],
   },
 ]
