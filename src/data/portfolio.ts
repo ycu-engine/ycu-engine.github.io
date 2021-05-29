@@ -18,6 +18,6 @@ export const portfolios: readonly Portfolio[] = [
   {
     name: 'signate_gakkyoku',
     nameJa: 'SIGNATE楽曲分析＿銅メダル入賞',
-    contributors: ['KentaroMorota','KakeruSato'],
+    contributors: ['KentaroMorota', 'KakeruSato'],
   },
 ]
