@@ -155,6 +155,7 @@ export const members: readonly Member[] = [
     nameJa: '河原富士晴',
     joinedAt: zonedTimeToUtc('2021-01-29', 'Asia/Tokyo'),
     belongs: { facultyName: 'DataScienceUndergraduate', grade: 2 },
+    isGraduated: true,
   },
   {
     name: 'RenAgo',
