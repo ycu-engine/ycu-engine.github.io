@@ -2809,10 +2809,15 @@
     "@typescript-eslint/types" "4.29.3"
     "@typescript-eslint/visitor-keys" "4.29.3"
 
-"@typescript-eslint/types@4.29.3", "@typescript-eslint/types@^4.29.1":
+"@typescript-eslint/types@4.29.3":
   version "4.29.3"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-4.29.3.tgz#d7980c49aef643d0af8954c9f14f656b7fd16017"
   integrity sha512-s1eV1lKNgoIYLAl1JUba8NhULmf+jOmmeFO1G5MN/RBCyyzg4TIOfIOICVNC06lor+Xmy4FypIIhFiJXOknhIg==
+
+"@typescript-eslint/types@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-5.6.0.tgz#745cb1b59daadcc1f32f7be95f0f68accf38afdd"
+  integrity sha512-OIZffked7mXv4mXzWU5MgAEbCf9ecNJBKi+Si6/I9PpTaj+cf2x58h2oHW5/P/yTnPkKaayfjhLvx+crnl5ubA==
 
 "@typescript-eslint/typescript-estree@4.29.3":
   version "4.29.3"
