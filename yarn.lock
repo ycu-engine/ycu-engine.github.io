@@ -5098,10 +5098,10 @@ dataloader@^1.4.0:
   resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-1.4.0.tgz#bca11d867f5d3f1b9ed9f737bd15970c65dff5c8"
   integrity sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
 
-date-fns-tz@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/date-fns-tz/-/date-fns-tz-1.1.4.tgz#38282c2bfab08946a4e9bb89d733451e5525048b"
-  integrity sha512-lQ+FF7xUxxRuRqIY7H/lagnT3PhhSnnvtGHzjE5WZKwRyLU7glJfLys05SZ7zHlEr6RXWiqkmgWq4nCkcElR+g==
+date-fns-tz@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/date-fns-tz/-/date-fns-tz-1.1.7.tgz#17d86054d18829b5052bfbe4ed5c394f40d2b615"
+  integrity sha512-xfL918kXO528DJ17Sao60H07rYv5L/X0Bp6zojDssuZAR/acYETDS9PaICKAnodcO9XVHL/0bpLRGKd7kNnvcQ==
 
 date-fns@^2.14.0, date-fns@^2.22.1:
   version "2.22.1"
