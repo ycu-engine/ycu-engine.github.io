@@ -6730,12 +6730,12 @@ gatsby-plugin-alias-imports@^1.0.5:
   dependencies:
     "@babel/runtime" "^7.2.0"
 
-gatsby-plugin-google-gtag@^3.12.0:
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-3.12.0.tgz#a697034a4ee392b8f3f3b4fd728085efa4999b9a"
-  integrity sha512-tPk79choz1QUrOTPPYqhynPLzkemMdam072hmuZ4ke9rafC74WzYih7lbNKZJVGRJMeam0ca83M6GtbxChpD+w==
+gatsby-plugin-google-gtag@^3.14.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-3.14.0.tgz#1efba174eb70dd7623d96494d2b1588af630c1ba"
+  integrity sha512-EbEMzUTvVyKV5b7+wMdceJYVmxqivxE2FA9PgVnBBETY/v8zvPfjjijmFIGjYYIdLpIN7YYDZgd9zAlOY7heIg==
   dependencies:
-    "@babel/runtime" "^7.14.8"
+    "@babel/runtime" "^7.15.4"
     minimatch "^3.0.4"
 
 gatsby-plugin-graphql-codegen@^3.0.0:
