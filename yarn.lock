@@ -6255,10 +6255,10 @@ eslint-plugin-react@^7.24.0, eslint-plugin-react@^7.27.1:
     semver "^6.3.0"
     string.prototype.matchall "^4.0.6"
 
-eslint-plugin-rulesdir@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-rulesdir/-/eslint-plugin-rulesdir-0.2.0.tgz#0d729e3f11bcb1a18d9b724a29a6d1a082ac2d62"
-  integrity sha512-PPQPCsPkzF3upl1862swPA1bmDAAHKHmJJ4JTHJ11JCVCU4sycB0K5LLA/Rwr6r4VbnpScvUvHV4hqfdjvFmhQ==
+eslint-plugin-rulesdir@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-rulesdir/-/eslint-plugin-rulesdir-0.2.1.tgz#e246bb9657e68eb0a30680c60775f40aa829ec0b"
+  integrity sha512-t7rQvEyfE4JZJu6dPl4/uVr6Fr0fxopBhzVbtq3isfOHMKdlIe9xW/5CtIaWZI0E1U+wzAk0lEnZC8laCD5YLA==
 
 eslint-scope@^5.1.1:
   version "5.1.1"
