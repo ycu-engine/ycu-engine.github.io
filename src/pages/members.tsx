@@ -80,7 +80,8 @@ const MembersPage = ({ data }: MembersPageProps): JSX.Element => {
             items={{
               現役: data.activeMemvers.nodes,
               OB: data.graduatedMembers.nodes,
-            }}>
+            }}
+          >
             {(member) => <MemberCard member={member} key={member.id} />}
           </Tab>
 

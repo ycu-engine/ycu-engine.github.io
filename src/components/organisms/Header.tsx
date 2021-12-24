@@ -52,11 +52,13 @@ export const Header = (): JSX.Element => {
         <nav className="flex-grow md:hidden flex flex-row items-center">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="focus:outline-none right-3 absolute">
+            className="focus:outline-none right-3 absolute"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
-              fill="white">
+              fill="white"
+            >
               <path
                 fillRule="evenodd"
                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -70,13 +72,15 @@ export const Header = (): JSX.Element => {
       <div
         className={`md:hidden fixed z-10 h-full w-screen bg-main bg-opacity-80 overflow-y-scroll ${
           menuOpen ? '' : 'hidden'
-        }`}>
+        }`}
+      >
         <ul className="mx-auto py-16 px-12">
           <li className="mb-8 border-b-2 border-accent text-center">
             <Link
               className="block my-4 text-accent font-bold text-lg"
               onClick={() => setMenuOpen(false)}
-              to="/members">
+              to="/members"
+            >
               メンバー
             </Link>
           </li>
@@ -84,7 +88,8 @@ export const Header = (): JSX.Element => {
             <Link
               className="block my-4 text-accent font-bold text-lg"
               onClick={() => setMenuOpen(false)}
-              to="/teams">
+              to="/teams"
+            >
               チーム
             </Link>
           </li>
@@ -92,7 +97,8 @@ export const Header = (): JSX.Element => {
             <Link
               className="block my-4 text-accent font-bold text-lg"
               onClick={() => setMenuOpen(false)}
-              to="/activity_log">
+              to="/activity_log"
+            >
               活動記録
             </Link>
           </li>
@@ -100,7 +106,8 @@ export const Header = (): JSX.Element => {
             <Link
               className="block my-4 text-accent font-bold text-lg"
               onClick={() => setMenuOpen(false)}
-              to="/events">
+              to="/events"
+            >
               イベント
             </Link>
           </li>
@@ -108,7 +115,8 @@ export const Header = (): JSX.Element => {
             <Link
               className="block my-4 text-accent font-bold text-lg"
               onClick={() => setMenuOpen(false)}
-              to="/portfolios">
+              to="/portfolios"
+            >
               ポートフォリオ
             </Link>
           </li>
@@ -116,7 +124,8 @@ export const Header = (): JSX.Element => {
             <Link
               className="block my-4 text-accent font-bold text-lg"
               onClick={() => setMenuOpen(false)}
-              to="/about">
+              to="/about"
+            >
               Engineについて
             </Link>
           </li>

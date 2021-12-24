@@ -46,7 +46,8 @@ export const EventTempalte = ({ data }: EventTempalteProps): JSX.Element => {
             <p className="mr-4">
               <Link
                 className="border-b-2 border-gray-600 "
-                to={`/members/${data.file.childMdx.frontmatter.author.name}`}>
+                to={`/members/${data.file.childMdx.frontmatter.author.name}`}
+              >
                 作成者: {data.file.childMdx.frontmatter.author.nameJa}
               </Link>
             </p>

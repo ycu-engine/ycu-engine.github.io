@@ -53,7 +53,8 @@ export const MarkdownUser = ({ name }: MarkdownUserProps): JSX.Element => {
       {' '}
       <Link
         className="text-gray-900 hover:text-gray-700 hover:underline"
-        to={`/members/${user.name}`}>{`@${user.nameJa}`}</Link>{' '}
+        to={`/members/${user.name}`}
+      >{`@${user.nameJa}`}</Link>{' '}
     </>
   )
 }

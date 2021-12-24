@@ -281,7 +281,8 @@ export const Hero = (): JSX.Element => {
         style={{
           '--tw-scale-x': scale,
           '--tw-scale-y': scale,
-        }}>
+        }}
+      >
         {Text}
       </pre>
       {frame > 99 ? (
@@ -291,10 +292,12 @@ export const Hero = (): JSX.Element => {
             top: 410 * scale,
             '--tw-scale-x': scale,
             '--tw-scale-y': scale,
-          }}>
+          }}
+        >
           <button
             className="focus:outline-none border border-white text-white py-1 px-3"
-            onClick={() => setFrame(0)}>
+            onClick={() => setFrame(0)}
+          >
             reset
           </button>
         </div>
