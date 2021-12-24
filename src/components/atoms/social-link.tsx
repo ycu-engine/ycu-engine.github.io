@@ -10,7 +10,8 @@ export const TwitterLink = ({ username }: TwitterLinkProps): JSX.Element => {
       className="hover:underline"
       href={`https://twitter.com/${username}`}
       target="_blank"
-      rel="noreferrer">
+      rel="noreferrer"
+    >
       @{username}
     </a>
   )
@@ -26,7 +27,8 @@ export const GithubLink = ({ username }: GithubLinkProps): JSX.Element => {
       className="hover:underline"
       href={`https://github.com/${username}`}
       target="_blank"
-      rel="noreferrer">
+      rel="noreferrer"
+    >
       @{username}
     </a>
   )

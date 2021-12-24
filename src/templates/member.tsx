@@ -128,7 +128,8 @@ const MemberTemplate = ({
                 <TeamIcon teamName={team.team.name} size="xs" />
                 <Link
                   className="hover:underline"
-                  to={`/teams/${team.team.name}`}>
+                  to={`/teams/${team.team.name}`}
+                >
                   {team.leader ? '🚩' : <span className="inline-block w-4" />}
                   {team.team.nameJa || team.team.name}
                 </Link>
@@ -169,7 +170,8 @@ const MemberTemplate = ({
                     <>
                       <Link
                         className="hover:underline"
-                        to={`/teams/${activity.frontmatter.team.name}`}>
+                        to={`/teams/${activity.frontmatter.team.name}`}
+                      >
                         {activity.frontmatter.team.nameJa ||
                           activity.frontmatter.team.name}
                       </Link>{' '}

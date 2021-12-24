@@ -39,7 +39,8 @@ export const MarkdownProvider: React.FC = ({ children }) => (
           className="text-gray-900 font-mono tracking-tight bg-gray-200 rounded-md text-xs px-2 py-1"
         />
       ),
-    }}>
+    }}
+  >
     {children}
   </MDXProvider>
 )

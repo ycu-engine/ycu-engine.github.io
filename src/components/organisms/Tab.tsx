@@ -24,7 +24,8 @@ export const Tab = <T extends string, V extends Record<string, unknown>>({
             className={`flex-grow-0 px-8 py-2 text-lg border rounded-t focus:outline-none hover:bg-accent ${
               tab === selectedTab ? 'border-b-0' : ''
             }`}
-            onClick={() => setSelectedTab(tab)}>
+            onClick={() => setSelectedTab(tab)}
+          >
             {tab}
           </button>
         ))}
@@ -34,7 +35,8 @@ export const Tab = <T extends string, V extends Record<string, unknown>>({
         {tabs.map((tab) => (
           <div
             key={tab}
-            className={`divide-y-2 ${tab !== selectedTab ? 'hidden' : ''}`}>
+            className={`divide-y-2 ${tab !== selectedTab ? 'hidden' : ''}`}
+          >
             {items[tab].map((item, i) => children(item, i))}
           </div>
         ))}
