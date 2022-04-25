@@ -16,7 +16,9 @@ const I18nContext = React.createContext<I18nContextType>({
 
 export const useI18n = (): I18nContextType => React.useContext(I18nContext)
 
-export const I18nProvider: React.FC = ({ children }) => {
+export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [selectedLanguage, setSelectedLanguage] = React.useState<Langage>('ja')
 
   React.useEffect(() => {
