@@ -2,7 +2,9 @@ import { Header } from '@/components/organisms/Header'
 import * as React from 'react'
 import Helmet from 'react-helmet'
 
-export const Layout: React.FC = ({ children }) => {
+export const Layout: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   return (
     <div className="flex flex-col w-screen h-screen min-h-screen">
       <Helmet

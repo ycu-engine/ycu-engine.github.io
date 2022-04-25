@@ -7,7 +7,9 @@ import {
 import { MDXProvider } from '@mdx-js/react'
 import * as React from 'react'
 
-export const MarkdownProvider: React.FC = ({ children }) => (
+export const MarkdownProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
   <MDXProvider
     components={{
       user: MarkdownUser,
