@@ -12,6 +12,6 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Asia/Tokyo"
-    open-pull-requests-limit: 20
+    open-pull-requests-limit: 200
     reviewers:
       - "ycu-engine/official-hp-admin"
