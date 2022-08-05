@@ -15,6 +15,7 @@
     "format-check": "run-p format-check:*",
     "format-check:ts": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote -c \"src/**/*.ts*\"",
     "format-check:md": "prettier --parser mdx -c \"src/**/*.md*\"",
+    "format:md": "prettier --parser mdx -w \"src/**/*.md*\"",
     "lint": "run-p lint:*",
     "lint:md": "yarn eslint src --ext .md,.mdx",
     "lint:ts": "yarn eslint src --ext .ts,.tsx"
