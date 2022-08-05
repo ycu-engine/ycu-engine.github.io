@@ -1,0 +1,2 @@
+(self.webpackChunkore_ore_gatsbyjs_template=self.webpackChunkore_ore_gatsbyjs_template||[]).push([[218],{6040:function(e,t,s){"use strict";s.r(t);var a=s(7294);t.default=()=>a.createElement("div",null,a.createElement("h1",null,"NOT FOUND"),a.createElement("p",null,"You just hit a route that doesn't exist... the sadness."))}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-df6534bc220538c92412.js.map
