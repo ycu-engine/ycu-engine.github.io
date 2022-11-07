@@ -3216,10 +3216,10 @@
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-4.33.0.tgz#a1e59036a3b53ae8430ceebf2a919dc7f9af6d72"
   integrity sha512-zKp7CjQzLQImXEpLt2BUw1tvOMPfNoTAfb8l51evhYbOEEzdWyQNmHWWGPR6hwKJDAi+1VXSBmnhL9kyVTTOuQ==
 
-"@typescript-eslint/types@^5.41.0":
-  version "5.41.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-5.41.0.tgz#6800abebc4e6abaf24cdf220fb4ce28f4ab09a85"
-  integrity sha512-5BejraMXMC+2UjefDvrH0Fo/eLwZRV6859SXRg+FgbhA0R0l6lDqDGAQYhKbXhPN2ofk2kY5sgGyLNL907UXpA==
+"@typescript-eslint/types@^5.42.0":
+  version "5.42.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-5.42.0.tgz#5aeff9b5eced48f27d5b8139339bf1ef805bad7a"
+  integrity sha512-t4lzO9ZOAUcHY6bXQYRuu+3SSYdD9TS8ooApZft4WARt4/f2Cj/YpvbTe8A4GuhT4bNW72goDMOy7SW71mZwGw==
 
 "@typescript-eslint/typescript-estree@4.33.0":
   version "4.33.0"
