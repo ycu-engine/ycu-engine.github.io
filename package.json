@@ -51,7 +51,7 @@
     "gatsby-plugin-robots-txt": "^1.7.1",
     "gatsby-plugin-sharp": "^3.14.3",
     "gatsby-plugin-sitemap": "^4.10.0",
-    "gatsby-source-filesystem": "^3.14.0",
+    "gatsby-source-filesystem": "^3.15.0",
     "gatsby-transformer-sharp": "^3.14.0",
     "lodash-es": "^4.17.21",
     "postcss": "^8.4.19",
